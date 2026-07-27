@@ -1,0 +1,219 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   ZENTRAL DESIGN SYSTEM — fuente de verdad de tokens.
+   Valores tomados literalmente de ZENTRAL-DESIGN-SPEC v1.0 (§5, §6, §7, §10).
+   Este bloque se reutiliza tal cual en el resto del ecosistema Zentral
+   (dashboard, CRM, portal de cliente).
+   ========================================================================= */
+
+@theme {
+  /* --- Color (§5). El azul es el ÚNICO color de énfasis. -------------- */
+  --color-background: #0a0a0a;
+  --color-surface: #111111;
+  --color-card: #171717;
+  --color-border: #27272a;
+  --color-primary: #2563eb;
+  --color-primary-hover: #3b82f6;
+  --color-foreground: #ffffff;
+  --color-muted: #a1a1aa;
+
+  /* --- Tipografía (§6) ----------------------------------------------- */
+  --font-heading: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Escala del spec: Hero 72 / H1 56 / H2 42 / H3 28 / Body 18 / Small 16.
+     Con clamp() para degradar a móvil sin provocar CLS. */
+  --text-hero: clamp(2.5rem, 1.45rem + 4.4vw, 4.5rem); /* → 72px */
+  --text-hero--line-height: 1.04;
+  --text-hero--letter-spacing: -0.035em;
+
+  --text-h1: clamp(2.125rem, 1.35rem + 3.2vw, 3.5rem); /* → 56px */
+  --text-h1--line-height: 1.08;
+  --text-h1--letter-spacing: -0.03em;
+
+  --text-h2: clamp(1.75rem, 1.25rem + 2.1vw, 2.625rem); /* → 42px */
+  --text-h2--line-height: 1.12;
+  --text-h2--letter-spacing: -0.028em;
+
+  --text-h3: clamp(1.375rem, 1.15rem + 0.95vw, 1.75rem); /* → 28px */
+  --text-h3--line-height: 1.22;
+  --text-h3--letter-spacing: -0.02em;
+
+  --text-body: 1.125rem; /* 18px */
+  --text-body--line-height: 1.65;
+
+  --text-small: 1rem; /* 16px */
+  --text-small--line-height: 1.6;
+
+  /* --- Radios (§10) --------------------------------------------------- */
+  --radius-button: 16px;
+  --radius-card: 24px;
+
+  /* --- Espaciado (§7): 8 / 16 / 24 / 32 / 48 / 64 / 96 / 128 ---------- */
+  --spacing-section: 140px;
+
+  /* --- Motion (§11) --------------------------------------------------- */
+  --ease-zentral: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Compensa el navbar fijo (104px) al saltar a un ancla, con holgura. */
+    scroll-padding-top: 128px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* Nunca permitir scroll horizontal accidental. */
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-weight: 800; /* Manrope ExtraBold (§6) */
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: var(--color-primary);
+    color: #ffffff;
+  }
+
+  /* Foco visible en todo elemento interactivo (§12 accesibilidad). */
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  /* El spec exige que la motion tenga propósito; si el usuario la
+     desactiva a nivel de sistema, la respetamos por completo. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ============================================================================
+   Utilidades de marca
+   ========================================================================= */
+
+@layer components {
+  /* El fondo del sitio es negro puro y no lleva ninguna capa ambiente: ni
+     retícula, ni auroras, ni grano. El azul de marca vive únicamente en los
+     objetos — iconos, líneas de las rejillas, títulos de acento y botones.
+     (Hubo una capa ambiente; se retiró porque cualquier color repartido a baja
+     opacidad sobre negro se lee como gris y ensuciaba la marca.) */
+
+  /* Foco que sigue al cursor dentro de una celda. Las coordenadas las escribe
+     un único listener global (ver PointerSpotlight) en las variables
+     --spot-x / --spot-y, para no montar un handler por celda. */
+  .zentral-spotlight {
+    position: relative;
+  }
+
+  .zentral-spotlight::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      300px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+      rgba(59, 130, 246, 0.15),
+      transparent 64%
+    );
+    opacity: 0;
+    transition: opacity 400ms var(--ease-zentral);
+    pointer-events: none;
+  }
+
+  .zentral-spotlight:hover::after {
+    opacity: 1;
+  }
+
+  /* Eleva el contenido por encima del foco, sin sacarlo del flujo — así no
+     se rompen los layouts flex de las tarjetas. */
+  .zentral-spotlight > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Resplandor azul de fondo. El azul es el único acento permitido. */
+  .zentral-glow {
+    background: radial-gradient(
+      circle at center,
+      rgba(37, 99, 235, 0.16) 0%,
+      rgba(37, 99, 235, 0.06) 35%,
+      transparent 70%
+    );
+  }
+
+  /* Línea divisoria que se desvanece en los extremos. */
+  .zentral-rule {
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--color-border) 15%,
+      var(--color-border) 85%,
+      transparent
+    );
+  }
+
+  /* Etiquetas técnicas: numeración de sección, categorías, entregables.
+     Fuerza la fuente de texto aunque la etiqueta sea un <h2>/<h3>: de Manrope
+     sólo cargamos 700 y 800, así que un peso 600 se sintetizaría. */
+  .zentral-label {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Barra de scroll acorde al tema oscuro. */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 9999px;
+  border: 2px solid var(--color-background);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
