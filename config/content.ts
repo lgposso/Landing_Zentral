@@ -23,7 +23,6 @@ import type {
 /* -------------------------------------------------------------------------- */
 
 export const hero = {
-  badge: "Ingeniería de software · Colombia",
   title: "Diseñamos sistemas inteligentes que trabajan por tu empresa.",
   subtitle:
     "Automatizamos procesos, conectamos herramientas y desarrollamos soluciones de software que eliminan tareas repetitivas y permiten escalar con eficiencia.",

@@ -17,7 +17,7 @@ export function StructuredData() {
         url: siteConfig.url,
         logo: {
           "@type": "ImageObject",
-          url: `${siteConfig.url}/logo-zentral.png`,
+          url: `${siteConfig.url}/logo-zentral.svg`,
         },
         description: siteConfig.description,
         slogan: siteConfig.tagline,

@@ -1,6 +1,5 @@
 import { ArrowRight } from "lucide-react";
 
-import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
@@ -22,11 +21,7 @@ export function Hero() {
           {/* Columna de texto */}
           <div className="lg:col-span-6 xl:col-span-6">
             <Reveal immediate>
-              <Badge withDot>{hero.badge}</Badge>
-            </Reveal>
-
-            <Reveal immediate delay={0.08}>
-              <h1 className="mt-8 text-hero text-foreground">{hero.title}</h1>
+              <h1 className="text-hero text-foreground">{hero.title}</h1>
             </Reveal>
 
             <Reveal immediate delay={0.16}>

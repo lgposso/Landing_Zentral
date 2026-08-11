@@ -23,8 +23,18 @@ const CY = VIEW_H / 2;
 const ORBIT_RX = 235;
 const ORBIT_RY = 215;
 
-/** Semiancho del cubo central. */
-const CUBE = 52;
+/** Radio desde el que salen los cables, alrededor del isotipo central. */
+const CORE_R = 76;
+
+/**
+ * Caja donde se dibuja el isotipo (`public/isotipo-zentral2.svg`).
+ *
+ * Ese archivo tiene un viewBox de 600×550 con el dibujo (536×482) centrado en
+ * él, así que con `xMidYMid meet` basta con respetar esa proporción: el trazo
+ * queda centrado y ocupa ~116×104, holgado dentro de `CORE_R`.
+ */
+const LOGO_W = 130;
+const LOGO_H = 119;
 
 const NODE_H = 40;
 const NODE_PAD_X = 15;
@@ -60,9 +70,9 @@ function buildNodes(): NodeGeometry[] {
     const halfW = width / 2;
     const halfH = NODE_H / 2;
 
-    // Punto de partida: justo fuera del cubo, en la dirección del nodo.
-    const startX = CX + dirX * (CUBE + 12);
-    const startY = CY + dirY * (CUBE + 12);
+    // Punto de partida: justo fuera del isotipo, en la dirección del nodo.
+    const startX = CX + dirX * CORE_R;
+    const startY = CY + dirY * CORE_R;
 
     // Punto de llegada: intersección de la recta con la elipse que envuelve
     // la cápsula, para que el cable toque el borde y no el centro.
@@ -92,18 +102,6 @@ function buildNodes(): NodeGeometry[] {
 }
 
 const NODES = buildNodes();
-
-/** Hexágono exterior del cubo isométrico. */
-const CUBE_HEX = [
-  [0, -CUBE],
-  [CUBE * 0.866, -CUBE / 2],
-  [CUBE * 0.866, CUBE / 2],
-  [0, CUBE],
-  [-CUBE * 0.866, CUBE / 2],
-  [-CUBE * 0.866, -CUBE / 2],
-]
-  .map(([x, y]) => `${(CX + x).toFixed(1)},${(CY + y).toFixed(1)}`)
-  .join(" ");
 
 /* -------------------------------------------------------------------------- */
 
@@ -137,20 +135,15 @@ export function ZentralCore() {
       >
         <title id="core-title">Zentral Core</title>
         <desc id="core-desc">
-          Diagrama de un núcleo central conectado mediante líneas de datos a
-          siete sistemas empresariales: CRM, ERP, WhatsApp, OpenAI, API, correo
-          y dashboard.
+          Diagrama del isotipo de Zentral como núcleo, conectado mediante líneas
+          de datos a siete sistemas empresariales: CRM, ERP, WhatsApp, OpenAI,
+          API, correo y dashboard.
         </desc>
 
         <defs>
           <linearGradient id="core-cable" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stopColor="#2563EB" stopOpacity="0.55" />
             <stop offset="100%" stopColor="#27272A" stopOpacity="0.9" />
-          </linearGradient>
-
-          <linearGradient id="core-face" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.28" />
-            <stop offset="100%" stopColor="#2563EB" stopOpacity="0.06" />
           </linearGradient>
 
           <filter id="core-blur" x="-60%" y="-60%" width="220%" height="220%">
@@ -228,12 +221,12 @@ export function ZentralCore() {
             })}
         </g>
 
-        {/* --- Núcleo: cubo isométrico en wireframe --- */}
+        {/* --- Núcleo: el isotipo de Zentral --- */}
         <g aria-hidden="true" style={depth(4)}>
           <circle
             cx={CX}
             cy={CY}
-            r={CUBE * 1.45}
+            r={78}
             fill="#2563EB"
             opacity="0.22"
             filter="url(#core-blur)"
@@ -248,22 +241,14 @@ export function ZentralCore() {
             )}
           </circle>
 
-          <polygon
-            points={CUBE_HEX}
-            fill="url(#core-face)"
-            stroke="#3B82F6"
-            strokeWidth="1.5"
-            strokeLinejoin="round"
+          <image
+            href="/isotipo-zentral2.svg"
+            x={CX - LOGO_W / 2}
+            y={CY - LOGO_H / 2}
+            width={LOGO_W}
+            height={LOGO_H}
+            preserveAspectRatio="xMidYMid meet"
           />
-
-          {/* Las tres aristas internas que convierten el hexágono en un cubo. */}
-          <g stroke="#3B82F6" strokeWidth="1.25" opacity="0.85">
-            <line x1={CX} y1={CY} x2={CX} y2={CY - CUBE} />
-            <line x1={CX} y1={CY} x2={CX + CUBE * 0.866} y2={CY + CUBE / 2} />
-            <line x1={CX} y1={CY} x2={CX - CUBE * 0.866} y2={CY + CUBE / 2} />
-          </g>
-
-          <circle cx={CX} cy={CY} r="3" fill="#ffffff" />
         </g>
 
         {/* --- Nodos --- */}

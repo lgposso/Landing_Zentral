@@ -13,18 +13,19 @@ interface LogoProps {
 
 const sizes = {
   sm: "h-6 w-auto sm:h-7",
-  // En móvil se contiene a 32px: el logotipo es muy apaisado (5.2:1) y a 36px
+  // En móvil se contiene a 32px: el logotipo es muy apaisado (5:1) y a 36px
   // ya ocupaba más de la mitad de una pantalla de 390px.
   lg: "h-8 w-auto sm:h-10 lg:h-11",
 } as const;
 
 /**
- * Logotipo horizontal. El PNG de origen se procesa con
- * `scripts/prepare-logos.ps1`, que le añade canal alfa y lo recorta al
- * contenido — por eso aquí no hace falta ningún recorte ni blend mode.
+ * Logotipo horizontal (`public/logo-zentral.svg`). Al ser vectorial se sirve
+ * sin pasar por el optimizador: `/_next/image` rechaza los SVG con 400 salvo
+ * que se active `dangerouslyAllowSVG`, y en un vector no hay nada que optimizar.
  *
- * Se declaran ancho y alto intrínsecos para que el navegador reserve el
- * espacio y el logo no provoque CLS.
+ * Ancho y alto declarados coinciden con el `viewBox` del archivo (712×142, ya
+ * recortado al contenido) para que el navegador reserve el espacio exacto y el
+ * logo no provoque CLS.
  */
 export function Logo({
   className,
@@ -41,11 +42,12 @@ export function Logo({
       aria-label={`${siteConfig.legalName} — Inicio`}
     >
       <Image
-        src="/logo-zentral.png"
+        src="/logo-zentral.svg"
         alt={siteConfig.legalName}
-        width={1599}
-        height={305}
+        width={712}
+        height={142}
         priority={priority}
+        unoptimized
         className={sizes[size]}
       />
     </Link>
