@@ -2,16 +2,11 @@ import type { NavItem } from "@/types";
 
 /**
  * Configuración global del sitio: metadata, navegación y destinos de CTA.
- *
- * TODO(zentral): reemplazar `url`, `contact.email`, `contact.phone` y los
- * destinos de CTA por los valores reales antes de publicar.
  */
 export const siteConfig = {
   name: "Zentral",
   legalName: "Zentral Solutions",
 
-  // TODO(zentral): cambiar por el dominio definitivo. Se usa para canonical,
-  // Open Graph, sitemap y datos estructurados.
   url: "https://zentral.com.co",
 
   title: "Zentral Solutions | Sistemas Inteligentes para Empresas",
@@ -34,11 +29,9 @@ export const siteConfig = {
   ],
 
   contact: {
-    // TODO(zentral): correo real.
     email: "contacto@zentral.com.co",
-    // TODO(zentral): teléfono real en formato internacional.
-    phone: "",
-    location: "Colombia",
+    phone: "+573113953189",
+    location: "Barranquilla, Colombia",
   },
 
   // TODO(zentral): perfiles reales. Los vacíos no se renderizan.
