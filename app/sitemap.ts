@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { servicePages } from "@/config/content";
 import { siteConfig } from "@/config/site";
 
 /** Fecha de la última modificación real del copy de la home.
@@ -13,5 +14,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1,
     },
+    ...servicePages.map((service) => ({
+      url: `${siteConfig.url}/servicios/${service.slug}`,
+      lastModified: service.lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
   ];
 }

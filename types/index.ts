@@ -49,3 +49,30 @@ export interface CoreNode {
   /** Ángulo en grados sobre la órbita, 0° = derecha, sentido horario. */
   angle: number;
 }
+
+/** Página de servicio individual (C1 del brief SEO). */
+export interface ServicePage {
+  slug: string;
+  /** Palabra clave primaria objetivo, solo como referencia editorial. */
+  keyword: string;
+  metaTitle: string;
+  metaDescription: string;
+  heroTitle: string;
+  heroSubtitle: string;
+  whatItIs: string[];
+  whoItsFor: string[];
+  howWeImplementIt: string[];
+  technologies: { name: string; description: string }[];
+  deliverables: string[];
+  timeline: string;
+  investmentRange: string;
+  /**
+   * Escenario ilustrativo, no un caso real de cliente — todavía no hay
+   * proyectos con cifras verificables que publicar (ver Bloque C2 del brief).
+   */
+  appliedScenario: {
+    disclaimer: string;
+    paragraphs: string[];
+  };
+  lastModified: string;
+}

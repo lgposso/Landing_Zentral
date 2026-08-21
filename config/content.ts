@@ -3,6 +3,7 @@ import type {
   FeatureItem,
   ProcessStep,
   SectionCopy,
+  ServicePage,
   TechGroup,
   UseCase,
 } from "@/types";
@@ -305,6 +306,74 @@ export const contactFormCopy = {
 };
 
 /* -------------------------------------------------------------------------- */
+/* Páginas de servicio (C1 del brief SEO)                                     */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Una entrada por página en /servicios/[slug]. Se añaden de a una: cada
+ * página necesita sustancia real del negocio (tecnologías, entregables,
+ * plazo, inversión) que no se puede inventar — ver la regla del brief sobre
+ * el 60%+ de contenido único por página.
+ */
+export const servicePages: ServicePage[] = [
+  {
+    slug: "automatizacion-de-procesos",
+    keyword: "automatización de procesos Colombia",
+    metaTitle: "Automatización de procesos para empresas en Colombia",
+    metaDescription:
+      "Automatizamos tareas manuales y repetitivas con n8n y Python. Implementación en máximo 5 semanas, capacitación y soporte incluidos. Desde $400.000 COP/mes.",
+    heroTitle: "Automatización de procesos",
+    heroSubtitle:
+      "Flujos que ejecutan solos las tareas repetitivas de tu operación, con n8n y Python, implementados en máximo 5 semanas.",
+    whatItIs: [
+      "La automatización de procesos reemplaza tareas manuales y repetitivas por flujos que se ejecutan solos: validar un dato, mover información entre sistemas, generar un reporte, enviar una notificación. No es una plataforma que compras y configuras tú mismo — es un sistema que diseñamos, construimos y operamos a la medida del proceso real de tu empresa.",
+      "En Zentral no partimos de una plantilla genérica. Empezamos por entender qué hace hoy tu equipo a mano, dónde se pierde el tiempo, y qué parte de ese trabajo puede ejecutarse sin intervención humana sin sacrificar control ni trazabilidad.",
+      "La diferencia con comprar una herramienta de automatización por tu cuenta es que aquí no tienes que aprender a configurarla, mantenerla ni depurarla cuando algo cambia en uno de tus sistemas. Nosotros diseñamos el flujo, lo operamos y respondemos cuando algo falla — tu equipo usa el resultado, no administra la infraestructura detrás.",
+    ],
+    whoItsFor: [
+      "Este servicio le sirve a empresas donde una o varias personas dedican horas cada semana a tareas que no deberían requerir juicio humano: copiar datos entre un formulario y una hoja de cálculo, revisar si un pago llegó, armar el mismo reporte cada lunes, avisar por WhatsApp cuando cambia un estado.",
+      "La señal más clara es esta: si como administrador sientes que pierdes mucho tiempo en tareas que no consideras relevantes, o que deberían estar hechas de manera instantánea y hoy son manuales, ese es exactamente el tipo de proceso que automatizamos primero. No hace falta tener un equipo técnico interno ni saber qué herramienta usar — eso lo definimos nosotros durante el diagnóstico.",
+    ],
+    howWeImplementIt: [
+      "Empezamos por un diagnóstico corto del proceso actual: qué pasos existen, quién los ejecuta, qué sistemas están involucrados y dónde ocurren los errores o los cuellos de botella. De ahí sale un mapa concreto de qué automatizar primero y qué no vale la pena tocar todavía — no todo proceso manual justifica automatizarse, y decirlo cuando corresponde también es parte del trabajo.",
+      "Con eso diseñamos el flujo: las reglas, las validaciones, los casos donde el sistema debe detenerse y avisar a una persona en vez de seguir solo. Lo construimos, lo probamos contra casos reales de tu operación, no datos de ejemplo, y lo ponemos a correr en paralelo antes de apagar el proceso manual, para que el cambio no interrumpa la operación mientras se ajusta.",
+      "Una vez el flujo queda en producción, no lo dejamos andando solo. Parte del soporte incluido es revisar que siga funcionando cuando algo cambia río arriba — un campo que se renombra en tu CRM, un formulario que se actualiza, una API externa que cambia su respuesta — porque ese tipo de cambios silenciosos es la causa más común de que una automatización deje de funcionar sin que nadie se entere a tiempo.",
+    ],
+    technologies: [
+      {
+        name: "n8n",
+        description:
+          "Motor de automatización que orquesta el flujo completo: qué dispara la ejecución, qué sistemas conecta y qué reglas aplica en cada paso. Lo elegimos porque el flujo queda documentado visualmente, no es una caja negra que solo tu proveedor entiende.",
+      },
+      {
+        name: "Python",
+        description:
+          "Para la lógica que n8n no cubre de fábrica: transformaciones de datos específicas de tu operación, validaciones complejas o cálculos propios del proceso.",
+      },
+    ],
+    deliverables: [
+      "Capacitación a tu equipo para operar y entender el sistema, no solo usarlo.",
+      "Soporte activo durante toda la suscripción, no solo en el primer mes.",
+      "El flujo documentado, sin depender de una sola persona para mantenerlo.",
+    ],
+    timeline:
+      "Máximo 5 semanas desde el diagnóstico hasta el sistema operando en producción, dependiendo de cuántos sistemas externos haya que integrar.",
+    investmentRange:
+      "Desde $400.000 COP al mes, más el costo de instalación inicial, que varía según la complejidad del proceso y el número de integraciones. El diagnóstico te da un número exacto antes de comprometerte a nada.",
+    appliedScenario: {
+      disclaimer:
+        "Zentral todavía no tiene casos publicados con cifras verificables de clientes — cuando los haya, esta sección los reemplaza. Mientras tanto, así se vería aplicado a un proceso típico:",
+      paragraphs: [
+        "Piensa en un equipo que recibe pedidos por WhatsApp, correo y un formulario web, y hoy alguien copia cada uno a una hoja de cálculo para que el área de despachos lo procese. Un flujo en n8n puede capturar el pedido apenas llega por cualquiera de los tres canales, validar que los datos estén completos, registrarlo en el sistema correcto y notificar automáticamente al área de despachos, sin que nadie tenga que copiar nada.",
+        "Si un pedido llega incompleto o con un dato que no cuadra, el sistema no lo descarta ni lo inventa: lo marca y avisa a una persona para que lo revise. La automatización reemplaza el trabajo repetitivo, no el criterio humano en los casos que sí lo necesitan.",
+        "El mismo principio aplica a un reporte semanal que hoy arma alguien a mano cruzando información de dos o tres sistemas: el flujo puede recolectar los datos en el momento en que se necesitan, aplicarles la misma lógica de siempre y dejarlos listos antes de que la persona que los revisa se siente a trabajar. No cambia lo que el reporte dice — cambia quién lo arma.",
+      ],
+    },
+    lastModified: "2026-08-20",
+  },
+];
+
+/* -------------------------------------------------------------------------- */
 /* Footer                                                                      */
 /* -------------------------------------------------------------------------- */
 
@@ -312,7 +381,10 @@ export const footerColumns = [
   {
     title: "Soluciones",
     links: [
-      { label: "Automatización de procesos", href: "#soluciones" },
+      {
+        label: "Automatización de procesos",
+        href: "/servicios/automatizacion-de-procesos",
+      },
       { label: "Agentes IA", href: "#soluciones" },
       { label: "Integración de sistemas", href: "#soluciones" },
       { label: "Software a la medida", href: "#soluciones" },

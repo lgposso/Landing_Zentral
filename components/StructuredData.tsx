@@ -2,9 +2,13 @@ import { solutions } from "@/config/content";
 import { siteConfig } from "@/config/site";
 
 /**
- * Datos estructurados schema.org (§14 del spec): Organization, WebSite y
- * BreadcrumbList. Se emiten en un solo bloque `@graph` para que las entidades
- * puedan referenciarse entre sí por `@id`.
+ * Datos estructurados schema.org (§14 del spec): Organization, WebSite y el
+ * OfferCatalog de servicios. Se emiten en un solo bloque `@graph` para que
+ * las entidades puedan referenciarse entre sí por `@id`.
+ *
+ * El BreadcrumbList vive aparte, en `BreadcrumbSchema`: es específico de
+ * cada página (Inicio › Soluciones › [Servicio]), no tiene sentido como nodo
+ * global idéntico en todas las rutas.
  */
 export function StructuredData() {
   const graph = {
@@ -61,18 +65,6 @@ export function StructuredData() {
         description: siteConfig.description,
         inLanguage: "es-CO",
         publisher: { "@id": `${siteConfig.url}/#organization` },
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": `${siteConfig.url}/#breadcrumb`,
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Inicio",
-            item: siteConfig.url,
-          },
-        ],
       },
       {
         "@type": "OfferCatalog",
