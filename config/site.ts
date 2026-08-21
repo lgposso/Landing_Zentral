@@ -51,18 +51,12 @@ export const siteConfig = {
 
 /**
  * Destinos de los llamados a la acción.
- *
- * TODO(zentral): conectar a su destino real. Opciones habituales:
- *   - WhatsApp:  "https://wa.me/57XXXXXXXXXX?text=Hola%2C%20quiero%20agendar%20una%20conversación"
- *   - Calendly:  "https://calendly.com/zentral/30min"
- *   - Correo:    "mailto:contacto@zentral.com.co"
- * Al cambiarlos, poner `isExternal: true` para que abran en pestaña nueva.
  */
 export const ctaConfig = {
   primary: {
     label: "Agenda una conversación",
-    href: "#",
-    isExternal: false,
+    href: "https://wa.me/573113953189?text=Hola%2C%20quiero%20agendar%20una%20conversaci%C3%B3n",
+    isExternal: true,
   },
   secondary: {
     label: "Explora soluciones",
