@@ -47,7 +47,7 @@ export function Footer() {
               className="md:col-span-3"
               aria-label={column.title}
             >
-              <h2 className="zentral-label text-foreground">{column.title}</h2>
+              <p className="zentral-label text-foreground">{column.title}</p>
               <ul className="mt-5 space-y-3">
                 {column.links.map((link) => (
                   <li key={link.label}>
