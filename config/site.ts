@@ -34,9 +34,9 @@ export const siteConfig = {
     location: "Barranquilla, Colombia",
   },
 
-  // TODO(zentral): perfiles reales. Los vacíos no se renderizan.
+  // TODO(zentral): instagram y github, cuando existan. Los vacíos no se renderizan.
   social: {
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/company/zentral-solutions-s-a-s",
     instagram: "",
     github: "",
   },
