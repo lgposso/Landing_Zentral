@@ -280,6 +280,31 @@ export const ctaCopy = {
 };
 
 /* -------------------------------------------------------------------------- */
+/* Formulario de contacto                                                     */
+/* -------------------------------------------------------------------------- */
+
+/** Alternativa al mailto: del footer para quien no quiere abrir su cliente de correo. */
+export const contactFormCopy = {
+  title: "¿Prefieres escribirnos directamente?",
+  subtitle:
+    "Cuéntanos qué proceso quieres automatizar. Te respondemos a tu correo.",
+  fields: {
+    name: { label: "Nombre", placeholder: "Tu nombre" },
+    company: { label: "Empresa", placeholder: "Nombre de tu empresa" },
+    email: { label: "Correo", placeholder: "tu@empresa.com" },
+    message: {
+      label: "¿Qué proceso quieres automatizar?",
+      placeholder: "Cuéntanos brevemente el proceso o problema que quieres resolver.",
+    },
+  },
+  submitLabel: "Enviar mensaje",
+  submitPendingLabel: "Enviando…",
+  successMessage: "Mensaje enviado. Te respondemos pronto a tu correo.",
+  errorFallback:
+    "No se pudo enviar el mensaje. Intenta de nuevo o escríbenos directamente.",
+};
+
+/* -------------------------------------------------------------------------- */
 /* Footer                                                                      */
 /* -------------------------------------------------------------------------- */
 

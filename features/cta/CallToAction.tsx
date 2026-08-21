@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { ctaCopy } from "@/config/content";
 import { ctaConfig } from "@/config/site";
+import { ContactForm } from "@/features/contact-form/ContactForm";
 
 export function CallToAction() {
   return (
@@ -41,6 +42,10 @@ export function CallToAction() {
           </div>
 
           <p className="mt-8 text-sm text-muted">{ctaCopy.note}</p>
+
+          <div className="zentral-rule mt-16" />
+
+          <ContactForm />
         </Reveal>
       </Container>
     </section>
