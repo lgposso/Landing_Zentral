@@ -371,6 +371,62 @@ export const servicePages: ServicePage[] = [
     },
     lastModified: "2026-08-20",
   },
+  {
+    slug: "agentes-ia",
+    keyword: "agentes IA Colombia",
+    metaTitle: "Agentes IA para empresas en Colombia",
+    metaDescription:
+      "Agentes IA con OpenAI y Anthropic que atienden, califican y responden con el contexto real de tu operación. Máximo 6 semanas, desde $600.000 COP/mes.",
+    heroTitle: "Agentes IA",
+    heroSubtitle:
+      "Asistentes que atienden, califican y responden con el contexto de tu operación, construidos sobre OpenAI y Anthropic, con reglas claras sobre qué pueden resolver solos.",
+    whatItIs: [
+      "Un agente IA es un asistente conversacional que atiende, califica o responde consultas dentro de tu operación, con acceso al contexto real de tu negocio — no un chatbot genérico con respuestas prefabricadas. Entiende la pregunta, decide qué información necesita, la busca en tus sistemas si hace falta, y responde o escala según reglas que definimos contigo antes de que el agente hable con el primer cliente real.",
+      "En Zentral construimos el agente sobre modelos de OpenAI o Anthropic, según cuál rinda mejor para tu caso específico. No hay un modelo único correcto para todo, y probamos antes de decidir cuál usar en producción.",
+      "La diferencia con un chatbot de reglas fijas es que el agente entiende lenguaje natural: no necesitas anticipar cada forma en que alguien puede formular la misma pregunta. La diferencia con dejar que un modelo responda sin supervisión es que aquí el agente solo opera dentro del alcance que definimos — no improvisa fuera de las reglas que le dimos, y cuando no sabe algo, lo dice en vez de inventar una respuesta convincente.",
+    ],
+    whoItsFor: [
+      "Le sirve a empresas que reciben un volumen constante de conversaciones repetitivas — preguntas frecuentes, calificación de un lead, agendamiento, seguimiento de un pedido — donde la mayoría de los casos siguen el mismo patrón y solo una minoría necesita criterio humano. Si tu equipo comercial o de atención pasa buena parte del día respondiendo la misma pregunta con variaciones menores, o si los leads se enfrían porque nadie responde fuera de horario laboral, ahí es donde un agente aporta más.",
+      "No le sirve, y hay que decirlo, a procesos donde cada caso es distinto y depende del criterio de una persona con contexto que no está escrito en ningún lado — ahí un agente sin ese contexto responde mal con la misma confianza con la que respondería bien, que es peor que no responder. Por eso cada agente que construimos tiene reglas claras sobre qué puede resolver solo y en qué punto exacto debe pasarle la conversación a una persona.",
+    ],
+    howWeImplementIt: [
+      "Empezamos por definir el alcance: qué preguntas o tareas puede resolver el agente solo, qué información tiene permitido usar, y en qué casos debe detenerse y pasar la conversación a una persona. Ese alcance queda escrito antes de construir nada, no se improvisa sobre la marcha.",
+      "Con el alcance definido, construimos el agente, lo conectamos a la información que necesita — tu catálogo, tu CRM, tus políticas de servicio — y lo probamos con casos reales de tu operación antes de exponerlo a un cliente. Solo entra en producción cuando responde de forma consistente en los casos que definimos, no cuando responde bien una vez.",
+      "Después del lanzamiento verificamos que las respuestas sigan siendo correctas y que el cliente esté conforme con la interacción. Un agente que responde rápido pero mal es peor que no tener agente, así que esa verificación no es un extra — es parte del entregable.",
+      "También revisamos el agente periódicamente durante la suscripción: los productos cambian, las políticas de servicio cambian, y un agente que quedó bien configurado hace tres meses puede estar respondiendo con información desactualizada hoy si nadie lo revisa. Ese mantenimiento es justamente lo que cubre el soporte incluido.",
+    ],
+    technologies: [
+      {
+        name: "OpenAI",
+        description:
+          "Para los casos donde su familia de modelos responde con mayor precisión y velocidad al tipo de conversación que necesitas automatizar.",
+      },
+      {
+        name: "Anthropic",
+        description:
+          "Para los casos donde el seguimiento estricto de reglas e instrucciones importa más que la velocidad de respuesta — por ejemplo, cuando el agente maneja información sensible o procesos con pasos obligatorios.",
+      },
+    ],
+    deliverables: [
+      "El agente funcionando en producción, no una demo.",
+      "Un documento con las capacidades exactas del agente: qué resuelve solo y qué escala a una persona.",
+      "Verificación de la satisfacción del cliente tras el lanzamiento, no solo métricas técnicas.",
+      "Soporte activo durante toda la suscripción.",
+    ],
+    timeline:
+      "Máximo 6 semanas desde la definición del alcance hasta el agente operando en producción.",
+    investmentRange:
+      "Desde $600.000 COP al mes, más el costo de implementación inicial, que depende de cuántos sistemas tiene que consultar el agente y qué tan estricto necesita ser el control de sus respuestas.",
+    appliedScenario: {
+      disclaimer:
+        "Zentral todavía no tiene casos publicados con cifras verificables de clientes — cuando los haya, esta sección los reemplaza. Mientras tanto, así se vería aplicado a una situación típica:",
+      paragraphs: [
+        "Piensa en un equipo comercial que recibe mensajes por WhatsApp fuera de horario laboral y hoy responde al día siguiente, cuando el interesado ya escribió a un competidor. Un agente puede responder de inmediato, hacer las preguntas de calificación que hoy hace un vendedor al inicio de la conversación, y dejar la conversación lista para que una persona la retome con el contexto completo en la mañana. No cierra la venta solo, pero evita que el lead se enfríe mientras nadie está disponible.",
+        "Si durante la conversación alguien pregunta algo que el agente no tiene autorizado responder — un descuento especial, una excepción a una política — el agente lo reconoce y escala en vez de inventar una respuesta que suene razonable. Esa es la diferencia entre un agente bien acotado y un chatbot que improvisa.",
+      ],
+    },
+    lastModified: "2026-08-20",
+  },
 ];
 
 /* -------------------------------------------------------------------------- */
@@ -385,7 +441,7 @@ export const footerColumns = [
         label: "Automatización de procesos",
         href: "/servicios/automatizacion-de-procesos",
       },
-      { label: "Agentes IA", href: "#soluciones" },
+      { label: "Agentes IA", href: "/servicios/agentes-ia" },
       { label: "Integración de sistemas", href: "#soluciones" },
       { label: "Software a la medida", href: "#soluciones" },
     ],
