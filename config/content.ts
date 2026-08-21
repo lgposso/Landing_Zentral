@@ -299,6 +299,64 @@ export const footerColumns = [
       { label: "Cómo trabajamos", href: "#proceso" },
       { label: "Casos de uso", href: "#casos-de-uso" },
       { label: "Tecnologías", href: "#tecnologias" },
+      { label: "Política de privacidad", href: "/privacidad" },
     ],
   },
 ];
+
+/* -------------------------------------------------------------------------- */
+/* Política de tratamiento de datos                                           */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * BORRADOR generado automáticamente a partir de la Ley 1581 de 2012
+ * (Habeas Data, Colombia). NO ha sido revisado por un abogado y NO debe
+ * publicarse en producción sin esa revisión. Ajustar responsable, datos
+ * recolectados, finalidades y canal de contacto a la operación real de
+ * Zentral antes de aprobarlo.
+ */
+export const privacyPolicy = {
+  title: "Política de tratamiento de datos personales",
+  lastUpdated: "2026-08-20",
+  intro:
+    "Este documento es un borrador de referencia basado en la Ley 1581 de 2012 de Colombia. No sustituye una revisión legal y no debe considerarse vigente hasta que un abogado lo valide y Zentral lo apruebe formalmente.",
+  sections: [
+    {
+      heading: "1. Responsable del tratamiento",
+      paragraphs: [
+        "Zentral Solutions, identificada con NIT 902.064.009-2, con domicilio en Barranquilla, Colombia, es responsable del tratamiento de los datos personales recolectados a través de este sitio y en el marco de sus servicios.",
+      ],
+    },
+    {
+      heading: "2. Datos que recolectamos",
+      paragraphs: [
+        "Datos de contacto proporcionados voluntariamente (nombre, empresa, correo, teléfono) cuando un visitante inicia una conversación por WhatsApp, correo o un formulario de contacto.",
+        "Datos técnicos de navegación recolectados por la herramienta de analítica del sitio, cuando esté activa.",
+      ],
+    },
+    {
+      heading: "3. Finalidad del tratamiento",
+      paragraphs: [
+        "Responder solicitudes comerciales, prestar los servicios contratados, y mejorar el sitio y la comunicación con clientes y prospectos.",
+      ],
+    },
+    {
+      heading: "4. Derechos del titular",
+      paragraphs: [
+        "Conforme a la Ley 1581 de 2012, el titular de los datos tiene derecho a: conocer, actualizar y rectificar sus datos; solicitar prueba de la autorización otorgada; ser informado sobre el uso dado a sus datos; presentar quejas ante la Superintendencia de Industria y Comercio; revocar la autorización y/o solicitar la supresión del dato cuando no exista un deber legal o contractual que impida su eliminación; y acceder de forma gratuita a sus datos.",
+      ],
+    },
+    {
+      heading: "5. Cómo ejercer estos derechos",
+      paragraphs: [
+        "El titular puede ejercer sus derechos escribiendo al correo de contacto publicado en el sitio.",
+      ],
+    },
+    {
+      heading: "6. Vigencia",
+      paragraphs: [
+        "Esta política aplica desde su fecha de publicación y puede ser modificada. Los cambios sustanciales se reflejarán en la fecha de última actualización de este documento.",
+      ],
+    },
+  ],
+};
