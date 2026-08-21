@@ -23,6 +23,22 @@ export function StructuredData() {
         description: siteConfig.description,
         slogan: siteConfig.tagline,
         email: siteConfig.contact.email,
+        telephone: siteConfig.contact.phone,
+        address: {
+          "@type": "PostalAddress",
+          addressCountry: "CO",
+          addressLocality: "Barranquilla",
+        },
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "sales",
+          email: siteConfig.contact.email,
+          telephone: siteConfig.contact.phone,
+          areaServed: ["CO", "LATAM"],
+          availableLanguage: ["es"],
+        },
+        foundingDate: "2026",
+        taxID: "902.064.009-2",
         areaServed: [
           { "@type": "Country", name: "Colombia" },
           { "@type": "Place", name: "Latinoamérica" },
