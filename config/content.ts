@@ -427,6 +427,60 @@ export const servicePages: ServicePage[] = [
     },
     lastModified: "2026-08-20",
   },
+  {
+    slug: "integracion-de-sistemas",
+    keyword: "integración de sistemas empresariales",
+    metaTitle: "Integración de sistemas empresariales en Colombia",
+    metaDescription:
+      "Conectamos CRM, ERP, facturación, WhatsApp y APIs de terceros con APIs REST y n8n. Sistemas sincronizados sin intervención manual. Desde $350.000 COP/mes.",
+    heroTitle: "Integración de sistemas",
+    heroSubtitle:
+      "Conectamos las herramientas que ya usas para que la información fluya sola entre ellas, con APIs REST y n8n como capa de orquestación.",
+    whatItIs: [
+      "La integración de sistemas conecta las herramientas que ya usas — CRM, ERP, facturación, WhatsApp, tu tienda en línea, APIs de terceros — para que la información se mueva sola entre ellas, en vez de que alguien la traslade a mano. El resultado no es una herramienta nueva que aprender: es que las que ya tienes empiecen a hablar entre sí.",
+      "Construimos estas integraciones sobre APIs REST y n8n como capa de orquestación, el mismo motor que usamos para automatización de procesos. Cuando un sistema cambia un dato, el flujo lo propaga a los demás sistemas que lo necesitan, con las validaciones y transformaciones que ese dato requiere en cada uno.",
+      "No todas las integraciones son iguales de simples. Conectar dos sistemas que ya exponen una API documentada es directo; conectar uno que no la tiene, o que la expone de forma inconsistente, toma más trabajo de por medio. Parte del diagnóstico inicial es decirte con qué tipo de caso estás, antes de comprometer un plazo.",
+    ],
+    whoItsFor: [
+      "Le sirve a empresas que ya usan varias herramientas — un CRM, un ERP, facturación electrónica, WhatsApp Business, una tienda en línea — pero esas herramientas no se hablan entre sí, y alguien en el equipo hace de puente manual: exporta de un sistema, revisa, y carga en el otro. Cada vez que ese puente humano falla o se atrasa, dos sistemas quedan desincronizados y nadie sabe cuál tiene el dato correcto.",
+      "La señal más clara es cuando dos personas de áreas distintas dan una cifra distinta para la misma pregunta — cuántos pedidos hay pendientes, cuánto inventario queda, cuál es el estado real de un cliente — porque cada una mira un sistema diferente que no está sincronizado con los demás.",
+    ],
+    howWeImplementIt: [
+      "Empezamos por mapear qué sistemas necesitan hablar entre sí, qué dato exacto tiene que viajar de uno a otro, y con qué frecuencia: en tiempo real apenas ocurre un cambio, o por lotes en un horario definido, según lo que el proceso necesite realmente.",
+      "Construimos la integración con las validaciones necesarias para que un dato mal formado en un sistema no dañe el que lo recibe, y la probamos con datos reales de tu operación antes de dejarla corriendo en automático. Las integraciones son, junto con los agentes IA, donde más importa probar contra casos reales: un error silencioso propagándose entre sistemas es más difícil de detectar que uno visible en un solo lugar.",
+      "Una vez conectados, monitoreamos que la sincronización siga corriendo — si un sistema cambia su forma de responder o queda temporalmente fuera de servicio, preferimos que la integración se detenga y avise, a que siga escribiendo datos incompletos o incorrectos en el otro extremo. Un error que se detiene es un error que se corrige en minutos; uno que sigue corriendo en silencio puede tardar semanas en notarse.",
+    ],
+    technologies: [
+      {
+        name: "APIs REST",
+        description:
+          "El estándar con el que la gran mayoría de CRM, ERP, plataformas de facturación y herramientas de e-commerce exponen sus datos. Es la vía de conexión más estable porque no depende de un conector propietario que un proveedor puede descontinuar.",
+      },
+      {
+        name: "n8n",
+        description:
+          "La misma capa de orquestación que usamos en automatización de procesos: define qué dispara la sincronización, qué transformación aplica a cada dato y qué pasa si un sistema no responde.",
+      },
+    ],
+    deliverables: [
+      "Tus sistemas conectados entre sí, sin necesidad de intervención manual.",
+      "Soporte activo durante toda la suscripción.",
+    ],
+    timeline:
+      "6 semanas desde el mapeo de sistemas hasta la integración operando en producción.",
+    investmentRange:
+      "Desde $350.000 COP al mes, más el costo de implementación inicial, que depende de cuántos sistemas hay que conectar y qué tan compleja es la transformación de datos entre ellos.",
+    appliedScenario: {
+      disclaimer:
+        "Zentral todavía no tiene casos publicados con cifras verificables de clientes — cuando los haya, esta sección los reemplaza. Mientras tanto, así se vería aplicado a una situación típica:",
+      paragraphs: [
+        "Piensa en una empresa donde el equipo comercial registra un cliente nuevo en el CRM, y ese mismo cliente tiene que existir también en el sistema de facturación para poder emitirle una factura. Hoy alguien copia los datos de uno a otro a mano, y si se equivoca en un número de identificación, la factura queda mal emitida. Una integración puede crear el cliente en facturación automáticamente apenas se crea en el CRM, con los mismos datos, sin que nadie los vuelva a escribir.",
+        "Si el sistema de facturación rechaza el dato porque falta un campo obligatorio, la integración no lo fuerza ni inventa el valor faltante: notifica a la persona responsable para que lo complete. La integración elimina la copia manual, no el control sobre qué datos son válidos.",
+        "El mismo patrón sirve para inventario: si una venta se registra en el sistema de punto de venta, el descuento de stock puede propagarse automáticamente a la plataforma de e-commerce, para que no se venda en línea algo que ya no existe en la bodega. Es la misma lógica — un cambio en un sistema, propagado a los demás que dependen de ese dato — aplicada a un problema distinto.",
+      ],
+    },
+    lastModified: "2026-08-20",
+  },
 ];
 
 /* -------------------------------------------------------------------------- */
@@ -442,7 +496,10 @@ export const footerColumns = [
         href: "/servicios/automatizacion-de-procesos",
       },
       { label: "Agentes IA", href: "/servicios/agentes-ia" },
-      { label: "Integración de sistemas", href: "#soluciones" },
+      {
+        label: "Integración de sistemas",
+        href: "/servicios/integracion-de-sistemas",
+      },
       { label: "Software a la medida", href: "#soluciones" },
     ],
   },
