@@ -1,3 +1,4 @@
+import { solutions } from "@/config/content";
 import { siteConfig } from "@/config/site";
 
 /**
@@ -56,6 +57,25 @@ export function StructuredData() {
             item: siteConfig.url,
           },
         ],
+      },
+      {
+        "@type": "OfferCatalog",
+        "@id": `${siteConfig.url}/#servicios`,
+        name: "Soluciones Zentral",
+        itemListElement: solutions.map((s, i) => ({
+          "@type": "Offer",
+          position: i + 1,
+          itemOffered: {
+            "@type": "Service",
+            name: s.title,
+            description: s.description,
+            provider: { "@id": `${siteConfig.url}/#organization` },
+            areaServed: [
+              { "@type": "Country", name: "Colombia" },
+              { "@type": "Place", name: "Latinoamérica" },
+            ],
+          },
+        })),
       },
     ],
   };
