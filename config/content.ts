@@ -481,6 +481,176 @@ export const servicePages: ServicePage[] = [
     },
     lastModified: "2026-08-20",
   },
+  {
+    slug: "software-a-la-medida",
+    keyword: "desarrollo de software a la medida Colombia",
+    metaTitle: "Desarrollo de software a la medida en Colombia",
+    metaDescription:
+      "Aplicaciones construidas para tu operación, no plantillas adaptadas a la fuerza. Next.js, Node.js, Python y PostgreSQL. Cotización según el alcance del proyecto.",
+    heroTitle: "Software a la medida",
+    heroSubtitle:
+      "Aplicaciones construidas para tu operación, no plantillas genéricas adaptadas a la fuerza a un proceso que no es el tuyo.",
+    whatItIs: [
+      "El software a la medida es una aplicación diseñada específicamente para tu proceso, no una herramienta genérica que tu equipo tiene que adaptar a sí misma. Cuando un proceso de negocio es lo suficientemente específico —o lo suficientemente importante— como para que forzarlo dentro de un SaaS genérico signifique perder funcionalidad o pagar por módulos que no usas, construir algo propio deja de ser un lujo y empieza a tener sentido económico.",
+      "No es la primera opción para todo: si existe una herramienta madura en el mercado que resuelve tu problema sin fricción, la recomendamos a ella antes que a un desarrollo propio. Software a la medida es para lo que no encaja en ninguna — el proceso que hace que tu operación sea distinta a la de tu competencia.",
+    ],
+    whoItsFor: [
+      "Le sirve a empresas que ya intentaron resolver un proceso con una herramienta genérica y terminaron peleando contra la herramienta en vez de usarla: configuraciones que no encajan, módulos de más que nadie usa, o funcionalidad crítica que simplemente no existe en ningún producto del mercado para su caso.",
+      "También le sirve a empresas cuyo proceso interno es parte de su ventaja competitiva —la forma en que gestionan inventario, calculan una cotización compleja, o coordinan una operación con reglas propias— y no quieren que esa lógica viva dentro de una plataforma de terceros que cualquier competidor puede contratar igual.",
+      "Y le sirve a empresas que ya tienen automatizaciones o integraciones puntuales corriendo por separado —con n8n, con hojas de cálculo conectadas, con scripts sueltos— y necesitan que todo eso viva dentro de una sola aplicación con una interfaz que su equipo pueda usar sin depender de quien construyó cada pieza por separado.",
+    ],
+    howWeImplementIt: [
+      "El alcance se define antes de escribir código: qué hace la aplicación, para quién, con qué reglas de negocio, y qué necesita conectar por fuera. Sin ese alcance cerrado, cualquier estimado de tiempo o presupuesto no vale nada, así que el diagnóstico es la primera entrega, no un trámite antes de la propuesta.",
+      "Desarrollamos por ciclos cortos con entregas funcionales, no una sola entrega al final del proyecto. Ves la aplicación tomando forma y puedes ajustar el rumbo antes de que un malentendido se vuelva costoso de corregir — un cambio de dirección en la semana tres cuesta una conversación; el mismo cambio descubierto en la semana quince cuesta rehacer trabajo.",
+      "Al terminar, la aplicación es tuya: el código fuente te pertenece y no depende de que Zentral siga operándola para que funcione. Eso es lo que separa un desarrollo a la medida real de una suscripción disfrazada de software propio, donde dejar de pagar significa perder acceso a una herramienta que creías tuya.",
+    ],
+    technologies: [
+      {
+        name: "Next.js y React",
+        description:
+          "Para la interfaz: rápida, con buen SEO cuando la aplicación lo necesita, y un ecosistema maduro que no depende de que Zentral sea la única empresa capaz de mantenerla.",
+      },
+      {
+        name: "Node.js y Python",
+        description:
+          "Para la lógica de negocio del backend, según qué encaje mejor con el problema: Node.js cuando el sistema es principalmente flujo de datos y API, Python cuando hay procesamiento o cálculo más pesado de por medio.",
+      },
+      {
+        name: "PostgreSQL",
+        description:
+          "Como base de datos principal: madura, confiable, y con dos décadas de historial en producción. No elegimos infraestructura por moda.",
+      },
+    ],
+    deliverables: [
+      "El código fuente completo, de tu propiedad, sin dependencia de Zentral para operarlo.",
+      "Documentación técnica de la arquitectura y las decisiones de diseño.",
+      "Capacitación a tu equipo para usar y, si tienen capacidad técnica, mantener la aplicación.",
+      "Un periodo de soporte post-lanzamiento para corregir lo que solo aparece con uso real.",
+    ],
+    timeline:
+      "Entre 8 y 16 semanas según el alcance: una aplicación con un módulo y una integración no toma lo mismo que una con varios módulos y reglas de negocio complejas. El número exacto sale del diagnóstico, no antes.",
+    investmentRange:
+      "El costo depende completamente del alcance del desarrollo: no hay una tarifa fija ni un plan mensual, porque cada aplicación a la medida es un proyecto distinto. Se cotiza después del diagnóstico, con un número cerrado antes de comprometerte a nada.",
+    appliedScenario: {
+      disclaimer:
+        "Zentral todavía no tiene casos publicados con cifras verificables de clientes — cuando los haya, esta sección los reemplaza. Mientras tanto, así se vería aplicado a una situación típica:",
+      paragraphs: [
+        "Piensa en una empresa que gestiona proyectos con avances de obra, materiales y subcontratistas, y hoy usa una combinación de hojas de cálculo y una herramienta genérica de gestión de proyectos que no entiende su forma específica de calcular avance o costos. Una aplicación a la medida puede modelar exactamente esa lógica de negocio: cómo se calcula el avance real de un proyecto, cómo se reparten los costos entre frentes de trabajo, y qué alertas tienen sentido para esa operación en particular, no las que trae por defecto una herramienta genérica.",
+        "Si en algún punto la operación cambia y la lógica del negocio cambia con ella, la aplicación se ajusta porque el código es tuyo y nosotros seguimos siendo quienes la mantienen. No hay que esperar a que un proveedor externo decida si tu caso de uso entra en su hoja de ruta, ni migrar toda la operación a una plataforma distinta porque la anterior dejó de encajar.",
+      ],
+    },
+    lastModified: "2026-08-20",
+  },
+  {
+    slug: "dashboards",
+    keyword: "dashboards empresariales",
+    metaTitle: "Dashboards empresariales para empresas en Colombia",
+    metaDescription:
+      "Indicadores al día sobre datos confiables, en un solo lugar, para decidir sin discutir las cifras. Implementación en 4 a 6 semanas, desde $450.000 COP/mes.",
+    heroTitle: "Dashboards empresariales",
+    heroSubtitle:
+      "Indicadores al día sobre datos confiables, en un solo lugar, para decidir sin discutir las cifras.",
+    whatItIs: [
+      "Un dashboard empresarial reúne en un solo lugar los datos que hoy viven repartidos entre varios sistemas —ventas, inventario, operación, finanzas— y los presenta como indicadores que se actualizan solos, no como un reporte que alguien arma a mano cada cierto tiempo. La diferencia con una hoja de cálculo no es solo estética: es que el dato que ves es el dato real del sistema en ese momento, no una copia que puede estar desactualizada.",
+      "No construimos dashboards genéricos con métricas de plantilla. Definimos contigo qué decisión toma cada indicador, porque un dashboard con quince gráficas que nadie revisa vale menos que uno con cinco que sí se usan cada semana.",
+      "Tampoco es lo mismo que conectar tus datos a una herramienta de business intelligence genérica y dejar que tu equipo arme sus propios reportes. Ese enfoque funciona cuando ya tienes a alguien dedicado a interpretar datos; cuando no, termina siendo una herramienta más que nadie tiene tiempo de aprender a usar bien.",
+    ],
+    whoItsFor: [
+      "Le sirve a empresas donde las decisiones importantes se toman con datos que llegan tarde: un reporte de ventas que se arma el lunes con datos del viernes anterior, un estado de inventario que nadie actualiza a tiempo, indicadores operativos que existen pero que hay que pedirle a alguien que los saque manualmente cada vez.",
+      "La señal más clara: si para saber cómo va el negocio hoy alguien tiene que abrir tres sistemas distintos y armar la respuesta a mano, ese proceso de armar la respuesta es exactamente lo que un dashboard reemplaza. También le sirve a equipos de dirección que necesitan ver el negocio completo sin depender de que cada área les envíe su reporte por separado.",
+    ],
+    howWeImplementIt: [
+      "Empezamos por identificar qué decisiones necesitan datos al día y de dónde sale cada dato hoy: qué sistema lo tiene, con qué frecuencia cambia, y qué tan confiable es la fuente. Un dashboard construido sobre datos poco confiables solo hace que la desconfianza se vea más profesional — por eso limpiar y validar el origen de los datos suele tomar más tiempo que construir la interfaz que los muestra.",
+      "Diseñamos el dashboard alrededor de esas decisiones, no de una lista genérica de métricas. Lo conectamos a las fuentes de datos reales, definimos con qué frecuencia se actualiza cada indicador según lo que el proceso necesita, y lo probamos con datos reales de tu operación antes de entregarlo.",
+      "Un dashboard sin mantenimiento se vuelve inútil apenas una fuente de datos cambia de estructura. El soporte incluido cubre justamente eso: que el indicador siga siendo confiable seis meses después, no solo el día de la entrega.",
+      "Priorizamos claridad sobre cantidad de gráficas. Un indicador que se puede interpretar en cinco segundos, sin tener que leer una leyenda ni preguntarle a alguien qué significa, es más útil en una reunión que un tablero completo que solo entiende quien lo construyó.",
+      "El dashboard queda accesible desde cualquier dispositivo con acceso a internet, con los permisos que definas: no todo el equipo necesita ver todos los indicadores, y parte del diseño es decidir contigo quién ve qué.",
+    ],
+    technologies: [
+      {
+        name: "Next.js y React",
+        description:
+          "Para la interfaz del dashboard: rápida de cargar y clara de leer, sin la sobrecarga de una plataforma de business intelligence genérica que trae funciones que no vas a usar.",
+      },
+      {
+        name: "PostgreSQL",
+        description:
+          "Como capa de datos consolidada cuando hace falta combinar información de varias fuentes antes de mostrarla, en vez de consultar cada sistema origen en cada carga de página.",
+      },
+    ],
+    deliverables: [
+      "El dashboard funcionando con tus datos reales, no datos de ejemplo.",
+      "Capacitación a tu equipo para leer e interpretar cada indicador.",
+      "Soporte activo durante toda la suscripción.",
+    ],
+    timeline:
+      "Entre 4 y 6 semanas, dependiendo de cuántas fuentes de datos hay que consolidar y qué tan confiables son los datos de origen.",
+    investmentRange:
+      "Desde $450.000 COP al mes, más el costo de implementación inicial, que varía según el número de fuentes de datos que el dashboard tiene que consolidar.",
+    appliedScenario: {
+      disclaimer:
+        "Zentral todavía no tiene casos publicados con cifras verificables de clientes — cuando los haya, esta sección los reemplaza. Mientras tanto, así se vería aplicado a una situación típica:",
+      paragraphs: [
+        "Piensa en una empresa donde cada lunes alguien arma un reporte de ventas de la semana anterior cruzando el sistema de punto de venta con una hoja de cálculo de metas por vendedor. Un dashboard puede leer directamente del sistema de ventas, calcular el avance contra la meta de cada vendedor, y mostrarlo actualizado sin que nadie tenga que armarlo: el lunes el equipo revisa el resultado, no lo construye.",
+        "Si una fuente de datos deja de responder o entrega un dato fuera de rango, el dashboard no muestra un número silenciosamente incorrecto: señala que esa fuente falló, para que la decisión se tome sabiendo qué dato falta, no asumiendo que todo está completo.",
+        "El mismo tablero puede mostrar el indicador desglosado por vendedor, por zona o por producto según quién lo esté viendo, sin que eso implique construir un reporte distinto para cada persona: es la misma fuente de datos, con un filtro distinto encima.",
+      ],
+    },
+    lastModified: "2026-08-20",
+  },
+  {
+    slug: "integracion-crm-erp",
+    keyword: "integración CRM ERP",
+    metaTitle: "Integración CRM y ERP para empresas en Colombia",
+    metaDescription:
+      "Sincronizamos tu CRM comercial con tu ERP operativo: un cliente, una cotización, un pedido, sin retipear datos entre sistemas. Desde $450.000 COP/mes.",
+    heroTitle: "Integración CRM y ERP",
+    heroSubtitle:
+      "Sincronizamos lo que tu equipo comercial vende con lo que tu operación y finanzas necesitan procesar, sin retipear nada entre sistemas.",
+    whatItIs: [
+      "La integración CRM-ERP conecta específicamente el sistema donde tu equipo comercial gestiona clientes y oportunidades con el sistema donde tu operación y finanzas procesan pedidos, inventario y facturación. Es un caso particular de integración de sistemas, pero con un problema propio: el CRM y el ERP casi nunca modelan al cliente, el producto o el precio de la misma forma, y esa diferencia es justamente donde se rompe la sincronización si no se maneja con cuidado.",
+      "El objetivo no es que un sistema reemplace al otro, cada uno hace bien lo suyo, sino que lo que se vende en uno aparezca correctamente en el otro sin que una persona vuelva a escribirlo. Si tu empresa usa un CRM y un ERP genéricos, o alguno construido a la medida, el principio es el mismo: la sincronización se diseña alrededor de cómo cada sistema modela sus datos, no al revés.",
+    ],
+    whoItsFor: [
+      "Le sirve a empresas donde ventas y operación trabajan, en la práctica, con información distinta: el vendedor cierra un trato en el CRM con condiciones específicas, y para que ese trato se convierta en un pedido real, alguien en operación tiene que volver a escribirlo en el ERP, con el riesgo de que algo se traspapele o se transcriba distinto.",
+      "La señal más clara: cuando un pedido se demora en despachar o facturar no porque falte producto o capacidad, sino porque todavía no ha terminado de pasar de un sistema al otro. Si dirección comercial y dirección de operaciones cierran el mes con números distintos para las mismas ventas, es la misma causa de fondo.",
+    ],
+    howWeImplementIt: [
+      "El primer paso es acordar cómo se relacionan las entidades entre los dos sistemas: qué campo del CRM corresponde a qué campo del ERP, qué pasa cuando un cliente existe en uno pero no en el otro, y qué reglas de negocio aplican en cada transición, por ejemplo, qué condiciones tiene que cumplir una oportunidad del CRM antes de convertirse en un pedido en el ERP. Ese mapeo se documenta por escrito, no queda solo en la cabeza de quien lo construyó.",
+      "Con esas reglas definidas, construimos la sincronización y la probamos con clientes y pedidos reales de tu operación, no con datos de prueba, porque los casos límite —un cliente con datos incompletos, un producto que no existe en ambos catálogos— son los que rompen una integración mal probada.",
+      "Los ERP suelen ser más rígidos que un CRM en cuanto a qué datos aceptan y en qué formato, así que buena parte del trabajo está en anticipar esas reglas antes de que la sincronización falle en producción. Esa rigidez no es un defecto del ERP — es justamente lo que lo hace confiable para contabilidad e inventario — pero significa que la integración tiene que adaptarse a él, no forzarlo a aceptar cualquier cosa que le llegue del CRM.",
+    ],
+    technologies: [
+      {
+        name: "APIs REST",
+        description:
+          "La vía de conexión con la mayoría de plataformas de CRM y ERP del mercado, sin depender de un conector propietario que un proveedor puede descontinuar.",
+      },
+      {
+        name: "n8n",
+        description:
+          "Orquesta la sincronización: qué evento la dispara, qué transformación aplica a cada entidad, y qué hacer cuando un sistema rechaza un dato porque no cumple sus reglas.",
+      },
+    ],
+    deliverables: [
+      "CRM y ERP sincronizados, sin retipear datos entre sistemas.",
+      "Soporte activo durante toda la suscripción.",
+    ],
+    timeline:
+      "Entre 5 y 7 semanas, dependiendo de qué tan distinto modelan los datos tu CRM y tu ERP.",
+    investmentRange:
+      "Desde $450.000 COP al mes, más el costo de implementación inicial, que depende de la complejidad del ERP y de cuántas reglas de negocio hay que respetar en la sincronización.",
+    appliedScenario: {
+      disclaimer:
+        "Zentral todavía no tiene casos publicados con cifras verificables de clientes — cuando los haya, esta sección los reemplaza. Mientras tanto, así se vería aplicado a una situación típica:",
+      paragraphs: [
+        "Piensa en un vendedor que cierra un trato en el CRM con un descuento especial aprobado para ese cliente. Hoy, para que ese pedido se procese, alguien en operación tiene que entrar al ERP, crear el pedido a mano y acordarse de aplicar el mismo descuento, y si se le olvida, el cliente recibe una factura distinta a lo que se le prometió. Una integración puede crear el pedido en el ERP automáticamente cuando el trato se marca como ganado en el CRM, con las mismas condiciones exactas que se negociaron.",
+        "Si el ERP no reconoce un producto o un código de cliente que sí existe en el CRM, la integración no lo inventa ni lo omite: lo señala para que alguien lo resuelva antes de que el pedido quede mal registrado. La sincronización automatiza el traspaso, no las decisiones sobre datos que no cuadran.",
+        "El mismo mecanismo funciona en la dirección contraria: si en el ERP se actualiza el estado de un pedido —despachado, facturado, con un problema de inventario— esa actualización puede reflejarse en el CRM para que el equipo comercial sepa en qué va el pedido de su cliente sin tener que preguntarle a operaciones.",
+      ],
+    },
+    lastModified: "2026-08-20",
+  },
 ];
 
 /* -------------------------------------------------------------------------- */
@@ -500,7 +670,7 @@ export const footerColumns = [
         label: "Integración de sistemas",
         href: "/servicios/integracion-de-sistemas",
       },
-      { label: "Software a la medida", href: "#soluciones" },
+      { label: "Software a la medida", href: "/servicios/software-a-la-medida" },
     ],
   },
   {
