@@ -31,3 +31,6 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# auditoría SEO (informes locales, no forman parte del sitio)
+/zentral.com.co-audit/
