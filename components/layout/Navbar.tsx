@@ -3,11 +3,11 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 
-import { Button } from "@/components/ui/Button";
+import { PrimaryCtaButton } from "@/components/cta/PrimaryCtaButton";
 import { Container } from "@/components/ui/Container";
 import { Logo } from "@/components/layout/Logo";
 import { useScrolled } from "@/hooks/useScrolled";
-import { ctaConfig, navItems } from "@/config/site";
+import { navItems } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
@@ -115,12 +115,7 @@ export function Navbar() {
                 después. En móvil el botón se salía de la pantalla y empujaba
                 el menú hamburguesa fuera del viewport. */}
             <div className="hidden sm:block">
-              <Button
-                href={ctaConfig.primary.href}
-                isExternal={ctaConfig.primary.isExternal}
-              >
-                {ctaConfig.primary.label}
-              </Button>
+              <PrimaryCtaButton location="navbar-desktop" icon={false} />
             </div>
 
             <button
@@ -163,15 +158,13 @@ export function Navbar() {
               </li>
             ))}
           </ul>
-          <Button
-            href={ctaConfig.primary.href}
-            isExternal={ctaConfig.primary.isExternal}
-            onClick={() => closeMenu()}
+          <PrimaryCtaButton
+            location="navbar-mobile"
+            icon={false}
             size="lg"
             className="mb-8 w-full"
-          >
-            {ctaConfig.primary.label}
-          </Button>
+            onClick={() => closeMenu()}
+          />
         </Container>
       </div>
     </header>

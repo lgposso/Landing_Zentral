@@ -1,10 +1,7 @@
-import { ArrowRight } from "lucide-react";
-
-import { Button } from "@/components/ui/Button";
+import { PrimaryCtaButton } from "@/components/cta/PrimaryCtaButton";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { ctaCopy } from "@/config/content";
-import { ctaConfig } from "@/config/site";
 import { ContactForm } from "@/features/contact-form/ContactForm";
 
 export function CallToAction() {
@@ -27,18 +24,7 @@ export function CallToAction() {
           </p>
 
           <div className="mt-12 flex justify-center">
-            <Button
-              href={ctaConfig.primary.href}
-              isExternal={ctaConfig.primary.isExternal}
-              size="lg"
-            >
-              {ctaConfig.primary.label}
-              <ArrowRight
-                className="size-4 transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transform-none"
-                strokeWidth={2}
-                aria-hidden="true"
-              />
-            </Button>
+            <PrimaryCtaButton location="cta-final" size="lg" />
           </div>
 
           <p className="mt-8 text-sm text-muted">{ctaCopy.note}</p>

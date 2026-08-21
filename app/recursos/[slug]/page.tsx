@@ -4,10 +4,9 @@ import { ArrowRight } from "lucide-react";
 import { notFound } from "next/navigation";
 
 import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
-import { Button } from "@/components/ui/Button";
+import { PrimaryCtaButton } from "@/components/cta/PrimaryCtaButton";
 import { Container } from "@/components/ui/Container";
 import { resourceArticles, servicePages } from "@/config/content";
-import { ctaConfig } from "@/config/site";
 
 interface ResourceArticleProps {
   params: Promise<{ slug: string }>;
@@ -112,18 +111,7 @@ export default async function ResourceArticlePage({
             ¿Quieres resolver esto en tu empresa?
           </h2>
           <div className="mt-8 flex justify-center">
-            <Button
-              href={ctaConfig.primary.href}
-              isExternal={ctaConfig.primary.isExternal}
-              size="lg"
-            >
-              {ctaConfig.primary.label}
-              <ArrowRight
-                className="size-4 transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transform-none"
-                strokeWidth={2}
-                aria-hidden="true"
-              />
-            </Button>
+            <PrimaryCtaButton location={`recurso-${article.slug}`} size="lg" />
           </div>
         </div>
       </Container>

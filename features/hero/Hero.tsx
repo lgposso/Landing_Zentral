@@ -1,5 +1,4 @@
-import { ArrowRight } from "lucide-react";
-
+import { PrimaryCtaButton } from "@/components/cta/PrimaryCtaButton";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
@@ -32,18 +31,7 @@ export function Hero() {
 
             <Reveal immediate delay={0.24}>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-                <Button
-                  href={ctaConfig.primary.href}
-                  isExternal={ctaConfig.primary.isExternal}
-                  size="lg"
-                >
-                  {ctaConfig.primary.label}
-                  <ArrowRight
-                    className="size-4 transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transform-none"
-                    strokeWidth={2}
-                    aria-hidden="true"
-                  />
-                </Button>
+                <PrimaryCtaButton location="hero" size="lg" />
 
                 <Button
                   href={ctaConfig.secondary.href}

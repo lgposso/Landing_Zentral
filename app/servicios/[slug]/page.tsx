@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import { notFound } from "next/navigation";
 
 import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
-import { Button } from "@/components/ui/Button";
+import { PrimaryCtaButton } from "@/components/cta/PrimaryCtaButton";
 import { Container } from "@/components/ui/Container";
 import { servicePages } from "@/config/content";
-import { ctaConfig } from "@/config/site";
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
@@ -68,18 +67,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         </p>
 
         <div className="mt-10 flex flex-wrap gap-4">
-          <Button
-            href={ctaConfig.primary.href}
-            isExternal={ctaConfig.primary.isExternal}
-            size="lg"
-          >
-            {ctaConfig.primary.label}
-            <ArrowRight
-              className="size-4 transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transform-none"
-              strokeWidth={2}
-              aria-hidden="true"
-            />
-          </Button>
+          <PrimaryCtaButton location={`servicio-${service.slug}-top`} size="lg" />
         </div>
 
         <div className="mt-20 max-w-[720px] space-y-16">
@@ -188,18 +176,10 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             ¿Este es el proceso que quieres resolver?
           </h2>
           <div className="mt-8 flex justify-center">
-            <Button
-              href={ctaConfig.primary.href}
-              isExternal={ctaConfig.primary.isExternal}
+            <PrimaryCtaButton
+              location={`servicio-${service.slug}-bottom`}
               size="lg"
-            >
-              {ctaConfig.primary.label}
-              <ArrowRight
-                className="size-4 transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transform-none"
-                strokeWidth={2}
-                aria-hidden="true"
-              />
-            </Button>
+            />
           </div>
         </div>
       </Container>

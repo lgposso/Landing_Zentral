@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Inter, Manrope } from "next/font/google";
 
 import { MotionProvider } from "@/components/providers/MotionProvider";
@@ -97,6 +98,8 @@ export default function RootLayout({
           <main id="contenido">{children}</main>
           <Footer />
         </MotionProvider>
+
+        <Analytics />
       </body>
     </html>
   );
