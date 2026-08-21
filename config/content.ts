@@ -2,6 +2,7 @@ import type {
   CoreNode,
   FeatureItem,
   ProcessStep,
+  ResourceArticle,
   SectionCopy,
   ServicePage,
   TechGroup,
@@ -654,6 +655,208 @@ export const servicePages: ServicePage[] = [
 ];
 
 /* -------------------------------------------------------------------------- */
+/* Recursos (C4 del brief SEO)                                                */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Contenido de intención informacional: lo que busca un director de
+ * operaciones antes de estar listo para contratar. <h3> interrogativos con
+ * la respuesta directa primero — el patrón que mejor extraen los motores
+ * generativos. Sin marcado FAQPage (ver «Prohibido» del brief).
+ */
+export const resourceArticles: ResourceArticle[] = [
+  {
+    slug: "cuanto-cuesta-automatizar-un-proceso-colombia",
+    title: "¿Cuánto cuesta automatizar un proceso en una empresa colombiana?",
+    metaDescription:
+      "Rangos reales de inversión para automatizar procesos en Colombia, qué factores mueven el precio y qué preguntarle a un proveedor antes de contratar.",
+    intro:
+      "En Zentral, los proyectos de automatización de procesos empiezan desde $400.000 COP al mes más el costo de instalación inicial, pero ese número por sí solo dice poco: el precio real depende de cuántos sistemas hay que integrar, qué tan compleja es la lógica del proceso y si necesitas una suscripción con soporte continuo o un desarrollo único.",
+    sections: [
+      {
+        question: "¿Qué factores determinan el precio de una automatización?",
+        answer: [
+          "Tres cosas mueven el precio más que cualquier otra: cuántos sistemas distintos tiene que tocar el flujo (cada integración adicional es trabajo adicional), qué tan compleja es la lógica de negocio detrás del proceso, y si el proyecto incluye soporte continuo o es una entrega única. Un flujo que solo mueve datos entre dos sistemas con reglas simples cuesta una fracción de uno que valida, transforma y sincroniza información entre cinco sistemas con excepciones caso por caso.",
+        ],
+      },
+      {
+        question:
+          "¿Es mejor pagar una suscripción mensual o un desarrollo único?",
+        answer: [
+          "Depende de qué estás comprando. Una suscripción mensual —como la automatización de procesos o los agentes IA— tiene sentido cuando quieres que el sistema se mantenga y se ajuste con el tiempo sin que tengas que gestionarlo tú, porque el soporte queda incluido. Un desarrollo único —como el software a la medida— tiene sentido cuando quieres ser dueño del código y no depender de que un proveedor siga cobrando para que la herramienta siga funcionando.",
+        ],
+      },
+      {
+        question: "¿Qué rangos de precio maneja el mercado en Colombia?",
+        answer: [
+          "No podemos hablar por el mercado completo —los rangos varían mucho según el proveedor, la complejidad y si el trabajo se hace con herramientas low-code, con desarrollo propio o con una mezcla de ambas—, pero sí podemos ser transparentes con lo que cobramos nosotros: automatización de procesos desde $400.000 COP/mes, integración de sistemas desde $350.000 COP/mes, agentes IA desde $600.000 COP/mes, y software a la medida cotizado según el alcance porque no es un servicio de suscripción.",
+        ],
+      },
+      {
+        question: "¿Qué preguntas hacerle a un proveedor antes de contratar?",
+        answer: [
+          "Pregunta qué pasa cuando uno de tus sistemas cambia y el flujo deja de funcionar: ¿lo detecta alguien, o te enteras cuando un cliente se queja? Pregunta si el soporte está incluido en el precio o es un costo aparte. Pregunta quién es dueño del flujo o del código una vez termina el proyecto. Y pide que te muestren, con tu proceso real, qué parte automatizarían primero y qué parte no tocarían todavía — un proveedor que quiere automatizar todo de una vez, sin diagnóstico previo, es una señal de alerta.",
+        ],
+      },
+    ],
+    relatedServices: [
+      "automatizacion-de-procesos",
+      "agentes-ia",
+      "software-a-la-medida",
+    ],
+    lastModified: "2026-08-20",
+  },
+  {
+    slug: "integrar-crm-erp-sin-reemplazar-ninguno",
+    title: "Cómo integrar CRM y ERP sin reemplazar ninguno de los dos",
+    metaDescription:
+      "Cómo sincronizar CRM y ERP con APIs REST sin migrar de plataforma: qué datos conectar, cómo resolver diferencias de modelo y cuánto toma.",
+    intro:
+      "Integrar tu CRM y tu ERP sin reemplazar ninguno consiste en sincronizar automáticamente los datos que ambos necesitan compartir —clientes, pedidos, precios— usando APIs REST y una capa de orquestación como n8n, en vez de migrar toda tu operación a una sola plataforma que intente hacer las dos cosas a la vez.",
+    sections: [
+      {
+        question:
+          "¿Por qué no conviene simplemente reemplazar uno de los dos?",
+        answer: [
+          "Porque cada uno resuelve bien lo suyo: el CRM está diseñado para gestionar relaciones comerciales y el ERP para procesar operación, inventario y finanzas. Forzar a uno a hacer el trabajo del otro casi siempre significa perder funcionalidad específica que sí necesitas. Y el costo de migrar —datos históricos, capacitación de un equipo que ya domina su herramienta actual, el riesgo de errores durante la transición— suele ser mucho mayor que el de construir una sincronización entre los dos.",
+        ],
+      },
+      {
+        question: "¿Qué información hay que sincronizar entre CRM y ERP?",
+        answer: [
+          "Lo más común es: datos del cliente (para que exista igual en ambos sistemas), oportunidades que se convierten en pedidos, catálogo de productos y precios, y el estado de un pedido a medida que avanza —confirmado, despachado, facturado. No todo dato necesita sincronizarse en ambas direcciones; parte del trabajo de diseño es decidir qué sistema es la fuente de verdad para cada tipo de dato.",
+        ],
+      },
+      {
+        question: "¿Qué pasa cuando los dos sistemas modelan un dato distinto?",
+        answer: [
+          "Es el problema más común en este tipo de integración: el CRM y el ERP casi nunca representan al cliente, el producto o el precio exactamente de la misma forma. La solución no es forzar a uno a adoptar el modelo del otro, sino definir explícitamente cómo se traduce cada campo de un sistema al otro, y qué hacer cuando un dato no tiene equivalente claro —normalmente, marcarlo para revisión humana en vez de adivinar.",
+        ],
+      },
+      {
+        question: "¿Cuánto tiempo toma una integración CRM-ERP?",
+        answer: [
+          "En nuestra experiencia, entre 5 y 7 semanas desde que se acuerda cómo se relacionan los datos entre los dos sistemas hasta que la sincronización opera en producción. El rango depende principalmente de qué tan rígido es el ERP y cuántas reglas de negocio hay que respetar en la transición de una oportunidad comercial a un pedido operativo.",
+        ],
+      },
+    ],
+    relatedServices: ["integracion-crm-erp", "integracion-de-sistemas"],
+    lastModified: "2026-08-20",
+  },
+  {
+    slug: "n8n-zapier-o-desarrollo-propio",
+    title: "n8n, Zapier o desarrollo propio: cuál conviene según el caso",
+    metaDescription:
+      "Cuándo usar Zapier, cuándo n8n y cuándo construir software propio para automatizar un proceso, con criterios concretos para decidir.",
+    intro:
+      "Zapier conviene para conexiones simples entre herramientas populares que quieres tener andando en minutos; n8n conviene cuando necesitas automatizaciones más complejas con control total sobre la lógica; y el desarrollo de software propio conviene cuando el proceso es tan específico que ninguna herramienta de automatización lo resuelve bien. La decisión correcta depende de la complejidad del proceso, no de cuál herramienta es mejor en abstracto.",
+    sections: [
+      {
+        question: "¿Cuándo conviene Zapier?",
+        answer: [
+          "Cuando la automatización conecta dos herramientas populares de forma directa —un formulario con una hoja de cálculo, una venta con una notificación de Slack— y la necesitas funcionando rápido, sin construir nada a la medida. Su límite aparece cuando la lógica se complica: condicionales anidados, múltiples pasos con validaciones propias, o volumen alto, donde el costo por operación empieza a pesar.",
+        ],
+      },
+      {
+        question: "¿Cuándo conviene n8n?",
+        answer: [
+          "Cuando el flujo necesita lógica más compleja que conectar A con B: validaciones, transformaciones de datos específicas, múltiples ramas según condiciones del negocio, o conexión con sistemas que no tienen un conector genérico ya hecho. Al ser autohospedable, tampoco tiene el límite artificial de operaciones mensuales que sí tienen la mayoría de plataformas low-code, lo que importa cuando el volumen crece.",
+        ],
+      },
+      {
+        question: "¿Cuándo conviene el desarrollo de software propio?",
+        answer: [
+          "Cuando el proceso es parte de lo que hace distinta a tu operación, y ninguna herramienta —ni siquiera n8n con lógica personalizada— modela bien esa lógica de negocio específica. También cuando necesitas una interfaz propia para que tu equipo trabaje, no solo un flujo corriendo detrás de otros sistemas. Es la opción de mayor inversión inicial, pero también la única donde el resultado es completamente tuyo.",
+        ],
+      },
+      {
+        question: "¿Se pueden combinar las tres?",
+        answer: [
+          "Sí, y en la práctica es más común de lo que parece. Nosotros mismos construimos automatizaciones sobre n8n con Python para la lógica que n8n no cubre de fábrica, y algunas aplicaciones a la medida terminan orquestando flujos de n8n por debajo para las tareas repetitivas. La pregunta no es qué herramienta usar para todo, sino qué herramienta le corresponde a cada parte del problema.",
+        ],
+      },
+    ],
+    relatedServices: ["automatizacion-de-procesos", "software-a-la-medida"],
+    lastModified: "2026-08-20",
+  },
+  {
+    slug: "que-procesos-automatizar-primero",
+    title: "Qué procesos conviene automatizar primero (y cuáles no)",
+    metaDescription:
+      "Criterios para elegir qué automatizar primero en tu empresa: qué procesos son buenos candidatos y cuáles conviene dejar en manos humanas por ahora.",
+    intro:
+      "Conviene automatizar primero los procesos repetitivos, de alto volumen y con reglas claras, donde el criterio humano no cambia el resultado. No conviene automatizar primero —o quizás nunca— los procesos que dependen de juicio caso a caso, que cambian con frecuencia, o que ocurren tan pocas veces que el ahorro no justifica el costo de construir el sistema.",
+    sections: [
+      {
+        question:
+          "¿Qué características tiene un buen candidato para automatizar primero?",
+        answer: [
+          "Alto volumen, reglas que no cambian según quién lo haga, y una relación clara entre el tiempo que consume y el valor que genera. Si diez personas hacen la misma tarea de la misma forma cien veces por semana, esa tarea probablemente sigue reglas más consistentes de lo que parece a simple vista, y es ahí donde la automatización rinde más rápido.",
+        ],
+      },
+      {
+        question: "¿Qué procesos NO conviene automatizar todavía?",
+        answer: [
+          "Los que cambian constantemente —el costo de mantener la automatización al día puede superar el ahorro que genera—, los de muy bajo volumen —donde construir el sistema cuesta más que seguir haciéndolo a mano por un tiempo—, y los que dependen genuinamente del juicio de una persona con contexto que no está escrito en ningún lado, como una negociación compleja o una decisión estratégica.",
+        ],
+      },
+      {
+        question: "¿Cómo se identifica esto en la práctica?",
+        answer: [
+          "Con un diagnóstico corto del proceso actual: qué pasos existen, quién los ejecuta, con qué frecuencia, y qué tan seguido aparece una excepción que rompe la regla general. Un proceso con muchas excepciones no es necesariamente un mal candidato, pero si necesita revisarse antes de automatizarlo — a veces conviene primero simplificar el proceso y automatizar después.",
+        ],
+      },
+      {
+        question: "¿Qué pasa si automatizo algo que no debía automatizarse?",
+        answer: [
+          "Terminas con un sistema frágil que se rompe cada vez que algo cambia, un costo de mantenimiento que no estaba en la cuenta, y un equipo frustrado que tiene que trabajar alrededor del sistema en vez de con él. Decir que no a automatizar algo —o esperar— es tan parte del trabajo como decir que sí, y cualquier proveedor que quiera automatizar todo sin distinción no está mirando tu operación con suficiente cuidado.",
+        ],
+      },
+    ],
+    relatedServices: ["automatizacion-de-procesos"],
+    lastModified: "2026-08-20",
+  },
+  {
+    slug: "agentes-ia-atencion-al-cliente",
+    title: "Agentes IA en atención al cliente: qué funciona y qué todavía no",
+    metaDescription:
+      "Qué tareas de atención al cliente resuelve bien un agente IA hoy, dónde todavía falla, y cómo evitar que responda mal con falsa confianza.",
+    intro:
+      "Los agentes IA funcionan bien en atención al cliente para preguntas frecuentes, calificación inicial de leads, agendamiento y seguimiento de estado: conversaciones repetitivas con un patrón claro. Todavía no funcionan bien para resolver quejas complejas, negociar excepciones a una política, o cualquier interacción donde el cliente necesita hablar con alguien que tenga autoridad real para decidir.",
+    sections: [
+      {
+        question:
+          "¿En qué tareas de atención al cliente funciona bien un agente IA hoy?",
+        answer: [
+          "En todo lo que sigue un patrón repetible: responder preguntas frecuentes con la información correcta, calificar un lead con las preguntas que normalmente hace un vendedor al inicio de la conversación, agendar y confirmar citas, y dar seguimiento al estado de un pedido o solicitud. Son tareas donde la respuesta correcta no depende de improvisar, sino de tener la información correcta a la mano.",
+        ],
+      },
+      {
+        question: "¿Dónde todavía falla o no conviene usar un agente IA?",
+        answer: [
+          "En quejas con carga emocional, donde la persona necesita sentir que la escuchó otra persona, no un sistema. En decisiones que requieren autorizar una excepción —un descuento, una devolución fuera de política— porque ahí el agente no tiene, y no debería tener, autoridad para decidir solo. Y en cualquier caso ambiguo donde la política de la empresa no da una respuesta clara: un agente sin esa claridad responde con la misma confianza tanto si acierta como si no.",
+        ],
+      },
+      {
+        question:
+          "¿Cómo se evita que un agente responda mal con falsa confianza?",
+        answer: [
+          "Acotando desde el diseño qué puede resolver solo y en qué punto exacto debe escalar a una persona, y probándolo contra casos reales antes de exponerlo a un cliente, no solo contra los casos fáciles. Un agente bien construido reconoce cuándo no tiene la información o la autorización para responder, y lo dice en vez de inventar algo que suene razonable.",
+        ],
+      },
+      {
+        question: "¿Un agente IA reemplaza al equipo de atención al cliente?",
+        answer: [
+          "No, y cualquier proveedor que lo prometa así está vendiendo algo que no puede cumplir. Un agente bien implementado absorbe el volumen repetitivo —las preguntas que se repiten cien veces con variaciones menores— para que el equipo humano dedique su tiempo a los casos que sí necesitan criterio, contexto o autoridad para decidir.",
+        ],
+      },
+    ],
+    relatedServices: ["agentes-ia"],
+    lastModified: "2026-08-20",
+  },
+];
+
+/* -------------------------------------------------------------------------- */
 /* Footer                                                                      */
 /* -------------------------------------------------------------------------- */
 
@@ -679,6 +882,7 @@ export const footerColumns = [
       { label: "Cómo trabajamos", href: "#proceso" },
       { label: "Casos de uso", href: "#casos-de-uso" },
       { label: "Tecnologías", href: "#tecnologias" },
+      { label: "Recursos", href: "/recursos" },
       { label: "Política de privacidad", href: "/privacidad" },
     ],
   },

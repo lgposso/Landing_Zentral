@@ -50,6 +50,23 @@ export interface CoreNode {
   angle: number;
 }
 
+/** Artículo informacional en /recursos/[slug] (C4 del brief SEO). */
+export interface ResourceArticle {
+  slug: string;
+  title: string;
+  metaDescription: string;
+  /** Respuesta directa en el primer párrafo, antes del desarrollo. */
+  intro: string;
+  /** Subpreguntas en <h3>, cada una con la respuesta directa primero. */
+  sections: {
+    question: string;
+    answer: string[];
+  }[];
+  /** Slugs de /servicios/[slug] relacionados, para enlazado interno. */
+  relatedServices: string[];
+  lastModified: string;
+}
+
 /** Página de servicio individual (C1 del brief SEO). */
 export interface ServicePage {
   slug: string;
