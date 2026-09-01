@@ -12,7 +12,7 @@ import { buildBody, buildSubject } from "./message";
 
 const initialState: ContactFormState = { status: "idle" };
 
-const EMPTY_VALUES = { name: "", company: "", email: "", message: "" };
+const EMPTY_VALUES = { name: "", company: "", email: "", message: "", website: "" };
 
 const fallbackLinkClasses =
   "inline-flex h-11 items-center gap-2 rounded-button border border-border px-4 text-sm " +
@@ -142,6 +142,24 @@ export function ContactForm() {
           />
         </div>
 
+        {/*
+          Honeypot: invisible y fuera del recorrido de teclado y de lectores
+          de pantalla, así que nadie real lo llena. Los bots rellenan todo
+          campo que encuentran, y ahí se delatan.
+        */}
+        <div className="hidden" aria-hidden="true">
+          <label htmlFor="contact-website">No llenar</label>
+          <input
+            id="contact-website"
+            name="website"
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            value={values.website}
+            onChange={(e) => setValues((v) => ({ ...v, website: e.target.value }))}
+          />
+        </div>
+
         <div className="flex flex-wrap items-center gap-4">
           <SubmitButton />
 
@@ -158,38 +176,40 @@ export function ContactForm() {
           )}
         </div>
 
-        {state.status === "error" && state.reason === "delivery" && (
-          <div
-            role="alert"
-            className="rounded-card border border-border bg-surface p-5"
-          >
-            <p className="text-sm text-red-400">
-              {state.message ?? contactFormCopy.errorFallback}
-            </p>
+        {state.status === "error" &&
+          (state.reason === "delivery" || state.reason === "rate_limit") && (
+            <div
+              role="alert"
+              className="rounded-card border border-border bg-surface p-5"
+            >
+              <p className="text-sm text-red-400">
+                {state.message ?? contactFormCopy.errorFallback}
+              </p>
 
-            <div className="mt-4 flex flex-wrap gap-3">
-              <a
-                href={whatsappHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={fallbackLinkClasses}
-                onClick={() => track("contact_form_fallback", { via: "whatsapp" })}
-              >
-                <MessageCircle className="size-4" strokeWidth={2} aria-hidden="true" />
-                {contactFormCopy.deliveryFallback.whatsappLabel}
-              </a>
+              <div className="mt-4 flex flex-wrap gap-3">
+                <a
+                  href={whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={fallbackLinkClasses}
+                  onClick={() => track("contact_form_fallback", { via: "whatsapp" })}
+                >
+                  <MessageCircle className="size-4" strokeWidth={2} aria-hidden="true" />
+                  {contactFormCopy.deliveryFallback.whatsappLabel}
+                </a>
 
-              <a
-                href={emailHref}
-                className={fallbackLinkClasses}
-                onClick={() => track("contact_form_fallback", { via: "email" })}
-              >
-                <Mail className="size-4" strokeWidth={2} aria-hidden="true" />
-                {contactFormCopy.deliveryFallback.emailLabel}
-              </a>
+                <a
+                  href={emailHref}
+                  className={fallbackLinkClasses}
+                  onClick={() => track("contact_form_fallback", { via: "email" })}
+                >
+                  <Mail className="size-4" strokeWidth={2} aria-hidden="true" />
+                  {contactFormCopy.deliveryFallback.emailLabel}
+                </a>
+              </div>
             </div>
-          </div>
-        )}
+          )}
+
       </form>
     </div>
   );

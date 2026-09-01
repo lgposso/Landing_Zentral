@@ -309,6 +309,9 @@ export const contactFormCopy = {
    */
   errorFallback:
     "No pudimos enviar tu mensaje. Para que no lo escribas de nuevo, mándalo por aquí:",
+  /** Se topa el límite de envíos por IP; las salidas alternas siguen abiertas. */
+  rateLimitMessage:
+    "Recibimos varios mensajes tuyos hace poco. Si es urgente, escríbenos por aquí:",
   deliveryFallback: {
     whatsappLabel: "Enviarlo por WhatsApp",
     emailLabel: "Enviarlo por correo",
