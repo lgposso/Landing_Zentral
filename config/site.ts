@@ -30,7 +30,7 @@ export const siteConfig = {
 
   contact: {
     email: "contacto@zentral.com.co",
-    phone: "+573113953189",
+    phone: "+573337628306",
     location: "Barranquilla, Colombia",
   },
 
@@ -48,7 +48,7 @@ export const siteConfig = {
 export const ctaConfig = {
   primary: {
     label: "Agenda una conversación",
-    href: "https://wa.me/573113953189?text=Hola%2C%20quiero%20agendar%20una%20conversaci%C3%B3n",
+    href: "https://wa.me/573337628306?text=Hola%2C%20quiero%20agendar%20una%20conversaci%C3%B3n",
     isExternal: true,
   },
   secondary: {
