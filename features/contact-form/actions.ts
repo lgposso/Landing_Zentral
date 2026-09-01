@@ -2,9 +2,16 @@
 
 import { contactFormCopy } from "@/config/content";
 import { siteConfig } from "@/config/site";
+import { buildBody, buildSubject } from "./message";
 
 export interface ContactFormState {
   status: "idle" | "success" | "error";
+  /**
+   * Separa los dos errores porque no se resuelven igual: un dato mal escrito
+   * lo corrige la persona reintentando, pero un fallo de entrega no depende
+   * de ella — ahí hay que ofrecerle otra vía o el mensaje se pierde.
+   */
+  reason?: "validation" | "delivery";
   message?: string;
 }
 
@@ -22,17 +29,17 @@ export async function submitContactForm(
   const message = formData.get("message")?.toString().trim() ?? "";
 
   if (!name || !company || !email || !message) {
-    return { status: "error", message: "Completa todos los campos." };
+    return { status: "error", reason: "validation", message: "Completa todos los campos." };
   }
 
   if (!EMAIL_PATTERN.test(email)) {
-    return { status: "error", message: "Ingresa un correo válido." };
+    return { status: "error", reason: "validation", message: "Ingresa un correo válido." };
   }
 
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
     console.error("RESEND_API_KEY no está configurada.");
-    return { status: "error", message: contactFormCopy.errorFallback };
+    return { status: "error", reason: "delivery", message: contactFormCopy.errorFallback };
   }
 
   const response = await fetch(RESEND_API_URL, {
@@ -45,14 +52,14 @@ export async function submitContactForm(
       from: FROM_ADDRESS,
       to: siteConfig.contact.email,
       reply_to: email,
-      subject: `Nuevo contacto de ${name} — ${company}`,
-      text: `Nombre: ${name}\nEmpresa: ${company}\nCorreo: ${email}\n\nProceso a automatizar:\n${message}`,
+      subject: buildSubject({ name, company, email, message }),
+      text: buildBody({ name, company, email, message }),
     }),
   });
 
   if (!response.ok) {
     console.error("Resend respondió con error:", response.status, await response.text());
-    return { status: "error", message: contactFormCopy.errorFallback };
+    return { status: "error", reason: "delivery", message: contactFormCopy.errorFallback };
   }
 
   return { status: "success" };

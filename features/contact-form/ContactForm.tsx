@@ -1,14 +1,22 @@
 "use client";
 
+import { track } from "@vercel/analytics";
+import { Mail, MessageCircle } from "lucide-react";
 import { useActionState, useEffect, useState } from "react";
 import { useFormStatus } from "react-dom";
 
 import { contactFormCopy } from "@/config/content";
+import { siteConfig } from "@/config/site";
 import { submitContactForm, type ContactFormState } from "./actions";
+import { buildBody, buildSubject } from "./message";
 
 const initialState: ContactFormState = { status: "idle" };
 
 const EMPTY_VALUES = { name: "", company: "", email: "", message: "" };
+
+const fallbackLinkClasses =
+  "inline-flex h-11 items-center gap-2 rounded-button border border-border px-4 text-sm " +
+  "text-foreground transition-colors duration-200 hover:border-primary hover:text-primary-hover";
 
 const inputClasses =
   "mt-2 w-full rounded-button border border-border bg-transparent px-4 py-3 text-small text-foreground " +
@@ -42,6 +50,22 @@ export function ContactForm() {
   useEffect(() => {
     if (state.status === "success") setValues(EMPTY_VALUES);
   }, [state.status]);
+
+  /**
+   * Un fallo de entrega es invisible desde afuera: el visitante ve un error y
+   * se va, y de este lado no queda rastro. El evento es lo único que avisa
+   * que el formulario dejó de entregar.
+   */
+  useEffect(() => {
+    if (state.status === "error" && state.reason === "delivery") {
+      track("contact_form_delivery_error");
+    }
+  }, [state]);
+
+  // Las dos salidas llevan precargado lo que la persona ya escribió.
+  const draft = buildBody(values);
+  const whatsappHref = `https://wa.me/${siteConfig.contact.phone.replace(/\D/g, "")}?text=${encodeURIComponent(draft)}`;
+  const emailHref = `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(buildSubject(values))}&body=${encodeURIComponent(draft)}`;
 
   return (
     <div className="mx-auto mt-16 max-w-xl text-left">
@@ -127,12 +151,45 @@ export function ContactForm() {
             </p>
           )}
 
-          {state.status === "error" && (
+          {state.status === "error" && state.reason === "validation" && (
             <p className="text-sm text-red-400" role="alert">
               {state.message ?? contactFormCopy.errorFallback}
             </p>
           )}
         </div>
+
+        {state.status === "error" && state.reason === "delivery" && (
+          <div
+            role="alert"
+            className="rounded-card border border-border bg-surface p-5"
+          >
+            <p className="text-sm text-red-400">
+              {state.message ?? contactFormCopy.errorFallback}
+            </p>
+
+            <div className="mt-4 flex flex-wrap gap-3">
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={fallbackLinkClasses}
+                onClick={() => track("contact_form_fallback", { via: "whatsapp" })}
+              >
+                <MessageCircle className="size-4" strokeWidth={2} aria-hidden="true" />
+                {contactFormCopy.deliveryFallback.whatsappLabel}
+              </a>
+
+              <a
+                href={emailHref}
+                className={fallbackLinkClasses}
+                onClick={() => track("contact_form_fallback", { via: "email" })}
+              >
+                <Mail className="size-4" strokeWidth={2} aria-hidden="true" />
+                {contactFormCopy.deliveryFallback.emailLabel}
+              </a>
+            </div>
+          </div>
+        )}
       </form>
     </div>
   );

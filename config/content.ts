@@ -302,8 +302,17 @@ export const contactFormCopy = {
   submitLabel: "Enviar mensaje",
   submitPendingLabel: "Enviando…",
   successMessage: "Mensaje enviado. Te respondemos pronto a tu correo.",
+  /**
+   * Un fallo de entrega no se arregla reintentando, así que el error no pide
+   * eso: ofrece las dos vías directas con lo escrito ya cargado. Antes el
+   * mensaje se perdía y la persona se iba.
+   */
   errorFallback:
-    "No se pudo enviar el mensaje. Intenta de nuevo o escríbenos directamente.",
+    "No pudimos enviar tu mensaje. Para que no lo escribas de nuevo, mándalo por aquí:",
+  deliveryFallback: {
+    whatsappLabel: "Enviarlo por WhatsApp",
+    emailLabel: "Enviarlo por correo",
+  },
 };
 
 /* -------------------------------------------------------------------------- */
