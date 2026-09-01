@@ -1,10 +1,14 @@
 import type { NextConfig } from "next";
 
 /**
- * Todo lo que carga el sitio es del mismo origen: `next/font` auto-hospeda las
- * tipografías, las imágenes son locales, y tanto Vercel Analytics como los
- * scripts de Cloudflare se sirven bajo el propio dominio. Por eso 'self'
- * alcanza para casi todo.
+ * Casi todo lo que carga el sitio es del mismo origen: `next/font` auto-hospeda
+ * las tipografías, las imágenes son locales y Vercel Analytics se sirve bajo el
+ * propio dominio.
+ *
+ * La excepción es Cloudflare Web Analytics: el beacon no está en el HTML del
+ * repo, lo inyecta Cloudflare en el borde desde static.cloudflareinsights.com.
+ * Por eso hay que declararlo aquí — inventariar solo el código fuente no lo
+ * revela, y la primera versión de esta CSP lo dejó bloqueado.
  *
  * 'unsafe-inline' en script-src es la concesión: Next inyecta scripts en línea
  * para hidratar, y quitarlo exige nonces por petición, lo que obliga a
@@ -15,11 +19,11 @@ import type { NextConfig } from "next";
  */
 const CSP = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  "script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self'",
-  "connect-src 'self'",
+  "connect-src 'self' https://cloudflareinsights.com",
   "form-action 'self'",
   // 'self' y no 'none' para no endurecer la política que ya tenía X-Frame-Options.
   "frame-ancestors 'self'",
