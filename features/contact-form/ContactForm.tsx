@@ -12,6 +12,38 @@ import { buildBody, buildSubject } from "./message";
 
 const initialState: ContactFormState = { status: "idle" };
 
+/**
+ * El firewall de Vercel corta los envíos abusivos con un 429 antes de que la
+ * Server Action llegue a correr. Sin esta envoltura, React recibe una promesa
+ * rechazada donde esperaba un estado y tumba el árbol entero: el visitante
+ * pierde lo que escribió y queda en la pantalla "Application error", que fue
+ * justo lo que pasó al probar la regla.
+ *
+ * Cualquier fallo por debajo de la acción — 429, corte de red, error del
+ * servidor — se trata como fallo de entrega, que es lo que es desde el lado de
+ * quien escribe. Así ve la caja con WhatsApp y correo en vez de una página
+ * rota, y conserva su mensaje.
+ *
+ * El costo es que el formulario deja de funcionar sin JavaScript, porque la
+ * envoltura ya no es una Server Action que Next pueda invocar directamente
+ * desde el HTML. Es un intercambio aceptable en un sitio que ya depende de JS
+ * para todo lo demás.
+ */
+async function submitWithFallback(
+  previous: ContactFormState,
+  formData: FormData,
+): Promise<ContactFormState> {
+  try {
+    return await submitContactForm(previous, formData);
+  } catch {
+    return {
+      status: "error",
+      reason: "delivery",
+      message: contactFormCopy.errorFallback,
+    };
+  }
+}
+
 const EMPTY_VALUES = { name: "", company: "", email: "", message: "", website: "" };
 
 const fallbackLinkClasses =
@@ -44,7 +76,7 @@ function SubmitButton() {
  * local, un envío fallido borraría lo que la persona ya escribió.
  */
 export function ContactForm() {
-  const [state, formAction] = useActionState(submitContactForm, initialState);
+  const [state, formAction] = useActionState(submitWithFallback, initialState);
   const [values, setValues] = useState(EMPTY_VALUES);
 
   useEffect(() => {
