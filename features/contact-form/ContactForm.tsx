@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { track } from "@vercel/analytics";
 import { Mail, MessageCircle } from "lucide-react";
 import { useActionState, useEffect, useState } from "react";
@@ -195,6 +196,15 @@ export function ContactForm() {
             onChange={(e) => setValues((v) => ({ ...v, website: e.target.value }))}
           />
         </div>
+
+        {/* Aviso de privacidad en el momento de la recolección (Ley 1581). */}
+        <p className="text-sm text-muted">
+          {contactFormCopy.privacyNotice}{" "}
+          <Link href="/privacidad" className="text-link underline hover:no-underline">
+            {contactFormCopy.privacyLinkLabel}
+          </Link>
+          .
+        </p>
 
         <div className="flex flex-wrap items-center gap-4">
           <SubmitButton />

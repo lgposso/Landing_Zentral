@@ -188,6 +188,10 @@ export const contactFormCopy = {
     },
   },
   submitLabel: "Enviar mensaje",
+  /** Aviso de privacidad en el momento de la recolección (Ley 1581). */
+  privacyNotice:
+    "Al enviar autorizas a Zentral Solutions S.A.S. a tratar tus datos para responder tu solicitud, según nuestra",
+  privacyLinkLabel: "política de tratamiento de datos",
   submitPendingLabel: "Enviando…",
   successMessage: "Mensaje enviado. Te respondemos pronto a tu correo.",
   /**
@@ -793,53 +797,168 @@ export const footerColumns = [
 /* -------------------------------------------------------------------------- */
 
 /**
- * BORRADOR generado automáticamente a partir de la Ley 1581 de 2012
- * (Habeas Data, Colombia). NO ha sido revisado por un abogado y NO debe
- * publicarse en producción sin esa revisión. Ajustar responsable, datos
- * recolectados, finalidades y canal de contacto a la operación real de
- * Zentral antes de aprobarlo.
+ * Política de tratamiento de datos personales, con el contenido mínimo del
+ * art. 13 del Decreto 1377 de 2013 (compilado en el Decreto 1074 de 2015):
+ * responsable, finalidades, derechos, área de atención, procedimiento y
+ * vigencia. Describe lo que el sitio hace de verdad (ver
+ * features/contact-form y next.config.ts); si eso cambia, esto cambia.
+ *
+ * Los datos del responsable salen del RUT y del certificado de Cámara de
+ * Comercio de Barranquilla (matrícula 938.429).
  */
 export const privacyPolicy = {
   title: "Política de tratamiento de datos personales",
-  lastUpdated: "2026-08-20",
+  lastUpdated: "24 de septiembre de 2026",
   intro:
-    "Este documento es un borrador de referencia basado en la Ley 1581 de 2012 de Colombia. No sustituye una revisión legal y no debe considerarse vigente hasta que un abogado lo valide y Zentral lo apruebe formalmente.",
+    "Esta política explica qué datos personales recoge Zentral Solutions S.A.S., para qué los usa, con quién los comparte, cuánto tiempo los guarda y cómo puedes ejercer tus derechos sobre ellos. Se rige por la Ley 1581 de 2012 y el Decreto 1377 de 2013, compilado en el Decreto 1074 de 2015.",
   sections: [
     {
       heading: "1. Responsable del tratamiento",
       paragraphs: [
-        "Zentral Solutions, identificada con NIT 902.064.009-2, con domicilio en Barranquilla, Colombia, es responsable del tratamiento de los datos personales recolectados a través de este sitio y en el marco de sus servicios.",
+        "Zentral Solutions S.A.S., sociedad identificada con NIT 902.064.009-2 e inscrita en la Cámara de Comercio de Barranquilla con la matrícula mercantil 938.429.",
+      ],
+      items: [
+        "Domicilio y dirección: Calle 81 # 59-20, apartamento 401, Barranquilla, Atlántico, Colombia.",
+        "Correo electrónico: contacto@zentral.com.co",
+        "Teléfono y WhatsApp: +57 333 762 8306",
+        "Sitio web: https://zentral.com.co",
       ],
     },
     {
-      heading: "2. Datos que recolectamos",
+      heading: "2. Alcance",
       paragraphs: [
-        "Datos de contacto proporcionados voluntariamente (nombre, empresa, correo, teléfono) cuando un visitante inicia una conversación por WhatsApp, correo o un formulario de contacto.",
-        "Datos técnicos de navegación recolectados por la herramienta de analítica del sitio, cuando esté activa.",
+        "Esta política aplica a los datos personales que Zentral recoge a través de este sitio web, de sus canales de contacto (formulario, correo y WhatsApp) y de sus relaciones con clientes, proveedores y aliados.",
+        "En los productos de software que Zentral presta a otras empresas (Zentral Loyalty, Zentral RIPS, Zentral Sports y Zentral Control), los datos de las personas que usan o reciben el servicio de nuestros clientes se tratan como se explica en la sección 9.",
       ],
     },
     {
-      heading: "3. Finalidad del tratamiento",
+      heading: "3. Definiciones",
       paragraphs: [
-        "Responder solicitudes comerciales, prestar los servicios contratados, y mejorar el sitio y la comunicación con clientes y prospectos.",
+        "Para leer esta política se usan los términos de la Ley 1581 de 2012:",
+      ],
+      items: [
+        "Titular: la persona natural cuyos datos personales se tratan.",
+        "Dato personal: cualquier información que identifique o haga identificable a una persona natural.",
+        "Dato sensible: el que afecta la intimidad del titular o cuyo uso indebido puede generar discriminación, como los datos de salud o los biométricos.",
+        "Tratamiento: cualquier operación sobre datos personales, como recogerlos, almacenarlos, usarlos, circularlos o suprimirlos.",
+        "Responsable: quien decide sobre la base de datos y el tratamiento.",
+        "Encargado: quien trata datos por cuenta del responsable.",
+        "Autorización: el consentimiento previo, expreso e informado del titular.",
+        "Transmisión: la comunicación de datos a un encargado, dentro o fuera de Colombia, para que los trate por cuenta del responsable.",
       ],
     },
     {
-      heading: "4. Derechos del titular",
+      heading: "4. Principios",
       paragraphs: [
-        "Conforme a la Ley 1581 de 2012, el titular de los datos tiene derecho a: conocer, actualizar y rectificar sus datos; solicitar prueba de la autorización otorgada; ser informado sobre el uso dado a sus datos; presentar quejas ante la Superintendencia de Industria y Comercio; revocar la autorización y/o solicitar la supresión del dato cuando no exista un deber legal o contractual que impida su eliminación; y acceder de forma gratuita a sus datos.",
+        "Zentral trata los datos personales conforme a los principios de legalidad, finalidad, libertad, veracidad o calidad, transparencia, acceso y circulación restringida, seguridad y confidencialidad del artículo 4 de la Ley 1581 de 2012. En la práctica eso significa: recoger solo lo necesario, usarlo solo para lo que se informó, no venderlo ni cederlo para fines ajenos, y protegerlo.",
       ],
     },
     {
-      heading: "5. Cómo ejercer estos derechos",
-      paragraphs: [
-        "El titular puede ejercer sus derechos escribiendo al correo de contacto publicado en el sitio.",
+      heading: "5. Qué datos recogemos",
+      paragraphs: [],
+      items: [
+        "Formulario de contacto: nombre, empresa, correo electrónico y el mensaje que escribas.",
+        "WhatsApp y correo: tu número o dirección de correo, el nombre de tu perfil y el contenido de la conversación.",
+        "Navegación: dirección IP, tipo de navegador y dispositivo, y las páginas visitadas. La analítica del sitio (Vercel Web Analytics y Cloudflare Web Analytics) mide visitas de forma agregada y no usa cookies.",
+        "Clientes y proveedores: datos de contacto y de facturación de las personas que representan a la empresa, y los necesarios para ejecutar el contrato.",
       ],
     },
     {
-      heading: "6. Vigencia",
+      heading: "6. Para qué los usamos",
+      paragraphs: [],
+      items: [
+        "Responder tus preguntas y solicitudes, agendar conversaciones y demostraciones de producto, y preparar propuestas.",
+        "Celebrar y ejecutar contratos con clientes y proveedores, incluida la facturación y el soporte.",
+        "Cumplir obligaciones legales, contables y tributarias.",
+        "Proteger el sitio contra el abuso: la dirección IP de quien envía el formulario se guarda en memoria como máximo 10 minutos para limitar envíos repetidos.",
+        "Conocer de forma agregada cómo se usa el sitio para mejorarlo.",
+        "Enviarte información comercial de Zentral, solo si lo autorizaste de forma expresa.",
+      ],
+    },
+    {
+      heading: "7. Autorización",
       paragraphs: [
-        "Esta política aplica desde su fecha de publicación y puede ser modificada. Los cambios sustanciales se reflejarán en la fecha de última actualización de este documento.",
+        "Cuando envías el formulario, nos escribes por WhatsApp o por correo, nos autorizas a tratar los datos que compartes para atender tu solicitud y hacerle seguimiento. Esa conducta equivale a la autorización prevista en el artículo 7 del Decreto 1377 de 2013, y por eso el formulario lo recuerda justo antes del botón de envío.",
+        "Para cualquier finalidad distinta de las informadas pediremos una autorización nueva. Puedes revocar tu autorización en cualquier momento, salvo cuando exista un deber legal o contractual de conservar los datos.",
+      ],
+    },
+    {
+      heading: "8. Datos sensibles y de menores",
+      paragraphs: [
+        "Este sitio no solicita datos sensibles. Te pedimos no incluir en tus mensajes información de salud, biométrica u otra de carácter sensible. No estás obligado a entregar datos sensibles y, si los compartes, solo los usaremos para atender tu solicitud.",
+        "El sitio no está dirigido a menores de edad y no recogemos intencionalmente sus datos.",
+      ],
+    },
+    {
+      heading: "9. Datos tratados en nuestros productos",
+      paragraphs: [
+        "Frente a los datos de las cuentas de nuestros clientes (razón social, NIT, correo y usuarios del panel), Zentral es responsable del tratamiento.",
+        "Frente a los datos de las personas que usan o reciben el servicio de nuestros clientes (los clientes de un comercio en Zentral Loyalty, el personal que marca en Zentral Control o quienes reservan en Zentral Sports), el responsable es la empresa que contrata el producto y Zentral actúa como encargado: trata los datos por cuenta de esa empresa, según sus instrucciones y el contrato. Si eres titular de esos datos, puedes dirigir tu solicitud a esa empresa o a Zentral, y te ayudaremos a que llegue a quien debe resolverla.",
+        "Algunas decisiones de diseño limitan lo que Zentral llega a conocer: en Zentral RIPS los archivos de los pacientes se procesan en el navegador de quien usa la herramienta y no pasan por nuestros servidores; en Zentral Control la verificación con passkey ocurre en el celular de la persona, que conserva su huella o su rostro, y el servidor solo recibe una firma criptográfica; en Zentral Loyalty la promoción del día solo llega a quien autorizó recibir publicidad.",
+      ],
+    },
+    {
+      heading: "10. Con quién compartimos los datos",
+      paragraphs: [
+        "No vendemos ni cedemos datos personales a terceros para sus propios fines. Para operar el sitio usamos proveedores que tratan datos por nuestra cuenta, como encargados, conforme a sus términos de servicio y de tratamiento de datos:",
+      ],
+      items: [
+        "Vercel: alojamiento del sitio y analítica sin cookies.",
+        "Cloudflare: red de entrega, seguridad y analítica sin cookies.",
+        "Resend: envío por correo de los mensajes del formulario.",
+      ],
+    },
+    {
+      heading: "11. Transmisión internacional",
+      paragraphs: [
+        "Estos proveedores pueden tratar los datos en servidores ubicados fuera de Colombia, principalmente en Estados Unidos. Al usar este sitio y sus canales autorizas esa transmisión, que se hace solo para las finalidades de esta política y conforme al artículo 26 de la Ley 1581 de 2012 y los artículos 24 y 25 del Decreto 1377 de 2013.",
+        "Si nos escribes por WhatsApp, la conversación también se rige por las condiciones de WhatsApp, un servicio de Meta que es responsable de su propia plataforma.",
+      ],
+    },
+    {
+      heading: "12. Cuánto tiempo los guardamos",
+      paragraphs: [
+        "Conservamos los datos mientras sean necesarios para la finalidad que justificó recogerlos: los de una solicitud, mientras la atendemos y le hacemos seguimiento; los de clientes y proveedores, durante la relación y después por el tiempo que exigen las normas contables, tributarias y comerciales. Cumplido ese plazo, los suprimimos.",
+      ],
+    },
+    {
+      heading: "13. Seguridad",
+      paragraphs: [
+        "Aplicamos medidas técnicas y administrativas proporcionales al tipo de dato: conexiones cifradas (HTTPS), acceso restringido a quien lo necesita, proveedores de infraestructura con controles de seguridad reconocidos y límites contra el uso abusivo de los formularios. Ningún sistema es infalible; si ocurre un incidente que afecte datos personales, lo informaremos a la Superintendencia de Industria y Comercio como lo exige la ley.",
+      ],
+    },
+    {
+      heading: "14. Tus derechos",
+      paragraphs: [
+        "Como titular, según el artículo 8 de la Ley 1581 de 2012, tienes derecho a:",
+      ],
+      items: [
+        "Conocer, actualizar y rectificar tus datos.",
+        "Solicitar prueba de la autorización que otorgaste.",
+        "Ser informado, previa solicitud, sobre el uso que se ha dado a tus datos.",
+        "Presentar quejas ante la Superintendencia de Industria y Comercio, después de agotar el trámite de consulta o reclamo ante Zentral.",
+        "Revocar la autorización o pedir la supresión de tus datos, cuando no exista un deber legal o contractual de conservarlos.",
+        "Acceder a tus datos de forma gratuita, al menos una vez cada mes calendario y cada vez que esta política cambie de forma sustancial.",
+      ],
+    },
+    {
+      heading: "15. Quién atiende tus solicitudes",
+      paragraphs: [
+        "La gerencia de Zentral Solutions S.A.S. atiende las consultas y reclamos sobre datos personales. Escríbenos a contacto@zentral.com.co con el asunto «Datos personales», o envía tu solicitud por escrito a Calle 81 # 59-20, apartamento 401, Barranquilla. Pueden presentarla el titular, sus causahabientes, su representante o apoderado, o quien actúe por estipulación a favor de otro.",
+      ],
+    },
+    {
+      heading: "16. Procedimiento para consultas y reclamos",
+      paragraphs: [
+        "Consultas: si quieres saber qué datos tuyos tenemos o cómo los usamos, respondemos en un máximo de 10 días hábiles desde que recibimos la solicitud. Si no alcanzamos, te avisamos el motivo antes del vencimiento y respondemos dentro de los 5 días hábiles siguientes.",
+        "Reclamos: si consideras que tus datos deben corregirse, actualizarse o suprimirse, o que se incumplió la ley, envía un reclamo con tu identificación, la descripción de los hechos, la dirección donde quieres recibir respuesta y los documentos que quieras aportar. Si el reclamo está incompleto, te lo diremos dentro de los 5 días siguientes para que lo completes; si pasan 2 meses sin que lo hagas, se entenderá que desististe. Mientras lo resolvemos, los datos quedarán marcados como «reclamo en trámite». Respondemos en un máximo de 15 días hábiles; si no alcanzamos, te avisamos el motivo y respondemos dentro de los 8 días hábiles siguientes.",
+        "La supresión o la revocatoria no proceden cuando exista un deber legal o contractual de conservar los datos.",
+      ],
+    },
+    {
+      heading: "17. Vigencia y cambios",
+      paragraphs: [
+        "Esta política rige desde el 24 de septiembre de 2026. Las bases de datos se mantienen mientras subsistan las finalidades descritas en ella. Si la cambiamos de forma sustancial, publicaremos la nueva versión en esta página con su fecha y lo comunicaremos antes de aplicarla.",
       ],
     },
   ],

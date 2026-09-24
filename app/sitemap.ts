@@ -6,9 +6,7 @@ import { siteConfig } from "@/config/site";
 /**
  * Sitemap del sitio. Cuatro reglas sostienen este archivo:
  *
- * 1. Solo entran URLs indexables que devuelven 200. `/privacidad` queda fuera
- *    a propósito: está marcada `noindex, follow`, y declarar en el sitemap una
- *    página que se le pide a Google no indexar es una señal contradictoria.
+ * 1. Solo entran URLs indexables que devuelven 200.
  *
  * 2. Las rutas dinámicas se derivan de los mismos arrays que alimentan
  *    `generateStaticParams`, así que añadir un servicio o un artículo lo mete
@@ -36,6 +34,9 @@ const resourcesIndexLastModified =
       article.lastModified > latest ? article.lastModified : latest,
     "",
   ) || HOME_LAST_MODIFIED;
+
+/** Fecha en que entró a regir la política vigente. */
+const PRIVACY_LAST_MODIFIED = "2026-09-24";
 
 /** Mismo criterio para /productos: se mueve con el producto editado más reciente. */
 const productsIndexLastModified =
@@ -71,5 +72,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${siteConfig.url}/recursos/${article.slug}`,
       lastModified: article.lastModified,
     })),
+    {
+      url: `${siteConfig.url}/privacidad`,
+      lastModified: PRIVACY_LAST_MODIFIED,
+    },
   ];
 }
