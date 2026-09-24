@@ -1,9 +1,11 @@
-import { solutions } from "@/config/content";
+import { servicePages } from "@/config/content";
+import { products } from "@/config/products";
 import { siteConfig } from "@/config/site";
 
 /**
- * Datos estructurados schema.org (§14 del spec): Organization, WebSite y el
- * OfferCatalog de servicios. Se emiten en un solo bloque `@graph` para que
+ * Datos estructurados schema.org: Organization, WebSite y el OfferCatalog de
+ * servicios. Cada producto emite además su SoftwareApplication en su propia
+ * página (ver `ProductSchema`). Se emiten en un solo bloque `@graph` para que
  * las entidades puedan referenciarse entre sí por `@id`.
  *
  * El BreadcrumbList vive aparte, en `BreadcrumbSchema`: es específico de
@@ -48,11 +50,17 @@ export function StructuredData() {
           { "@type": "Place", name: "Latinoamérica" },
         ],
         knowsAbout: [
+          "Desarrollo de software a la medida",
+          "Software como servicio (SaaS)",
+          "RIPS",
+          "Programas de lealtad digitales",
+          "Control de asistencia por GPS",
           "Automatización de procesos",
           "Integración de sistemas",
-          "Agentes IA",
-          "Desarrollo de software a la medida",
         ],
+        owns: products.map((product) => ({
+          "@id": `${siteConfig.url}/productos/${product.slug}#software`,
+        })),
         sameAs: Object.values(siteConfig.social).filter(
           (href) => href.length > 0,
         ),
@@ -69,14 +77,15 @@ export function StructuredData() {
       {
         "@type": "OfferCatalog",
         "@id": `${siteConfig.url}/#servicios`,
-        name: "Soluciones Zentral",
-        itemListElement: solutions.map((s, i) => ({
+        name: "Servicios Zentral",
+        itemListElement: servicePages.map((service, i) => ({
           "@type": "Offer",
           position: i + 1,
           itemOffered: {
             "@type": "Service",
-            name: s.title,
-            description: s.description,
+            name: service.heroTitle,
+            description: service.heroSubtitle,
+            url: `${siteConfig.url}/servicios/${service.slug}`,
             provider: { "@id": `${siteConfig.url}/#organization` },
             areaServed: [
               { "@type": "Country", name: "Colombia" },

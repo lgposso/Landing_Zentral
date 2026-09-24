@@ -23,7 +23,7 @@ export const metadata: Metadata = {
  */
 export default function PrivacidadPage() {
   return (
-    <Container className="py-20 lg:py-28">
+    <Container className="pb-20 pt-28 lg:pb-28 lg:pt-36">
       <h1 className="text-h2 font-extrabold tracking-tight text-foreground">
         {privacyPolicy.title}
       </h1>
@@ -32,7 +32,7 @@ export default function PrivacidadPage() {
         Última actualización: {privacyPolicy.lastUpdated}
       </p>
 
-      <div className="mt-6 rounded-lg border border-border bg-primary/10 p-6 text-small text-foreground">
+      <div className="mt-6 rounded-card bg-surface p-6 text-small text-foreground">
         <strong className="font-semibold">Borrador sin validar:</strong>{" "}
         {privacyPolicy.intro}
       </div>

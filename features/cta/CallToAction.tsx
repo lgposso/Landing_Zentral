@@ -1,38 +1,54 @@
 import { PrimaryCtaButton } from "@/components/cta/PrimaryCtaButton";
 import { Container } from "@/components/ui/Container";
-import { Reveal } from "@/components/ui/Reveal";
 import { ctaCopy } from "@/config/content";
 import { ContactForm } from "@/features/contact-form/ContactForm";
 
+/**
+ * La terminal: el cierre de la página sobre el campo azul de Zentral, con
+ * WhatsApp como camino principal y el formulario para quien prefiere el
+ * correo.
+ */
 export function CallToAction() {
   return (
     <section
       id="contacto"
-      className="relative py-24 md:py-32 lg:py-[140px]"
+      aria-labelledby="contacto-title"
+      className="bg-primary py-20 text-white md:py-28"
     >
       <Container>
-        {/* Encerrado en el mismo marco azul que las rejillas: el cierre de la
-            página usa el lenguaje visual del resto, no uno propio. */}
-        <Reveal className="border border-primary/25 px-8 py-20 text-center md:px-16 md:py-24">
-          <h2 className="mx-auto max-w-3xl text-h1">
-            <span className="block text-foreground">Hablemos de tu operación,</span>
-            <span className="block text-primary-hover">no de tecnología.</span>
-          </h2>
+        {/* La línea a la medida, punteada, llega a su terminal: esta
+            conversación es donde empieza a construirse. */}
+        <div aria-hidden="true" className="mb-12 flex items-center md:mb-16">
+          <span
+            className="h-2 flex-1"
+            style={{
+              backgroundImage:
+                "repeating-linear-gradient(90deg, #ffffff 0 14px, transparent 14px 24px)",
+            }}
+          />
+          <span className="block size-11 shrink-0 rounded-full border-[9px] border-white bg-primary" />
+        </div>
+      </Container>
 
-          <p className="mx-auto mt-8 max-w-2xl text-body text-muted">
+      <Container className="grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-10">
+        <div className="lg:col-span-5">
+          <h2 id="contacto-title" className="text-h1 text-white">
+            {ctaCopy.title}
+          </h2>
+          <p className="mt-6 max-w-[42ch] text-body text-white">
             {ctaCopy.subtitle}
           </p>
-
-          <div className="mt-12 flex justify-center">
-            <PrimaryCtaButton location="cta-final" size="lg" />
+          <div className="mt-10">
+            <PrimaryCtaButton location="cta-final" size="lg" variant="inverse" />
           </div>
+          <p className="mt-6 max-w-[40ch] text-small text-white">
+            {ctaCopy.note}
+          </p>
+        </div>
 
-          <p className="mt-8 text-sm text-muted">{ctaCopy.note}</p>
-
-          <div className="zentral-rule mt-16" />
-
+        <div className="rounded-card bg-background p-6 text-foreground md:p-10 lg:col-span-7">
           <ContactForm />
-        </Reveal>
+        </div>
       </Container>
     </section>
   );

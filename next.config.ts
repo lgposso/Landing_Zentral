@@ -17,9 +17,14 @@ import type { NextConfig } from "next";
  * directiva sirve: connect-src corta la exfiltración a dominios ajenos, que es
  * lo que un XSS necesita para ser útil.
  */
+/* `next dev` evalúa código para el recargado en caliente y React Refresh: sin
+   'unsafe-eval' la página nunca se hidrata en local (menús y formularios
+   muertos). Solo en desarrollo; la política de producción no cambia. */
+const devEval = process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : "";
+
 const CSP = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com",
+  `script-src 'self' 'unsafe-inline'${devEval} https://static.cloudflareinsights.com`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self'",

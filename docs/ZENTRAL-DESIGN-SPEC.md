@@ -1,5 +1,7 @@
 # ZENTRAL DESIGN SPECIFICATION v1.0
 
+> **Superseded (September 2026).** This document describes the previous visual system (black ground, blue as the only accent, Manrope/Inter) and the automation-first positioning. The current system is "Mapa de red" and lives in [`DESIGN.md`](../DESIGN.md); product truth lives in [`PRODUCT.md`](../PRODUCT.md). Kept as a historical record.
+
 > **Mission:** Build a premium technology brand that communicates engineering excellence, trust and execution.
 
 ---

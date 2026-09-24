@@ -1,68 +1,96 @@
 @import "tailwindcss";
 
 /* ============================================================================
-   ZENTRAL DESIGN SYSTEM — fuente de verdad de tokens.
-   Valores tomados literalmente de ZENTRAL-DESIGN-SPEC v1.0 (§5, §6, §7, §10).
-   Este bloque se reutiliza tal cual en el resto del ecosistema Zentral
-   (dashboard, CRM, portal de cliente).
+   ZENTRAL — «Mapa de red»
+   Fuente de verdad de tokens. El sitio se dibuja como un sistema de
+   transporte: Zentral es el intercambiador y cada producto es una línea.
+
+   Reglas del mundo (ver DESIGN.md):
+   - Siempre oscuro: fondo casi negro y texto casi blanco, como el mapa de
+     noche de un sistema de transporte. Decisión de marca, sin modo claro.
+   - El azul de marca #2563EB es la línea de Zentral y el color de acción.
+   - Cada producto tiene su color de línea. Los colores de línea son para
+     trazos, viñetas y marcas, nunca para texto corrido.
+   - Formas: círculos para líneas y estaciones, 10px para controles, 16px
+     para paneles. Nada más.
    ========================================================================= */
 
 @theme {
-  /* --- Color (§5). El azul es el ÚNICO color de énfasis. -------------- */
+  /* --- Superficies y tinta ------------------------------------------ */
   --color-background: #0a0a0a;
-  --color-surface: #111111;
-  --color-card: #171717;
-  --color-border: #27272a;
-  --color-primary: #2563eb;
-  --color-primary-hover: #3b82f6;
-  --color-foreground: #ffffff;
+  /* Andén de noche: paneles informativos, muestras y el pie. */
+  --color-surface: #141414;
+  --color-card: #141414;
+  --color-border: #2a2a2e;
+  --color-foreground: #fafafa;
+  /* Texto secundario: 7.7:1 sobre el fondo, 7.2:1 sobre el andén. */
   --color-muted: #a1a1aa;
 
-  /* --- Tipografía (§6) ----------------------------------------------- */
-  --font-heading: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  /* --- Marca y acción ----------------------------------------------- */
+  --color-primary: #2563eb;
+  /* Fondo del botón al pasar el cursor: oscurece para que el texto blanco
+     siga en 6.7:1. */
+  --color-primary-hover: #1d4ed8;
+  /* Enlaces de texto sobre negro: el azul de marca da 3.8:1 y no alcanza
+     para texto, este da 7.8:1. */
+  --color-link: #60a5fa;
 
-  /* Escala del spec: Hero 72 / H1 56 / H2 42 / H3 28 / Body 18 / Small 16.
-     Con clamp() para degradar a móvil sin provocar CLS. */
-  --text-hero: clamp(2.5rem, 1.45rem + 4.4vw, 4.5rem); /* → 72px */
-  --text-hero--line-height: 1.04;
+  /* --- Colores de línea (5 a 7:1 sobre el fondo; ninguna domina) ------ */
+  --color-line-loyalty: #f23d6d;
+  --color-line-rips: #17a673;
+  --color-line-sports: #ee7a1c;
+  --color-line-control: #9164f2;
+  /* La línea a la medida es el azul de marca, fijo (3.8:1 como trazo). */
+  --color-line-custom: #2563eb;
+  /* Ramales secundarios: servicios y conexiones. */
+  --color-line-neutral: #6b7280;
+
+  /* --- Tipografía -----------------------------------------------------
+     Overpass desciende de Highway Gothic, la letra de la señalización vial
+     colombiana. Overpass Mono solo para datos: códigos, horas, normas. */
+  --font-heading: var(--font-overpass), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-overpass), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-overpass-mono), ui-monospace, monospace;
+
+  --text-hero: clamp(2.5rem, 1.15rem + 4.6vw, 5rem); /* → 80px */
+  --text-hero--line-height: 1;
   --text-hero--letter-spacing: -0.035em;
 
-  --text-h1: clamp(2.125rem, 1.35rem + 3.2vw, 3.5rem); /* → 56px */
-  --text-h1--line-height: 1.08;
+  --text-h1: clamp(2.25rem, 1.45rem + 3vw, 3.75rem); /* → 60px */
+  --text-h1--line-height: 1.02;
   --text-h1--letter-spacing: -0.03em;
 
-  --text-h2: clamp(1.75rem, 1.25rem + 2.1vw, 2.625rem); /* → 42px */
-  --text-h2--line-height: 1.12;
+  --text-h2: clamp(2rem, 1.35rem + 2.4vw, 3.25rem); /* → 52px */
+  --text-h2--line-height: 1.04;
   --text-h2--letter-spacing: -0.028em;
 
-  --text-h3: clamp(1.375rem, 1.15rem + 0.95vw, 1.75rem); /* → 28px */
-  --text-h3--line-height: 1.22;
-  --text-h3--letter-spacing: -0.02em;
+  --text-h3: clamp(1.3rem, 1.15rem + 0.55vw, 1.625rem); /* → 26px */
+  --text-h3--line-height: 1.18;
+  --text-h3--letter-spacing: -0.015em;
 
   --text-body: 1.125rem; /* 18px */
-  --text-body--line-height: 1.65;
+  --text-body--line-height: 1.6;
 
   --text-small: 1rem; /* 16px */
-  --text-small--line-height: 1.6;
+  --text-small--line-height: 1.55;
 
-  /* --- Radios (§10) --------------------------------------------------- */
-  --radius-button: 16px;
-  --radius-card: 24px;
+  /* --- Radios -------------------------------------------------------- */
+  --radius-button: 10px;
+  --radius-card: 16px;
 
-  /* --- Espaciado (§7): 8 / 16 / 24 / 32 / 48 / 64 / 96 / 128 ---------- */
-  --spacing-section: 140px;
-
-  /* --- Motion (§11) --------------------------------------------------- */
+  /* --- Motion -------------------------------------------------------- */
   --ease-zentral: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Ease-out fuerte para respuestas a la interacción. */
+  --ease-snap: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    /* Compensa el navbar fijo (104px) al saltar a un ancla, con holgura. */
-    scroll-padding-top: 128px;
+    /* Compensa el navbar fijo (72px) al saltar a un ancla, con holgura. */
+    scroll-padding-top: 96px;
     -webkit-text-size-adjust: 100%;
+    color-scheme: dark;
   }
 
   body {
@@ -70,12 +98,12 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     font-size: var(--text-body);
-    line-height: 1.65;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    /* Nunca permitir scroll horizontal accidental. */
     overflow-x: hidden;
+    caret-color: var(--color-primary);
   }
 
   h1,
@@ -85,7 +113,7 @@
   h5,
   h6 {
     font-family: var(--font-heading);
-    font-weight: 800; /* Manrope ExtraBold (§6) */
+    font-weight: 800;
     text-wrap: balance;
   }
 
@@ -93,20 +121,23 @@
     text-wrap: pretty;
   }
 
+  a {
+    text-underline-offset: 0.22em;
+    text-decoration-thickness: 1.5px;
+  }
+
   ::selection {
     background-color: var(--color-primary);
     color: #ffffff;
   }
 
-  /* Foco visible en todo elemento interactivo (§12 accesibilidad). */
   :focus-visible {
-    outline: 2px solid var(--color-primary);
+    /* El azul de marca sobre negro queda en 3.8:1; el de enlace se ve mejor. */
+    outline: 2.5px solid var(--color-link);
     outline-offset: 3px;
     border-radius: 6px;
   }
 
-  /* El spec exige que la motion tenga propósito; si el usuario la
-     desactiva a nivel de sistema, la respetamos por completo. */
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
@@ -115,6 +146,7 @@
     *::before,
     *::after {
       animation-duration: 0.01ms !important;
+      animation-delay: 0ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
@@ -123,88 +155,352 @@
 }
 
 /* ============================================================================
-   Utilidades de marca
+   Componentes del mundo
    ========================================================================= */
 
 @layer components {
-  /* El fondo del sitio es negro puro y no lleva ninguna capa ambiente: ni
-     retícula, ni auroras, ni grano. El azul de marca vive únicamente en los
-     objetos — iconos, líneas de las rejillas, títulos de acento y botones.
-     (Hubo una capa ambiente; se retiró porque cualquier color repartido a baja
-     opacidad sobre negro se lee como gris y ensuciaba la marca.) */
-
-  /* Foco que sigue al cursor dentro de una celda. Las coordenadas las escribe
-     un único listener global (ver PointerSpotlight) en las variables
-     --spot-x / --spot-y, para no montar un handler por celda. */
-  .zentral-spotlight {
-    position: relative;
+  /* Cifras de datos (horas, códigos, normas). */
+  .zentral-data {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0;
   }
 
-  .zentral-spotlight::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: radial-gradient(
-      300px circle at var(--spot-x, 50%) var(--spot-y, 50%),
-      rgba(59, 130, 246, 0.15),
-      transparent 64%
-    );
-    opacity: 0;
-    transition: opacity 400ms var(--ease-zentral);
-    pointer-events: none;
-  }
-
-  .zentral-spotlight:hover::after {
-    opacity: 1;
-  }
-
-  /* Eleva el contenido por encima del foco, sin sacarlo del flujo — así no
-     se rompen los layouts flex de las tarjetas. */
-  .zentral-spotlight > * {
-    position: relative;
-    z-index: 1;
-  }
-
-  /* Resplandor azul de fondo. El azul es el único acento permitido. */
-  .zentral-glow {
-    background: radial-gradient(
-      circle at center,
-      rgba(37, 99, 235, 0.16) 0%,
-      rgba(37, 99, 235, 0.06) 35%,
-      transparent 70%
-    );
-  }
-
-  /* Línea divisoria que se desvanece en los extremos. */
-  .zentral-rule {
-    height: 1px;
-    background: linear-gradient(
-      to right,
-      transparent,
-      var(--color-border) 15%,
-      var(--color-border) 85%,
-      transparent
-    );
-  }
-
-  /* Etiquetas técnicas: numeración de sección, categorías, entregables.
-     Fuerza la fuente de texto aunque la etiqueta sea un <h2>/<h3>: de Manrope
-     sólo cargamos 700 y 800, así que un peso 600 se sintetizaría. */
+  /* Etiqueta pequeña de señalética. Solo para rótulos de datos dentro de un
+     componente (p. ej. «Plazo»), nunca como antetítulo de una sección. */
   .zentral-label {
     font-family: var(--font-sans);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    font-variant-numeric: tabular-nums;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .zentral-rule {
+    height: 1px;
+    background: var(--color-border);
+  }
+
+  /* --------------------------------------------------------------------
+     Mapa de red (Zentral Core)
+     Las líneas se dibujan desde el intercambiador hacia afuera una sola
+     vez; luego cada línea lleva un tren que va y viene despacio. Al
+     señalar un producto (cursor o foco) su línea se ensancha, las demás
+     se apagan y sale un expreso hasta la terminal.
+     ------------------------------------------------------------------ */
+  .network-route {
+    transition: opacity 200ms var(--ease-snap);
+  }
+
+  .network-route .route-line {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 0;
+    animation: route-draw 1100ms var(--ease-zentral) both;
+    animation-delay: calc(120ms + var(--i, 0) * 110ms);
+  }
+
+  .network-route .route-line[data-dashed] {
+    stroke-dasharray: 6 5;
+    animation: route-fade 700ms var(--ease-zentral) both;
+    animation-delay: calc(120ms + var(--i, 0) * 110ms);
+  }
+
+  .network-route .route-stop {
+    animation: route-fade 400ms var(--ease-zentral) both;
+    animation-delay: calc(700ms + var(--i, 0) * 110ms);
+  }
+
+  .network-route .route-train {
+    stroke-dasharray: 5 200;
+    stroke-dashoffset: 5;
+    animation: route-train 9s linear infinite;
+    animation-delay: calc(1800ms + var(--i, 0) * 1700ms);
+  }
+
+  /* Trazo grueso de la línea activa: aparece por opacidad en vez de animar
+     el grosor, que obligaría a repintar el trazo en cada cuadro. */
+  .network-route .route-bold {
+    opacity: 0;
+    transition: opacity 200ms var(--ease-snap);
+  }
+
+  .network-route .route-express {
+    stroke-dasharray: 9 200;
+    stroke-dashoffset: 9;
+    opacity: 0;
+  }
+
+  /* `backwards` y no `both`: al terminar, la opacidad vuelve a mandar el CSS
+     y el rótulo se puede atenuar cuando se señala otra línea. */
+  .network-label {
+    animation: route-fade 500ms var(--ease-zentral) backwards;
+    animation-delay: calc(820ms + var(--i, 0) * 110ms);
+  }
+
+  .network-hub {
+    animation: hub-in 600ms var(--ease-zentral) both;
+  }
+
+  @keyframes route-draw {
+    from {
+      stroke-dashoffset: 100;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes route-fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes hub-in {
+    from {
+      opacity: 0;
+      transform: scale(0.86);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes route-train {
+    0% {
+      stroke-dashoffset: 5;
+    }
+    45%,
+    100% {
+      stroke-dashoffset: -100;
+    }
+  }
+
+  @keyframes route-express {
+    0% {
+      opacity: 1;
+      stroke-dashoffset: 9;
+    }
+    85% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      stroke-dashoffset: -100;
+    }
+  }
+
+  /* Estado activo por línea. `:has` deja que el rótulo HTML (el enlace
+     accesible) gobierne el trazo SVG que tiene al lado. El cursor solo cuenta
+     en dispositivos con cursor fino: en táctil el :hover se queda pegado al
+     volver atrás y dejaría el mapa apagado. El foco de teclado cuenta siempre. */
+  .network:has([data-line]:focus-visible) .network-route {
+    opacity: 0.16;
+  }
+  .network:has([data-line="loyalty"]:focus-visible) [data-route="loyalty"],
+  .network:has([data-line="rips"]:focus-visible) [data-route="rips"],
+  .network:has([data-line="sports"]:focus-visible) [data-route="sports"],
+  .network:has([data-line="control"]:focus-visible) [data-route="control"],
+  .network:has([data-line="custom"]:focus-visible) [data-route="custom"] {
+    opacity: 1;
+  }
+  .network:has([data-line="loyalty"]:focus-visible) [data-route="loyalty"] .route-bold,
+  .network:has([data-line="rips"]:focus-visible) [data-route="rips"] .route-bold,
+  .network:has([data-line="sports"]:focus-visible) [data-route="sports"] .route-bold,
+  .network:has([data-line="control"]:focus-visible) [data-route="control"] .route-bold,
+  .network:has([data-line="custom"]:focus-visible) [data-route="custom"] .route-bold {
+    opacity: 1;
+  }
+  .network:has([data-line="loyalty"]:focus-visible) [data-route="loyalty"] .route-express,
+  .network:has([data-line="rips"]:focus-visible) [data-route="rips"] .route-express,
+  .network:has([data-line="sports"]:focus-visible) [data-route="sports"] .route-express,
+  .network:has([data-line="control"]:focus-visible) [data-route="control"] .route-express,
+  .network:has([data-line="custom"]:focus-visible) [data-route="custom"] .route-express {
+    animation: route-express 700ms var(--ease-snap) both;
+  }
+  .network:has([data-line]:focus-visible) .network-label:not(:focus-visible) {
+    opacity: 0.45;
+    transition: opacity 200ms var(--ease-snap);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .network:has([data-line]:hover) .network-route {
+      opacity: 0.16;
+    }
+    .network:has([data-line="loyalty"]:hover) [data-route="loyalty"],
+    .network:has([data-line="rips"]:hover) [data-route="rips"],
+    .network:has([data-line="sports"]:hover) [data-route="sports"],
+    .network:has([data-line="control"]:hover) [data-route="control"],
+    .network:has([data-line="custom"]:hover) [data-route="custom"] {
+      opacity: 1;
+    }
+    .network:has([data-line="loyalty"]:hover) [data-route="loyalty"] .route-bold,
+    .network:has([data-line="rips"]:hover) [data-route="rips"] .route-bold,
+    .network:has([data-line="sports"]:hover) [data-route="sports"] .route-bold,
+    .network:has([data-line="control"]:hover) [data-route="control"] .route-bold,
+    .network:has([data-line="custom"]:hover) [data-route="custom"] .route-bold {
+      opacity: 1;
+    }
+    .network:has([data-line="loyalty"]:hover) [data-route="loyalty"] .route-express,
+    .network:has([data-line="rips"]:hover) [data-route="rips"] .route-express,
+    .network:has([data-line="sports"]:hover) [data-route="sports"] .route-express,
+    .network:has([data-line="control"]:hover) [data-route="control"] .route-express,
+    .network:has([data-line="custom"]:hover) [data-route="custom"] .route-express {
+      animation: route-express 700ms var(--ease-snap) both;
+    }
+    .network:has([data-line]:hover) .network-label:not(:hover) {
+      opacity: 0.45;
+      transition: opacity 200ms var(--ease-snap);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .network-route .route-train,
+    .network-route .route-express {
+      display: none;
+    }
+  }
+
+  /* El menú «Productos» también señala: sobre la home, pasar por una línea
+     del menú apaga las demás en el mapa. */
+  body:has([data-nav-line="loyalty"]:focus-visible) .network [data-route]:not([data-route="loyalty"]),
+  body:has([data-nav-line="rips"]:focus-visible) .network [data-route]:not([data-route="rips"]),
+  body:has([data-nav-line="sports"]:focus-visible) .network [data-route]:not([data-route="sports"]),
+  body:has([data-nav-line="control"]:focus-visible) .network [data-route]:not([data-route="control"]) {
+    opacity: 0.16;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    body:has([data-nav-line="loyalty"]:hover) .network [data-route]:not([data-route="loyalty"]),
+    body:has([data-nav-line="rips"]:hover) .network [data-route]:not([data-route="rips"]),
+    body:has([data-nav-line="sports"]:hover) .network [data-route]:not([data-route="sports"]),
+    body:has([data-nav-line="control"]:hover) .network [data-route]:not([data-route="control"]) {
+      opacity: 0.16;
+    }
+  }
+
+  /* Filas de producto: la fila señalada lleva su tren y las demás franjas se
+     apagan. Mismo gesto que el mapa, en otra escala. */
+  .strip-track {
+    transition:
+      opacity 200ms var(--ease-snap),
+      transform 200ms var(--ease-snap);
+  }
+  .strip-train {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .strip-train > span {
+    position: absolute;
+    top: 1.5px;
+    bottom: 1.5px;
+    left: 0;
+    width: 40px;
+    border-radius: 9999px;
+    background: var(--color-foreground);
+  }
+  @keyframes strip-run {
+    0% {
+      opacity: 1;
+      transform: translateX(-6%);
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+  }
+  .product-lines:has(> li:focus-within) > li:not(:focus-within) .strip-track {
+    opacity: 0.2;
+  }
+  .product-lines > li:focus-within .strip-track {
+    transform: scaleY(1.5);
+  }
+  .product-lines > li:focus-within .strip-train {
+    animation: strip-run 900ms var(--ease-snap) both;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .product-lines:has(> li:hover) > li:not(:hover) .strip-track {
+      opacity: 0.2;
+    }
+    .product-lines > li:hover .strip-track {
+      transform: scaleY(1.5);
+    }
+    .product-lines > li:hover .strip-train {
+      animation: strip-run 900ms var(--ease-snap) both;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .strip-train {
+      display: none;
+    }
+  }
+
+  /* --------------------------------------------------------------------
+     Mapa de franja (strip map): una línea recta con sus estaciones, como el
+     esquema sobre las puertas del vagón. Se traza al entrar en pantalla
+     cuando el navegador tiene animaciones ligadas al scroll; si no, se ve
+     completo desde el principio.
+     ------------------------------------------------------------------ */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .strip-draw {
+        transform-origin: left center;
+        animation: strip-draw linear both;
+        animation-timeline: view();
+        animation-range: entry 10% cover 40%;
+      }
+      .strip-draw-y {
+        transform-origin: center top;
+        animation: strip-draw-y linear both;
+        animation-timeline: view();
+        animation-range: entry 10% cover 45%;
+      }
+      /* La línea a la medida pasa de «en construcción» a construida. */
+      .strip-build {
+        transform-origin: left center;
+        animation: strip-draw linear both;
+        animation-timeline: view();
+        animation-range: entry 30% cover 60%;
+      }
+      .strip-build-y {
+        transform-origin: center top;
+        animation: strip-draw-y linear both;
+        animation-timeline: view();
+        animation-range: entry 20% cover 60%;
+      }
+    }
+  }
+
+  @keyframes strip-draw {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes strip-draw-y {
+    from {
+      transform: scaleY(0);
+    }
+    to {
+      transform: scaleY(1);
+    }
   }
 }
 
-/* Barra de scroll acorde al tema oscuro. */
+/* Barra de scroll en la paleta del sitio. */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
 }
 ::-webkit-scrollbar-track {
   background: var(--color-background);
@@ -212,7 +508,7 @@
 ::-webkit-scrollbar-thumb {
   background: var(--color-border);
   border-radius: 9999px;
-  border: 2px solid var(--color-background);
+  border: 3px solid var(--color-background);
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #3f3f46;

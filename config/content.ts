@@ -1,21 +1,18 @@
 import type {
-  CoreNode,
-  FeatureItem,
   ProcessStep,
   ResourceArticle,
   SectionCopy,
   ServicePage,
   TechGroup,
-  UseCase,
 } from "@/types";
 
 /**
- * Todo el copy de la landing, en un solo lugar.
+ * Todo el copy del sitio, en un solo lugar (los productos viven aparte, en
+ * `config/products.ts`).
  *
- * Redactado según §13 del spec: siempre hablar del beneficio empresarial.
- * Preferir "sistemas inteligentes / automatización / integraciones /
- * productividad / ingeniería". Evitar "revolucionario", "IA mágica",
- * "innovación disruptiva" y cualquier promesa exagerada.
+ * Voz (PRODUCT.md): hablar del beneficio para el negocio en español claro.
+ * Evitar "revolucionario", "IA mágica", "innovación disruptiva" y cualquier
+ * promesa exagerada. Decir lo que existe hoy y rotular lo que viene.
  *
  * Para editar textos, hazlo aquí — no en el JSX.
  */
@@ -25,260 +22,151 @@ import type {
 /* -------------------------------------------------------------------------- */
 
 export const hero = {
-  title: "Diseñamos sistemas inteligentes que trabajan por tu empresa.",
+  title: "Software para problemas concretos.",
+  /** Máximo 20 palabras: es lo que se alcanza a leer antes de decidir. */
   subtitle:
-    "Automatizamos procesos, conectamos herramientas y desarrollamos soluciones de software que eliminan tareas repetitivas y permiten escalar con eficiencia.",
-  /** Barra de capacidades bajo los botones. Refuerza el posicionamiento. */
-  capabilities: [
-    "Automatización",
-    "Agentes IA",
-    "Integraciones",
-    "Software a la medida",
-  ],
+    "Cuatro productos propios para salud, comercio, deporte y operación. Y desarrollo a la medida para lo que ningún producto resuelve.",
 };
 
-/** Nodos del diagrama "Zentral Core" (§8 del spec). */
-export const coreNodes: CoreNode[] = [
-  { label: "CRM", icon: "users", angle: 205 },
-  { label: "ERP", icon: "boxes", angle: 258 },
-  { label: "WhatsApp", icon: "messageCircle", angle: 309 },
-  { label: "OpenAI", icon: "sparkles", angle: 0 },
-  { label: "API", icon: "webhook", angle: 51 },
-  { label: "Correo", icon: "mail", angle: 102 },
-  { label: "Dashboard", icon: "layoutDashboard", angle: 154 },
-];
-
 /* -------------------------------------------------------------------------- */
-/* 01 — Problema                                                               */
+/* 01 — Productos                                                              */
 /* -------------------------------------------------------------------------- */
 
-export const problemCopy: SectionCopy = {
-  title: "El trabajo manual",
-  titleAccent: "no escala.",
+export const productsCopy: SectionCopy = {
+  title: "Cuatro productos,",
+  titleAccent: "cuatro problemas resueltos.",
   subtitle:
-    "La mayoría de las empresas no tienen un problema de esfuerzo. Tienen un problema de sistemas.",
+    "Cada uno nació de un trabajo que se hacía a mano. Los construimos, los operamos y los seguimos mejorando.",
 };
 
-export const problems: FeatureItem[] = [
-  {
-    icon: "clipboardList",
-    title: "Procesos manuales",
-    description:
-      "Tu equipo copia datos entre planillas, correos y sistemas. Horas que no generan valor y errores que sí cuestan.",
-  },
-  {
-    icon: "unplug",
-    title: "Herramientas desconectadas",
-    description:
-      "El CRM no habla con el ERP y el ERP no habla con facturación. Cada integración pendiente es información que se pierde en el camino.",
-  },
-  {
-    icon: "layers",
-    title: "Información dispersa",
-    description:
-      "Los datos existen, pero viven en seis lugares distintos. Nadie sabe con certeza cuál es la versión correcta.",
-  },
-  {
-    icon: "compass",
-    title: "Decisiones sin datos",
-    description:
-      "Sin trazabilidad ni indicadores al día, las decisiones dependen de la intuición y de reportes que llegan tarde.",
-  },
-];
-
 /* -------------------------------------------------------------------------- */
-/* 02 — Soluciones                                                             */
+/* 02 — Desarrollo a la medida                                                 */
 /* -------------------------------------------------------------------------- */
 
-export const solutionsCopy: SectionCopy = {
-  title: "Sistemas que resuelven",
-  titleAccent: "problemas reales.",
+export const customDevCopy: SectionCopy = {
+  title: "Desarrollo",
+  titleAccent: "a la medida.",
   subtitle:
-    "No entregamos herramientas sueltas. Diseñamos la capa que conecta y opera tu negocio.",
+    "Para el proceso que ningún producto resuelve: lo diseñamos contigo, lo construimos por entregas y el código queda a tu nombre.",
 };
 
-export const solutions: FeatureItem[] = [
+/** Lo que se construye a la medida. */
+export const customDevKinds = [
   {
-    icon: "workflow",
-    title: "Automatización de procesos",
+    title: "Plataformas y productos SaaS",
     description:
-      "Flujos que ejecutan solos las tareas repetitivas: validaciones, notificaciones, cargues, reportes y seguimientos.",
+      "Tu propio producto de software, con usuarios, roles y cobro, construido con la misma ingeniería que los nuestros.",
   },
   {
-    icon: "messagesSquare",
-    title: "Agentes IA",
-    description:
-      "Asistentes que atienden, califican y responden con el contexto de tu operación. Con reglas claras y supervisión humana.",
-  },
-  {
-    icon: "waypoints",
-    title: "Integración de sistemas",
-    description:
-      "Conectamos CRM, ERP, WhatsApp, facturación y APIs de terceros para que la información fluya en una sola dirección.",
-  },
-  {
-    icon: "code",
-    title: "Software a la medida",
-    description:
-      "Aplicaciones construidas para tu operación, no plantillas adaptadas a la fuerza a un proceso que no es el tuyo.",
-  },
-  {
-    icon: "gauge",
-    title: "Dashboards",
-    description:
-      "Indicadores al día sobre datos confiables. Una sola fuente de verdad para decidir sin discutir las cifras.",
-  },
-  {
-    icon: "panels",
     title: "Herramientas internas",
     description:
-      "Paneles de administración, portales de cliente y back-offices que tu equipo usa todos los días sin fricción.",
+      "Paneles de administración y back-offices que reemplazan la hoja de cálculo que sostiene la operación.",
+  },
+  {
+    title: "Portales para clientes y proveedores",
+    description:
+      "Donde tus clientes consultan, solicitan y descargan sin escribirle a nadie de tu equipo.",
+  },
+  {
+    title: "Aplicaciones para el celular",
+    description:
+      "Aplicaciones web instalables para el personal en campo, en caja o en la sede, sin pasar por una tienda de apps.",
   },
 ];
 
-/* -------------------------------------------------------------------------- */
-/* 03 — Cómo trabajamos                                                        */
-/* -------------------------------------------------------------------------- */
-
-export const processCopy: SectionCopy = {
-  title: "Ingeniería antes",
-  titleAccent: "que marketing.",
-  subtitle:
-    "Un proceso corto, medible y sin sorpresas. Sabes qué se construye y por qué antes de que empecemos.",
-};
+/** Datos duros que acompañan el bloque de a la medida. */
+export const customDevFacts = [
+  { label: "Plazo", value: "8 a 16 semanas según el alcance" },
+  { label: "Propiedad", value: "El código fuente es tuyo" },
+  { label: "Cotización", value: "Número cerrado después del diagnóstico" },
+];
 
 export const processSteps: ProcessStep[] = [
   {
     step: "01",
     title: "Diagnóstico",
     description:
-      "Mapeamos tu operación actual, identificamos dónde se pierde tiempo y definimos qué conviene automatizar primero — y qué no.",
-    deliverable: "Mapa de procesos y prioridades",
+      "Entendemos la operación y el problema, y definimos qué conviene construir y qué no. Si un producto existente lo resuelve, te lo decimos.",
+    deliverable: "Alcance escrito y cotización cerrada",
   },
   {
     step: "02",
     title: "Diseño del sistema",
     description:
-      "Definimos arquitectura, integraciones y alcance. Sabes exactamente qué se va a construir antes de escribir la primera línea de código.",
+      "Arquitectura, integraciones y pantallas definidas antes de escribir la primera línea de código.",
     deliverable: "Arquitectura y alcance cerrado",
   },
   {
     step: "03",
-    title: "Implementación",
+    title: "Construcción por ciclos",
     description:
-      "Desarrollo por entregas cortas. Ves avances funcionando en cada ciclo, no presentaciones sobre lo que vendrá.",
+      "Entregas funcionales cada pocas semanas. Ves la aplicación tomando forma y ajustas el rumbo antes de que un malentendido sea caro.",
     deliverable: "Entregas funcionales por ciclo",
   },
   {
     step: "04",
-    title: "Operación y mejora",
+    title: "Operación y evolución",
     description:
-      "Monitoreo, soporte y evolución continua. Un sistema vivo que crece al ritmo de la empresa en lugar de envejecer.",
-    deliverable: "Monitoreo, soporte y evolución",
+      "Lanzamiento, capacitación y soporte. La aplicación sigue creciendo con la empresa en vez de envejecer.",
+    deliverable: "Código, documentación y soporte",
   },
 ];
-
-/* -------------------------------------------------------------------------- */
-/* 04 — Casos de uso                                                           */
-/* -------------------------------------------------------------------------- */
-
-export const useCasesCopy: SectionCopy = {
-  title: "Aplicado a",
-  titleAccent: "operaciones reales.",
-  subtitle:
-    "Los mismos principios de ingeniería, adaptados al proceso de cada sector.",
-};
-
-export const useCases: UseCase[] = [
-  {
-    icon: "truck",
-    sector: "Logística",
-    challenge: "Seguimiento de despachos por WhatsApp y llamadas.",
-    system:
-      "Portal de trazabilidad con estados automáticos, notificación al cliente y panel de operación al día.",
-    outcome: "Menos llamadas de seguimiento",
-  },
-  {
-    icon: "stethoscope",
-    sector: "Clínicas",
-    challenge: "Agendamiento manual e inasistencias sin control.",
-    system:
-      "Agenda integrada con recordatorios automáticos por WhatsApp, confirmación y reprogramación sin intervención del equipo.",
-    outcome: "Menos ausencias y agenda ocupada",
-  },
-  {
-    icon: "hardHat",
-    sector: "Constructoras",
-    challenge: "Avance de obra y costos repartidos en planillas.",
-    system:
-      "Control de proyectos con cargue de avances desde campo, alertas de desviación y tablero consolidado por obra.",
-    outcome: "Control de costos en el momento",
-  },
-  {
-    icon: "shoppingCart",
-    sector: "E-commerce",
-    challenge: "Pedidos, inventario y facturación en sistemas separados.",
-    system:
-      "Sincronización entre tienda, inventario y facturación, con conciliación automática de pedidos y alertas de quiebre de stock.",
-    outcome: "Inventario y ventas cuadrados",
-  },
-  {
-    icon: "handshake",
-    sector: "Equipos comerciales",
-    challenge: "Leads que se enfrían antes del primer contacto.",
-    system:
-      "Captura y calificación automática de leads, asignación por reglas y seguimiento con recordatorios dentro del CRM.",
-    outcome: "Respuesta en minutos, no días",
-  },
-  {
-    icon: "headset",
-    sector: "Empresas de servicios",
-    challenge: "Solicitudes que llegan por cinco canales distintos.",
-    system:
-      "Mesa de entrada unificada con categorización automática, asignación por reglas y tiempos de respuesta medibles.",
-    outcome: "Un solo canal, tiempos medibles",
-  },
-];
-
-/* -------------------------------------------------------------------------- */
-/* 05 — Tecnologías                                                            */
-/* -------------------------------------------------------------------------- */
-
-export const techCopy: SectionCopy = {
-  title: "Tecnología elegida",
-  titleAccent: "por confiabilidad.",
-  subtitle:
-    "Herramientas maduras. Las escogemos por lo que cuesta mantenerlas en cinco años, no por tendencia.",
-};
 
 export const techGroups: TechGroup[] = [
+  { category: "Producto", items: ["Next.js", "React", "TypeScript"] },
+  { category: "Backend y datos", items: ["Node.js", "Python", "PostgreSQL"] },
+  { category: "Infraestructura", items: ["Vercel", "AWS", "Docker"] },
+];
+
+/* -------------------------------------------------------------------------- */
+/* 03 — También hacemos                                                        */
+/* -------------------------------------------------------------------------- */
+
+/** Los servicios de apoyo, cada uno con su página en /servicios/[slug]. */
+export const serviceConnections = [
   {
-    category: "Producto",
-    items: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    slug: "automatizacion-de-procesos",
+    title: "Automatización de procesos",
+    description: "Flujos que ejecutan solos las tareas repetitivas, con n8n y Python.",
   },
   {
-    category: "Backend y datos",
-    items: ["Node.js", "Python", "PostgreSQL", "Redis"],
+    slug: "agentes-ia",
+    title: "Agentes IA",
+    description: "Asistentes que atienden y califican, con reglas claras sobre qué resuelven solos.",
   },
   {
-    category: "Automatización e IA",
-    items: ["n8n", "OpenAI", "WhatsApp Business API", "APIs REST"],
+    slug: "integracion-de-sistemas",
+    title: "Integración de sistemas",
+    description: "CRM, ERP, facturación y WhatsApp conectados, sin copiar datos a mano.",
   },
   {
-    category: "Infraestructura",
-    items: ["Vercel", "AWS", "Docker", "GitHub Actions"],
+    slug: "integracion-crm-erp",
+    title: "Integración CRM y ERP",
+    description: "Lo que vende el equipo comercial llega a operación y finanzas sin volver a escribirlo.",
+  },
+  {
+    slug: "dashboards",
+    title: "Dashboards",
+    description: "Indicadores al día sobre datos confiables, en un solo lugar.",
   },
 ];
+
+export const servicesCopy: SectionCopy = {
+  title: "También",
+  titleAccent: "hacemos.",
+  subtitle:
+    "Automatización, agentes IA e integraciones siguen siendo parte del trabajo, casi siempre dentro de un proyecto más grande.",
+};
 
 /* -------------------------------------------------------------------------- */
 /* CTA final                                                                   */
 /* -------------------------------------------------------------------------- */
 
-/** El titular del CTA vive en el JSX porque va partido en dos tonos. */
 export const ctaCopy = {
+  title: "Hablemos de lo que necesitas construir.",
   subtitle:
-    "Una conversación de 30 minutos basta para saber qué se puede automatizar en tu empresa, qué impacto tendría y qué no vale la pena tocar todavía.",
-  note: "Sin compromiso. Si no vemos una oportunidad clara, te lo decimos.",
+    "Una conversación de 30 minutos basta para saber si uno de nuestros productos te sirve tal como está, o si lo tuyo es un desarrollo a la medida.",
+  note: "Sin compromiso. Si no vemos una forma clara de ayudarte, te lo decimos.",
 };
 
 /* -------------------------------------------------------------------------- */
@@ -289,14 +177,14 @@ export const ctaCopy = {
 export const contactFormCopy = {
   title: "¿Prefieres escribirnos directamente?",
   subtitle:
-    "Cuéntanos qué proceso quieres automatizar. Te respondemos a tu correo.",
+    "Cuéntanos qué necesitas: la demo de un producto o un desarrollo a la medida. Te respondemos a tu correo.",
   fields: {
     name: { label: "Nombre", placeholder: "Tu nombre" },
     company: { label: "Empresa", placeholder: "Nombre de tu empresa" },
     email: { label: "Correo", placeholder: "tu@empresa.com" },
     message: {
-      label: "¿Qué proceso quieres automatizar?",
-      placeholder: "Cuéntanos brevemente el proceso o problema que quieres resolver.",
+      label: "¿Qué necesitas construir?",
+      placeholder: "Cuéntanos brevemente el problema, el proceso o el producto que te interesa.",
     },
   },
   submitLabel: "Enviar mensaje",
@@ -872,10 +760,12 @@ export const resourceArticles: ResourceArticle[] = [
 /* Footer                                                                      */
 /* -------------------------------------------------------------------------- */
 
+/** Los productos van aparte en el pie: salen de `config/products.ts`. */
 export const footerColumns = [
   {
-    title: "Soluciones",
+    title: "Servicios",
     links: [
+      { label: "Software a la medida", href: "/servicios/software-a-la-medida" },
       {
         label: "Automatización de procesos",
         href: "/servicios/automatizacion-de-procesos",
@@ -885,15 +775,13 @@ export const footerColumns = [
         label: "Integración de sistemas",
         href: "/servicios/integracion-de-sistemas",
       },
-      { label: "Software a la medida", href: "/servicios/software-a-la-medida" },
+      { label: "Integración CRM y ERP", href: "/servicios/integracion-crm-erp" },
+      { label: "Dashboards", href: "/servicios/dashboards" },
     ],
   },
   {
     title: "Empresa",
     links: [
-      { label: "Cómo trabajamos", href: "#proceso" },
-      { label: "Casos de uso", href: "#casos-de-uso" },
-      { label: "Tecnologías", href: "#tecnologias" },
       { label: "Recursos", href: "/recursos" },
       { label: "Política de privacidad", href: "/privacidad" },
     ],

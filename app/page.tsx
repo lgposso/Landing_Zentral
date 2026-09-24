@@ -1,24 +1,21 @@
 import { CallToAction } from "@/features/cta/CallToAction";
+import { CustomDev } from "@/features/custom-dev/CustomDev";
 import { Hero } from "@/features/hero/Hero";
-import { Problem } from "@/features/problem/Problem";
-import { Process } from "@/features/process/Process";
-import { Solutions } from "@/features/solutions/Solutions";
-import { TechStack } from "@/features/tech-stack/TechStack";
-import { UseCases } from "@/features/use-cases/UseCases";
+import { ProductsSection } from "@/features/products/ProductsSection";
+import { ServicesStrip } from "@/features/services-strip/ServicesStrip";
 
 /**
- * Estructura de la landing (§9 del spec). El navbar y el footer viven en
- * `app/layout.tsx`; aquí sólo el cuerpo, en el orden que define el documento.
+ * La home como un recorrido: el mapa de la red, las cuatro líneas, la línea
+ * que se construye a la medida, los ramales de servicios y la terminal de
+ * contacto. El navbar y el pie viven en `app/layout.tsx`.
  */
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <Problem />
-      <Solutions />
-      <Process />
-      <UseCases />
-      <TechStack />
+      <ProductsSection />
+      <CustomDev />
+      <ServicesStrip />
       <CallToAction />
     </>
   );

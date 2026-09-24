@@ -15,11 +15,11 @@ const sizes = {
   sm: "h-6 w-auto sm:h-7",
   // En móvil se contiene a 32px: el logotipo es muy apaisado (5:1) y a 36px
   // ya ocupaba más de la mitad de una pantalla de 390px.
-  lg: "h-8 w-auto sm:h-10 lg:h-11",
+  lg: "h-7 w-auto sm:h-8 lg:h-9",
 } as const;
 
 /**
- * Logotipo horizontal (`public/logo-zentral.svg`). Al ser vectorial se sirve
+ * Logotipo horizontal (`public/logo-zentral.svg`, wordmark blanco para el fondo oscuro). Al ser vectorial se sirve
  * sin pasar por el optimizador: `/_next/image` rechaza los SVG con 400 salvo
  * que se active `dangerouslyAllowSVG`, y en un vector no hay nada que optimizar.
  *
@@ -36,10 +36,10 @@ export function Logo({
     <Link
       href="/"
       className={cn(
-        "inline-flex shrink-0 items-center transition-opacity duration-200 hover:opacity-80",
+        "inline-flex shrink-0 items-center transition-opacity duration-200 hover:opacity-75",
         className,
       )}
-      aria-label={`${siteConfig.legalName} — Inicio`}
+      aria-label={`${siteConfig.legalName}, inicio`}
     >
       <Image
         src="/logo-zentral.svg"

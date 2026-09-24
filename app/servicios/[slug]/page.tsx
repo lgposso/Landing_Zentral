@@ -41,19 +41,19 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
     <>
       <BreadcrumbSchema
         segments={[
-          { name: "Soluciones", path: "/#soluciones" },
+          { name: "Servicios", path: "/#servicios" },
           { name: service.heroTitle, path: `/servicios/${service.slug}` },
         ]}
       />
 
-      <Container className="py-20 lg:py-28">
+      <Container className="pb-20 pt-28 lg:pb-28 lg:pt-36">
         <nav aria-label="Ruta de navegación" className="text-sm text-muted">
           <Link href="/" className="hover:text-foreground">
             Inicio
           </Link>
           <span className="mx-2">›</span>
-          <Link href="/#soluciones" className="hover:text-foreground">
-            Soluciones
+          <Link href="/#servicios" className="hover:text-foreground">
+            Servicios
           </Link>
           <span className="mx-2">›</span>
           <span className="text-foreground">{service.heroTitle}</span>
@@ -134,7 +134,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               {service.deliverables.map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <Check
-                    className="mt-1 size-4 shrink-0 text-primary-hover"
+                    className="mt-1 size-4 shrink-0 text-foreground"
                     strokeWidth={2}
                     aria-hidden="true"
                   />
@@ -158,7 +158,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             <h2 className="text-h3 font-bold text-foreground">
               Cómo se vería aplicado
             </h2>
-            <p className="mt-4 rounded-lg border border-border bg-card px-5 py-4 text-small text-muted">
+            <p className="mt-4 rounded-card bg-surface px-5 py-4 text-small text-muted">
               {service.appliedScenario.disclaimer}
             </p>
             <div className="mt-6 space-y-4">
@@ -171,7 +171,9 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           </section>
         </div>
 
-        <div className="mt-20 border border-primary/25 px-8 py-16 text-center md:px-16">
+        <div className="relative mt-20 overflow-hidden rounded-card border-[1.5px] border-foreground px-8 py-16 text-center md:px-16">
+          {/* La terminal de la página: la línea de Zentral llega hasta aquí. */}
+          <span aria-hidden="true" className="absolute inset-x-0 top-0 h-2 bg-primary" />
           <h2 className="mx-auto max-w-2xl text-h2 text-foreground">
             ¿Este es el proceso que quieres resolver?
           </h2>

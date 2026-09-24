@@ -34,3 +34,8 @@ yarn-error.log*
 
 # auditoría SEO (informes locales, no forman parte del sitio)
 /zentral.com.co-audit/
+
+# impeccable: capturas de revisión y registros de la página de decisión
+# (el contrato en .impeccable/surfaces/ sí se versiona)
+/.impeccable/review/
+/.impeccable/questions/

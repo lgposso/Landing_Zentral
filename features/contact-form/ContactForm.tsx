@@ -47,12 +47,16 @@ async function submitWithFallback(
 const EMPTY_VALUES = { name: "", company: "", email: "", message: "", website: "" };
 
 const fallbackLinkClasses =
-  "inline-flex h-11 items-center gap-2 rounded-button border border-border px-4 text-sm " +
-  "text-foreground transition-colors duration-200 hover:border-primary hover:text-primary-hover";
+  "inline-flex h-11 items-center gap-2 rounded-button border-[1.5px] border-foreground px-4 text-sm font-bold " +
+  "text-foreground transition-colors duration-200 hover:bg-foreground hover:text-background";
 
+// Placeholder en #8b8f98: 5.6:1 sobre el andén, legible pero distinto del valor.
 const inputClasses =
-  "mt-2 w-full rounded-button border border-border bg-transparent px-4 py-3 text-small text-foreground " +
-  "placeholder:text-muted transition-colors duration-200 focus:border-primary focus:outline-none";
+  "mt-2 w-full rounded-button border-[1.5px] border-border bg-surface px-4 py-3 text-small text-foreground " +
+  "placeholder:text-[#8b8f98] transition-colors duration-200 hover:border-line-neutral " +
+  "focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/25";
+
+const labelClasses = "text-sm font-bold text-foreground";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -61,7 +65,7 @@ function SubmitButton() {
     <button
       type="submit"
       disabled={pending}
-      className="inline-flex h-12 items-center justify-center rounded-button bg-primary px-6 text-small font-semibold text-white transition-colors duration-300 hover:bg-primary-hover disabled:cursor-not-allowed disabled:opacity-60"
+      className="inline-flex h-12 items-center justify-center rounded-button bg-primary px-6 text-small font-bold text-white duration-150 hover:bg-primary-hover active:scale-[0.97] transition-[background-color,transform] disabled:cursor-wait disabled:opacity-70"
     >
       {pending ? contactFormCopy.submitPendingLabel : contactFormCopy.submitLabel}
     </button>
@@ -100,14 +104,14 @@ export function ContactForm() {
   const emailHref = `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(buildSubject(values))}&body=${encodeURIComponent(draft)}`;
 
   return (
-    <div className="mx-auto mt-16 max-w-xl text-left">
+    <div className="text-left">
       <h3 className="text-h3 text-foreground">{contactFormCopy.title}</h3>
       <p className="mt-3 text-small text-muted">{contactFormCopy.subtitle}</p>
 
       <form action={formAction} className="mt-8 space-y-5" noValidate>
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           <div>
-            <label htmlFor="contact-name" className="text-sm text-muted">
+            <label htmlFor="contact-name" className={labelClasses}>
               {contactFormCopy.fields.name.label}
             </label>
             <input
@@ -124,7 +128,7 @@ export function ContactForm() {
           </div>
 
           <div>
-            <label htmlFor="contact-company" className="text-sm text-muted">
+            <label htmlFor="contact-company" className={labelClasses}>
               {contactFormCopy.fields.company.label}
             </label>
             <input
@@ -142,7 +146,7 @@ export function ContactForm() {
         </div>
 
         <div>
-          <label htmlFor="contact-email" className="text-sm text-muted">
+          <label htmlFor="contact-email" className={labelClasses}>
             {contactFormCopy.fields.email.label}
           </label>
           <input
@@ -159,7 +163,7 @@ export function ContactForm() {
         </div>
 
         <div>
-          <label htmlFor="contact-message" className="text-sm text-muted">
+          <label htmlFor="contact-message" className={labelClasses}>
             {contactFormCopy.fields.message.label}
           </label>
           <textarea
@@ -196,13 +200,13 @@ export function ContactForm() {
           <SubmitButton />
 
           {state.status === "success" && (
-            <p className="text-sm text-primary-hover" role="status">
+            <p className="text-sm font-bold text-foreground" role="status">
               {contactFormCopy.successMessage}
             </p>
           )}
 
           {state.status === "error" && state.reason === "validation" && (
-            <p className="text-sm text-red-400" role="alert">
+            <p className="text-sm font-bold text-[#f87171]" role="alert">
               {state.message ?? contactFormCopy.errorFallback}
             </p>
           )}
@@ -214,7 +218,7 @@ export function ContactForm() {
               role="alert"
               className="rounded-card border border-border bg-surface p-5"
             >
-              <p className="text-sm text-red-400">
+              <p className="text-sm font-bold text-[#f87171]">
                 {state.message ?? contactFormCopy.errorFallback}
               </p>
 

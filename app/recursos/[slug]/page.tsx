@@ -52,7 +52,7 @@ export default async function ResourceArticlePage({
         ]}
       />
 
-      <Container className="py-20 lg:py-28">
+      <Container className="pb-20 pt-28 lg:pb-28 lg:pt-36">
         <nav aria-label="Ruta de navegación" className="text-sm text-muted">
           <Link href="/" className="hover:text-foreground">
             Inicio
@@ -95,7 +95,7 @@ export default async function ResourceArticlePage({
                 <li key={service.slug}>
                   <Link
                     href={`/servicios/${service.slug}`}
-                    className="inline-flex items-center gap-2 text-body text-primary-hover transition-colors duration-200 hover:text-foreground"
+                    className="inline-flex items-center gap-2 text-body text-link transition-colors duration-200 hover:text-foreground"
                   >
                     {service.heroTitle}
                     <ArrowRight className="size-4" strokeWidth={2} aria-hidden="true" />
@@ -106,7 +106,9 @@ export default async function ResourceArticlePage({
           </div>
         )}
 
-        <div className="mt-20 border border-primary/25 px-8 py-16 text-center md:px-16">
+        <div className="relative mt-20 overflow-hidden rounded-card border-[1.5px] border-foreground px-8 py-16 text-center md:px-16">
+          {/* La terminal de la página: la línea de Zentral llega hasta aquí. */}
+          <span aria-hidden="true" className="absolute inset-x-0 top-0 h-2 bg-primary" />
           <h2 className="mx-auto max-w-2xl text-h2 text-foreground">
             ¿Quieres resolver esto en tu empresa?
           </h2>

@@ -1,0 +1,531 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-24T18:25:40+00:00",
+  "title": "Design System: Zentral",
+  "extensions": {
+    "colorMeta": {
+      "background": {
+        "role": "neutral",
+        "displayName": "Suelo de noche",
+        "canonical": "#0a0a0a",
+        "tonalRamp": [
+          "oklch(15% 0.000 89.9)",
+          "oklch(26% 0.000 89.9)",
+          "oklch(38% 0.000 89.9)",
+          "oklch(50% 0.000 89.9)",
+          "oklch(62% 0.000 89.9)",
+          "oklch(74% 0.000 89.9)",
+          "oklch(85% 0.000 89.9)",
+          "oklch(95% 0.000 89.9)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Andén de noche",
+        "canonical": "#141414",
+        "tonalRamp": [
+          "oklch(15% 0.000 89.9)",
+          "oklch(26% 0.000 89.9)",
+          "oklch(38% 0.000 89.9)",
+          "oklch(50% 0.000 89.9)",
+          "oklch(62% 0.000 89.9)",
+          "oklch(74% 0.000 89.9)",
+          "oklch(85% 0.000 89.9)",
+          "oklch(95% 0.000 89.9)"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Junta",
+        "canonical": "#2a2a2e",
+        "tonalRamp": [
+          "oklch(15% 0.007 285.9)",
+          "oklch(26% 0.007 285.9)",
+          "oklch(38% 0.007 285.9)",
+          "oklch(50% 0.007 285.9)",
+          "oklch(62% 0.007 285.9)",
+          "oklch(74% 0.007 285.9)",
+          "oklch(85% 0.007 285.9)",
+          "oklch(95% 0.007 285.9)"
+        ]
+      },
+      "foreground": {
+        "role": "neutral",
+        "displayName": "Luz",
+        "canonical": "#fafafa",
+        "tonalRamp": [
+          "oklch(15% 0.000 89.9)",
+          "oklch(26% 0.000 89.9)",
+          "oklch(38% 0.000 89.9)",
+          "oklch(50% 0.000 89.9)",
+          "oklch(62% 0.000 89.9)",
+          "oklch(74% 0.000 89.9)",
+          "oklch(85% 0.000 89.9)",
+          "oklch(95% 0.000 89.9)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Luz tenue",
+        "canonical": "#a1a1aa",
+        "tonalRamp": [
+          "oklch(15% 0.013 286.1)",
+          "oklch(26% 0.013 286.1)",
+          "oklch(38% 0.013 286.1)",
+          "oklch(50% 0.013 286.1)",
+          "oklch(62% 0.013 286.1)",
+          "oklch(74% 0.013 286.1)",
+          "oklch(85% 0.013 286.1)",
+          "oklch(95% 0.013 286.1)"
+        ]
+      },
+      "primary": {
+        "role": "primary",
+        "displayName": "Azul Zentral",
+        "canonical": "#2563eb",
+        "tonalRamp": [
+          "oklch(15% 0.215 262.9)",
+          "oklch(26% 0.215 262.9)",
+          "oklch(38% 0.215 262.9)",
+          "oklch(50% 0.215 262.9)",
+          "oklch(62% 0.215 262.9)",
+          "oklch(74% 0.215 262.9)",
+          "oklch(85% 0.215 262.9)",
+          "oklch(95% 0.215 262.9)"
+        ]
+      },
+      "primary-hover": {
+        "role": "primary",
+        "displayName": "Azul Zentral profundo",
+        "canonical": "#1d4ed8",
+        "tonalRamp": [
+          "oklch(15% 0.217 264.4)",
+          "oklch(26% 0.217 264.4)",
+          "oklch(38% 0.217 264.4)",
+          "oklch(50% 0.217 264.4)",
+          "oklch(62% 0.217 264.4)",
+          "oklch(74% 0.217 264.4)",
+          "oklch(85% 0.217 264.4)",
+          "oklch(95% 0.217 264.4)"
+        ]
+      },
+      "link": {
+        "role": "primary",
+        "displayName": "Azul señal",
+        "canonical": "#60a5fa",
+        "tonalRamp": [
+          "oklch(15% 0.143 254.6)",
+          "oklch(26% 0.143 254.6)",
+          "oklch(38% 0.143 254.6)",
+          "oklch(50% 0.143 254.6)",
+          "oklch(62% 0.143 254.6)",
+          "oklch(74% 0.143 254.6)",
+          "oklch(85% 0.143 254.6)",
+          "oklch(95% 0.143 254.6)"
+        ]
+      },
+      "line-loyalty": {
+        "role": "secondary",
+        "displayName": "Rosa Loyalty",
+        "canonical": "#f23d6d",
+        "tonalRamp": [
+          "oklch(15% 0.216 10.6)",
+          "oklch(26% 0.216 10.6)",
+          "oklch(38% 0.216 10.6)",
+          "oklch(50% 0.216 10.6)",
+          "oklch(62% 0.216 10.6)",
+          "oklch(74% 0.216 10.6)",
+          "oklch(85% 0.216 10.6)",
+          "oklch(95% 0.216 10.6)"
+        ]
+      },
+      "line-rips": {
+        "role": "secondary",
+        "displayName": "Verde RIPS",
+        "canonical": "#17a673",
+        "tonalRamp": [
+          "oklch(15% 0.136 162.0)",
+          "oklch(26% 0.136 162.0)",
+          "oklch(38% 0.136 162.0)",
+          "oklch(50% 0.136 162.0)",
+          "oklch(62% 0.136 162.0)",
+          "oklch(74% 0.136 162.0)",
+          "oklch(85% 0.136 162.0)",
+          "oklch(95% 0.136 162.0)"
+        ]
+      },
+      "line-sports": {
+        "role": "secondary",
+        "displayName": "Naranja Sports",
+        "canonical": "#ee7a1c",
+        "tonalRamp": [
+          "oklch(15% 0.171 52.3)",
+          "oklch(26% 0.171 52.3)",
+          "oklch(38% 0.171 52.3)",
+          "oklch(50% 0.171 52.3)",
+          "oklch(62% 0.171 52.3)",
+          "oklch(74% 0.171 52.3)",
+          "oklch(85% 0.171 52.3)",
+          "oklch(95% 0.171 52.3)"
+        ]
+      },
+      "line-control": {
+        "role": "secondary",
+        "displayName": "Violeta Control",
+        "canonical": "#9164f2",
+        "tonalRamp": [
+          "oklch(15% 0.204 294.3)",
+          "oklch(26% 0.204 294.3)",
+          "oklch(38% 0.204 294.3)",
+          "oklch(50% 0.204 294.3)",
+          "oklch(62% 0.204 294.3)",
+          "oklch(74% 0.204 294.3)",
+          "oklch(85% 0.204 294.3)",
+          "oklch(95% 0.204 294.3)"
+        ]
+      },
+      "line-custom": {
+        "role": "secondary",
+        "displayName": "Azul a la medida",
+        "canonical": "#2563eb",
+        "tonalRamp": [
+          "oklch(15% 0.215 262.9)",
+          "oklch(26% 0.215 262.9)",
+          "oklch(38% 0.215 262.9)",
+          "oklch(50% 0.215 262.9)",
+          "oklch(62% 0.215 262.9)",
+          "oklch(74% 0.215 262.9)",
+          "oklch(85% 0.215 262.9)",
+          "oklch(95% 0.215 262.9)"
+        ]
+      },
+      "line-neutral": {
+        "role": "secondary",
+        "displayName": "Gris ramal",
+        "canonical": "#6b7280",
+        "tonalRamp": [
+          "oklch(15% 0.023 264.4)",
+          "oklch(26% 0.023 264.4)",
+          "oklch(38% 0.023 264.4)",
+          "oklch(50% 0.023 264.4)",
+          "oklch(62% 0.023 264.4)",
+          "oklch(74% 0.023 264.4)",
+          "oklch(85% 0.023 264.4)",
+          "oklch(95% 0.023 264.4)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "hero": {
+        "displayName": "Hero",
+        "purpose": "Letrero de estación de la portada, a todo el ancho."
+      },
+      "h1": {
+        "displayName": "H1",
+        "purpose": "Nombre del producto en el letrero de andén; titular de páginas internas y del cierre."
+      },
+      "h2": {
+        "displayName": "H2",
+        "purpose": "Títulos de sección, sin antetítulo, con una frase de apoyo."
+      },
+      "h3": {
+        "displayName": "H3",
+        "purpose": "Nombres de producto en filas de líneas y estaciones del diagrama vertical."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Frase de apoyo del primer pliegue desde md (18px en el celular)."
+      },
+      "question": {
+        "displayName": "Question",
+        "purpose": "Preguntas frecuentes de producto y título del tramo en construcción."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Texto corrido, 34-60ch; nombre de terminal del mapa desde lg."
+      },
+      "station": {
+        "displayName": "Station",
+        "purpose": "Títulos de estación de la franja mediana, «Para quién es», tipos de trabajo a la medida, servicios."
+      },
+      "small": {
+        "displayName": "Small",
+        "purpose": "Descripciones de estación, sectores, navegación, botones medianos, campos."
+      },
+      "ui": {
+        "displayName": "UI",
+        "purpose": "Texto de interfaz compacto: nombre de terminal en el celular, sector de terminal desde lg, «Con qué construimos»."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Etiquetas de campo, sector del menú, nota de estación, migas de pan, línea legal; dato de terminal desde lg."
+      },
+      "label": {
+        "displayName": "Rótulo",
+        "purpose": "Rótulo de dato dentro de un componente; nunca antetítulo de sección."
+      },
+      "meta": {
+        "displayName": "Meta",
+        "purpose": "Pie de las muestras de producto; sector y dato de terminal en el celular."
+      },
+      "data": {
+        "displayName": "Dato",
+        "purpose": "Overpass Mono con cifras tabulares, solo para códigos, horas, normas y conteos."
+      }
+    },
+    "shadows": [
+      {
+        "name": "navbar-scrolled",
+        "value": "0 8px 28px -18px rgba(0,0,0,0.8)",
+        "purpose": "Navbar al bajar más de 16px o con el menú móvil abierto, junto con el borde inferior."
+      },
+      {
+        "name": "floating-menu",
+        "value": "0 24px 48px -24px rgba(0,0,0,0.9)",
+        "purpose": "Desplegable «Productos»."
+      },
+      {
+        "name": "specimen",
+        "value": "0 28px 64px -34px rgba(0,0,0,0.9)",
+        "purpose": "Muestras de RIPS, Sports y Control sobre el andén (Loyalty: -30px)."
+      },
+      {
+        "name": "focus-ring",
+        "value": "outline: 2.5px solid #60a5fa; outline-offset: 3px; border-radius: 6px",
+        "purpose": "Contorno de foco global (:focus-visible); el radio de 6px es la forma propia del foco."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-zentral",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Trazado de entrada de líneas, estaciones, rótulos y el intercambiador."
+      },
+      {
+        "name": "ease-snap",
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "Respuestas a la interacción: atenuar líneas, expreso, tren de franja."
+      },
+      {
+        "name": "route-draw",
+        "value": "1100ms ease-zentral, escalonado 110ms por línea desde 120ms",
+        "purpose": "Las líneas del mapa se trazan desde el intercambiador una sola vez."
+      },
+      {
+        "name": "hub-in",
+        "value": "600ms ease-zentral; scale 0.86 a 1",
+        "purpose": "Entrada del intercambiador."
+      },
+      {
+        "name": "route-train",
+        "value": "9s linear infinite",
+        "purpose": "Tren de luz que va y viene por cada línea en reposo."
+      },
+      {
+        "name": "route-express",
+        "value": "700ms ease-snap",
+        "purpose": "Expreso de luz hasta la terminal de la línea señalada."
+      },
+      {
+        "name": "dim",
+        "value": "opacity 200ms ease-snap; líneas a 0.16, rótulos a 0.45, franjas a 0.2",
+        "purpose": "Apagar las líneas no señaladas."
+      },
+      {
+        "name": "strip-run",
+        "value": "900ms ease-snap",
+        "purpose": "Tren de luz de 40px por la franja de la fila señalada."
+      },
+      {
+        "name": "strip-draw",
+        "value": "animation-timeline: view(); entry 10% cover 40%",
+        "purpose": "La franja se traza al entrar en pantalla; «build» pasa de punteada a sólida."
+      },
+      {
+        "name": "button-press",
+        "value": "150ms ease-out; scale(0.97) al pulsar",
+        "purpose": "Respuesta táctil de botones."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón primario",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "La acción: azul de marca, WhatsApp («Agenda una conversación», «Solicitar demo»).",
+      "html": "<div class=\"ds-ground\"><a class=\"ds-btn-primary\" href=\"#\">Agenda una conversación <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a></div>",
+      "css": ".ds-ground { background: var(--color-background, #0a0a0a); padding:32px; } .ds-btn-primary { display:inline-flex; align-items:center; justify-content:center; gap:10px; border-radius: var(--radius-button, 10px); font-family: var(--font-sans, Overpass, ui-sans-serif, system-ui, sans-serif); font-weight:700; white-space:nowrap; text-decoration:none; transition: background-color 150ms ease-out, border-color 150ms ease-out, color 150ms ease-out, transform 150ms ease-out; height:56px; padding:0 28px; font-size:1.125rem; background: var(--color-primary, #2563eb); color:#ffffff; } .ds-btn-primary:hover { background: var(--color-primary-hover, #1d4ed8); } .ds-btn-primary:active { transform: scale(0.97); } .ds-btn-primary:focus-visible { outline: 2.5px solid var(--color-link, #60a5fa); outline-offset: 3px; border-radius: 6px; }"
+    },
+    {
+      "name": "Botón secundario",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Contorno de luz: se lee como rótulo y no compite con la acción.",
+      "html": "<div class=\"ds-ground\"><a class=\"ds-btn-secondary\" href=\"#\">Ver los productos</a></div>",
+      "css": ".ds-ground { background: var(--color-background, #0a0a0a); padding:32px; } .ds-btn-secondary { display:inline-flex; align-items:center; justify-content:center; gap:10px; border-radius: var(--radius-button, 10px); font-family: var(--font-sans, Overpass, ui-sans-serif, system-ui, sans-serif); font-weight:700; white-space:nowrap; text-decoration:none; transition: background-color 150ms ease-out, border-color 150ms ease-out, color 150ms ease-out, transform 150ms ease-out; height:56px; padding:0 28px; font-size:1.125rem; border:1.5px solid var(--color-foreground, #fafafa); background:transparent; color: var(--color-foreground, #fafafa); } .ds-btn-secondary:hover { background: var(--color-foreground, #fafafa); color: var(--color-background, #0a0a0a); } .ds-btn-secondary:active { transform: scale(0.97); } .ds-btn-secondary:focus-visible { outline: 2.5px solid var(--color-link, #60a5fa); outline-offset: 3px; border-radius: 6px; }"
+    },
+    {
+      "name": "Botón inverso",
+      "kind": "button",
+      "refersTo": "button-inverse",
+      "description": "Solo sobre el campo azul del cierre de página.",
+      "html": "<div class=\"ds-blue-field\"><a class=\"ds-btn-inverse\" href=\"#\">Agenda una conversación <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a></div>",
+      "css": ".ds-blue-field { background: var(--color-primary, #2563eb); padding:32px; } .ds-btn-inverse { display:inline-flex; align-items:center; justify-content:center; gap:10px; border-radius: var(--radius-button, 10px); font-family: var(--font-sans, Overpass, ui-sans-serif, system-ui, sans-serif); font-weight:700; white-space:nowrap; text-decoration:none; transition: background-color 150ms ease-out, border-color 150ms ease-out, color 150ms ease-out, transform 150ms ease-out; height:56px; padding:0 28px; font-size:1.125rem; background:#ffffff; color: var(--color-primary-hover, #1d4ed8); } .ds-btn-inverse:hover { background:#dbe7ff; } .ds-btn-inverse:active { transform: scale(0.97); } .ds-btn-inverse:focus-visible { outline: 2.5px solid var(--color-link, #60a5fa); outline-offset: 3px; border-radius: 6px; }"
+    },
+    {
+      "name": "Campo de texto",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Campo del formulario de contacto, de andén dentro de la tarjeta oscura, con etiqueta encima.",
+      "html": "<div class=\"ds-ground\"><label class=\"ds-field\"><span class=\"ds-field-label\">Correo</span><input class=\"ds-input\" type=\"email\" placeholder=\"nombre@empresa.com\"></label></div>",
+      "css": ".ds-ground { background: var(--color-background, #0a0a0a); padding:32px; } .ds-field { display:block; font-family: var(--font-sans, Overpass, ui-sans-serif, system-ui, sans-serif); } .ds-field-label { font-size:0.875rem; font-weight:700; color: var(--color-foreground, #fafafa); } .ds-input { display:block; margin-top:8px; width:100%; box-sizing:border-box; font-family: var(--font-sans, Overpass, ui-sans-serif, system-ui, sans-serif); font-size:1rem; padding:12px 16px; border:1.5px solid var(--color-border, #2a2a2e); border-radius: var(--radius-button, 10px); background: var(--color-surface, #141414); color: var(--color-foreground, #fafafa); transition: border-color 200ms, box-shadow 200ms; } .ds-input::placeholder { color:#8b8f98; } .ds-input:hover { border-color: var(--color-line-neutral, #6b7280); } .ds-input:focus { outline:none; border-color: var(--color-primary, #2563eb); box-shadow: 0 0 0 2px rgba(37,99,235,0.25); }"
+    },
+    {
+      "name": "Marca de línea",
+      "kind": "chip",
+      "refersTo": "line-mark-md",
+      "description": "El isotipo de Zentral teñido con el color de cada línea; siempre con el nombre escrito al lado.",
+      "html": "<div class=\"ds-ground\"><span class=\"ds-line-item\"><svg class=\"ds-mark\" viewBox=\"0 0 600 550\" aria-hidden=\"true\" style=\"color:var(--color-line-loyalty,#f23d6d)\"><path d=\"M565.12,120.2c2.89-10.22,3.72-21.05,2.38-32.49c-3.51-30.35-30.17-53.85-61.07-53.85c-122.96,0-245.82,0-368.78,0c-31.62,0-56.31,13.79-73.67,39.24c-9.4,13.79-16.33,29.22-24.39,43.94c-0.72,1.23-1.03,2.66-1.76,4.6c2.38,0,4.03,0,5.68,0c62.82,0,125.65,0,188.47,0c61.69,0,123.27,0,184.96,0.1c0.88,0,1.75,0,2.63,0.09c2.15,0.21,4.29,0.62,6.14,1.53c10.02,5.11,13.02,15.74,7.03,26.47c-2.89,5.11-6.82,9.61-10.54,14.1c-30.28,36.38-60.65,72.76-90.93,109.23c-25.11,30.25-50.11,60.6-75.12,90.84c-4.24,5.11-8.37,10.22-12.92,15.84c1.65,0.1,2.69,0.31,3.62,0.31c28.93,0,57.76,0.1,86.69,0c15.4-0.1,28-6.23,37.82-17.88c20.87-24.73,41.64-49.56,62.41-74.49c38.34-46.09,76.57-92.27,115.01-138.26c7.65-9.2,13.02-19.01,16.02-29.53\" fill=\"currentColor\"/><path d=\"M319,194.18c-2.16,2.75-3.94,5.03-5.9,7.31c-36.21,42.7-72.41,85.4-108.72,128.11c-19.09,22.39-38.27,44.79-57.46,67.18c-7.28,8.54-8.56,19.64-3.15,27.33c4.33,6.17,10.72,8.35,18.1,8.35c50.28,0,100.46,0,150.63,0c75.56,0,151.03,0,226.59,0c1.18,0,2.36,0,4.43,0c-3.15,5.6-5.9,10.72-8.95,15.66c-6.3,10.15-12.3,20.5-19.09,30.37c-11.22,16.32-25.78,28.94-45.65,34.64c-6.2,1.71-12.79,2.85-19.19,2.85c-115.31,0.19-230.62,0.09-345.94,0.19c-14.36,0-27.94-2.66-40.04-10.06c-22.92-14.04-33.26-34.83-32.76-60.64c0.39-21.26,9.05-39.57,23.22-55.8c21.55-24.58,42.7-49.53,64.05-74.3c27.06-31.41,54.11-62.82,81.17-94.23c2.95-3.42,5.9-6.93,8.86-10.44c8.95-10.53,20.37-16.42,34.44-16.61c23.81-0.28,47.62-0.09,71.43-0.09C316.14,193.8,317.23,193.99,319,194.18z\" style=\"fill:color-mix(in oklab, currentColor 78%, var(--color-background, #0a0a0a))\"/></svg>Zentral Loyalty</span><span class=\"ds-line-item\"><svg class=\"ds-mark\" viewBox=\"0 0 600 550\" aria-hidden=\"true\" style=\"color:var(--color-line-rips,#17a673)\"><path d=\"M565.12,120.2c2.89-10.22,3.72-21.05,2.38-32.49c-3.51-30.35-30.17-53.85-61.07-53.85c-122.96,0-245.82,0-368.78,0c-31.62,0-56.31,13.79-73.67,39.24c-9.4,13.79-16.33,29.22-24.39,43.94c-0.72,1.23-1.03,2.66-1.76,4.6c2.38,0,4.03,0,5.68,0c62.82,0,125.65,0,188.47,0c61.69,0,123.27,0,184.96,0.1c0.88,0,1.75,0,2.63,0.09c2.15,0.21,4.29,0.62,6.14,1.53c10.02,5.11,13.02,15.74,7.03,26.47c-2.89,5.11-6.82,9.61-10.54,14.1c-30.28,36.38-60.65,72.76-90.93,109.23c-25.11,30.25-50.11,60.6-75.12,90.84c-4.24,5.11-8.37,10.22-12.92,15.84c1.65,0.1,2.69,0.31,3.62,0.31c28.93,0,57.76,0.1,86.69,0c15.4-0.1,28-6.23,37.82-17.88c20.87-24.73,41.64-49.56,62.41-74.49c38.34-46.09,76.57-92.27,115.01-138.26c7.65-9.2,13.02-19.01,16.02-29.53\" fill=\"currentColor\"/><path d=\"M319,194.18c-2.16,2.75-3.94,5.03-5.9,7.31c-36.21,42.7-72.41,85.4-108.72,128.11c-19.09,22.39-38.27,44.79-57.46,67.18c-7.28,8.54-8.56,19.64-3.15,27.33c4.33,6.17,10.72,8.35,18.1,8.35c50.28,0,100.46,0,150.63,0c75.56,0,151.03,0,226.59,0c1.18,0,2.36,0,4.43,0c-3.15,5.6-5.9,10.72-8.95,15.66c-6.3,10.15-12.3,20.5-19.09,30.37c-11.22,16.32-25.78,28.94-45.65,34.64c-6.2,1.71-12.79,2.85-19.19,2.85c-115.31,0.19-230.62,0.09-345.94,0.19c-14.36,0-27.94-2.66-40.04-10.06c-22.92-14.04-33.26-34.83-32.76-60.64c0.39-21.26,9.05-39.57,23.22-55.8c21.55-24.58,42.7-49.53,64.05-74.3c27.06-31.41,54.11-62.82,81.17-94.23c2.95-3.42,5.9-6.93,8.86-10.44c8.95-10.53,20.37-16.42,34.44-16.61c23.81-0.28,47.62-0.09,71.43-0.09C316.14,193.8,317.23,193.99,319,194.18z\" style=\"fill:color-mix(in oklab, currentColor 78%, var(--color-background, #0a0a0a))\"/></svg>Zentral RIPS</span><span class=\"ds-line-item\"><svg class=\"ds-mark\" viewBox=\"0 0 600 550\" aria-hidden=\"true\" style=\"color:var(--color-line-sports,#ee7a1c)\"><path d=\"M565.12,120.2c2.89-10.22,3.72-21.05,2.38-32.49c-3.51-30.35-30.17-53.85-61.07-53.85c-122.96,0-245.82,0-368.78,0c-31.62,0-56.31,13.79-73.67,39.24c-9.4,13.79-16.33,29.22-24.39,43.94c-0.72,1.23-1.03,2.66-1.76,4.6c2.38,0,4.03,0,5.68,0c62.82,0,125.65,0,188.47,0c61.69,0,123.27,0,184.96,0.1c0.88,0,1.75,0,2.63,0.09c2.15,0.21,4.29,0.62,6.14,1.53c10.02,5.11,13.02,15.74,7.03,26.47c-2.89,5.11-6.82,9.61-10.54,14.1c-30.28,36.38-60.65,72.76-90.93,109.23c-25.11,30.25-50.11,60.6-75.12,90.84c-4.24,5.11-8.37,10.22-12.92,15.84c1.65,0.1,2.69,0.31,3.62,0.31c28.93,0,57.76,0.1,86.69,0c15.4-0.1,28-6.23,37.82-17.88c20.87-24.73,41.64-49.56,62.41-74.49c38.34-46.09,76.57-92.27,115.01-138.26c7.65-9.2,13.02-19.01,16.02-29.53\" fill=\"currentColor\"/><path d=\"M319,194.18c-2.16,2.75-3.94,5.03-5.9,7.31c-36.21,42.7-72.41,85.4-108.72,128.11c-19.09,22.39-38.27,44.79-57.46,67.18c-7.28,8.54-8.56,19.64-3.15,27.33c4.33,6.17,10.72,8.35,18.1,8.35c50.28,0,100.46,0,150.63,0c75.56,0,151.03,0,226.59,0c1.18,0,2.36,0,4.43,0c-3.15,5.6-5.9,10.72-8.95,15.66c-6.3,10.15-12.3,20.5-19.09,30.37c-11.22,16.32-25.78,28.94-45.65,34.64c-6.2,1.71-12.79,2.85-19.19,2.85c-115.31,0.19-230.62,0.09-345.94,0.19c-14.36,0-27.94-2.66-40.04-10.06c-22.92-14.04-33.26-34.83-32.76-60.64c0.39-21.26,9.05-39.57,23.22-55.8c21.55-24.58,42.7-49.53,64.05-74.3c27.06-31.41,54.11-62.82,81.17-94.23c2.95-3.42,5.9-6.93,8.86-10.44c8.95-10.53,20.37-16.42,34.44-16.61c23.81-0.28,47.62-0.09,71.43-0.09C316.14,193.8,317.23,193.99,319,194.18z\" style=\"fill:color-mix(in oklab, currentColor 78%, var(--color-background, #0a0a0a))\"/></svg>Zentral Sports</span><span class=\"ds-line-item\"><svg class=\"ds-mark\" viewBox=\"0 0 600 550\" aria-hidden=\"true\" style=\"color:var(--color-line-control,#9164f2)\"><path d=\"M565.12,120.2c2.89-10.22,3.72-21.05,2.38-32.49c-3.51-30.35-30.17-53.85-61.07-53.85c-122.96,0-245.82,0-368.78,0c-31.62,0-56.31,13.79-73.67,39.24c-9.4,13.79-16.33,29.22-24.39,43.94c-0.72,1.23-1.03,2.66-1.76,4.6c2.38,0,4.03,0,5.68,0c62.82,0,125.65,0,188.47,0c61.69,0,123.27,0,184.96,0.1c0.88,0,1.75,0,2.63,0.09c2.15,0.21,4.29,0.62,6.14,1.53c10.02,5.11,13.02,15.74,7.03,26.47c-2.89,5.11-6.82,9.61-10.54,14.1c-30.28,36.38-60.65,72.76-90.93,109.23c-25.11,30.25-50.11,60.6-75.12,90.84c-4.24,5.11-8.37,10.22-12.92,15.84c1.65,0.1,2.69,0.31,3.62,0.31c28.93,0,57.76,0.1,86.69,0c15.4-0.1,28-6.23,37.82-17.88c20.87-24.73,41.64-49.56,62.41-74.49c38.34-46.09,76.57-92.27,115.01-138.26c7.65-9.2,13.02-19.01,16.02-29.53\" fill=\"currentColor\"/><path d=\"M319,194.18c-2.16,2.75-3.94,5.03-5.9,7.31c-36.21,42.7-72.41,85.4-108.72,128.11c-19.09,22.39-38.27,44.79-57.46,67.18c-7.28,8.54-8.56,19.64-3.15,27.33c4.33,6.17,10.72,8.35,18.1,8.35c50.28,0,100.46,0,150.63,0c75.56,0,151.03,0,226.59,0c1.18,0,2.36,0,4.43,0c-3.15,5.6-5.9,10.72-8.95,15.66c-6.3,10.15-12.3,20.5-19.09,30.37c-11.22,16.32-25.78,28.94-45.65,34.64c-6.2,1.71-12.79,2.85-19.19,2.85c-115.31,0.19-230.62,0.09-345.94,0.19c-14.36,0-27.94-2.66-40.04-10.06c-22.92-14.04-33.26-34.83-32.76-60.64c0.39-21.26,9.05-39.57,23.22-55.8c21.55-24.58,42.7-49.53,64.05-74.3c27.06-31.41,54.11-62.82,81.17-94.23c2.95-3.42,5.9-6.93,8.86-10.44c8.95-10.53,20.37-16.42,34.44-16.61c23.81-0.28,47.62-0.09,71.43-0.09C316.14,193.8,317.23,193.99,319,194.18z\" style=\"fill:color-mix(in oklab, currentColor 78%, var(--color-background, #0a0a0a))\"/></svg>Zentral Control</span></div>",
+      "css": ".ds-ground { background: var(--color-background, #0a0a0a); padding:32px; } .ds-line-item { display:inline-flex; align-items:center; gap:12px; margin:6px 20px 6px 0; font-family: var(--font-sans, Overpass, ui-sans-serif, system-ui, sans-serif); font-size:1rem; font-weight:800; color: var(--color-foreground, #fafafa); } .ds-mark { width:32px; height:auto; flex-shrink:0; }"
+    },
+    {
+      "name": "Navbar",
+      "kind": "nav",
+      "refersTo": "nav-dropdown",
+      "description": "Navbar de noche fijo de 72px con enlaces en luz y la acción primaria.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-nav-logo\">zentral</span><ul class=\"ds-nav-links\"><li><a href=\"#\">Productos</a></li><li><a href=\"#\">A la medida</a></li><li><a href=\"#\">Servicios</a></li></ul><a class=\"ds-nav-cta\" href=\"#\">Agenda una conversación</a></nav>",
+      "css": ".ds-nav { display:flex; align-items:center; justify-content:space-between; gap:24px; height:72px; padding:0 24px; background: var(--color-background, #0a0a0a); border-bottom:1px solid var(--color-border, #2a2a2e); box-shadow: 0 8px 28px -18px rgba(0,0,0,0.8); font-family: var(--font-sans, Overpass, ui-sans-serif, system-ui, sans-serif); } .ds-nav-logo { font-weight:800; font-size:1.375rem; letter-spacing:-0.02em; color:#ffffff; } .ds-nav-links { display:flex; gap:32px; list-style:none; margin:0; padding:0; } .ds-nav-links a { font-size:1rem; font-weight:700; color: var(--color-foreground, #fafafa); text-decoration:none; text-underline-offset:0.35em; transition: color 200ms; } .ds-nav-links a:hover { color: var(--color-link, #60a5fa); text-decoration:underline; } .ds-nav-links a:focus-visible, .ds-nav-cta:focus-visible { outline: 2.5px solid var(--color-link, #60a5fa); outline-offset: 3px; border-radius: 6px; } .ds-nav-cta { display:inline-flex; align-items:center; height:44px; padding:0 20px; border-radius: var(--radius-button, 10px); background: var(--color-primary, #2563eb); color:#ffffff; font-weight:700; font-size:1rem; text-decoration:none; transition: background-color 150ms; } .ds-nav-cta:hover { background: var(--color-primary-hover, #1d4ed8); }"
+    },
+    {
+      "name": "Panel de andén",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Panel informativo de andén con rótulos de dato de 13px.",
+      "html": "<div class=\"ds-ground\"><div class=\"ds-panel\"><dl><dt class=\"ds-label\">Plazo</dt><dd>Entre 8 y 16 semanas según el alcance</dd><dt class=\"ds-label\">El código</dt><dd>Es del cliente</dd></dl></div></div>",
+      "css": ".ds-ground { background: var(--color-background, #0a0a0a); padding:32px; } .ds-panel { background: var(--color-surface, #141414); border-radius: var(--radius-card, 16px); padding:28px; font-family: var(--font-sans, Overpass, ui-sans-serif, system-ui, sans-serif); max-width:420px; } .ds-panel dl { margin:0; } .ds-label { font-size:0.8125rem; font-weight:700; letter-spacing:0.02em; color: var(--color-muted, #a1a1aa); } .ds-panel dd { margin:4px 0 24px; font-size:1.1875rem; font-weight:800; line-height:1.375; color: var(--color-foreground, #fafafa); } .ds-panel dd:last-child { margin-bottom:0; }"
+    },
+    {
+      "name": "Letrero de andén",
+      "kind": "custom",
+      "refersTo": "platform-sign",
+      "description": "Cabecera de página de producto: isotipo teñido de 64px y nombre en H1 sobre panel de andén con borde.",
+      "html": "<div class=\"ds-ground\"><div class=\"ds-sign\"><svg class=\"ds-sign-mark\" viewBox=\"0 0 600 550\" aria-hidden=\"true\" style=\"color:var(--color-line-rips,#17a673)\"><path d=\"M565.12,120.2c2.89-10.22,3.72-21.05,2.38-32.49c-3.51-30.35-30.17-53.85-61.07-53.85c-122.96,0-245.82,0-368.78,0c-31.62,0-56.31,13.79-73.67,39.24c-9.4,13.79-16.33,29.22-24.39,43.94c-0.72,1.23-1.03,2.66-1.76,4.6c2.38,0,4.03,0,5.68,0c62.82,0,125.65,0,188.47,0c61.69,0,123.27,0,184.96,0.1c0.88,0,1.75,0,2.63,0.09c2.15,0.21,4.29,0.62,6.14,1.53c10.02,5.11,13.02,15.74,7.03,26.47c-2.89,5.11-6.82,9.61-10.54,14.1c-30.28,36.38-60.65,72.76-90.93,109.23c-25.11,30.25-50.11,60.6-75.12,90.84c-4.24,5.11-8.37,10.22-12.92,15.84c1.65,0.1,2.69,0.31,3.62,0.31c28.93,0,57.76,0.1,86.69,0c15.4-0.1,28-6.23,37.82-17.88c20.87-24.73,41.64-49.56,62.41-74.49c38.34-46.09,76.57-92.27,115.01-138.26c7.65-9.2,13.02-19.01,16.02-29.53\" fill=\"currentColor\"/><path d=\"M319,194.18c-2.16,2.75-3.94,5.03-5.9,7.31c-36.21,42.7-72.41,85.4-108.72,128.11c-19.09,22.39-38.27,44.79-57.46,67.18c-7.28,8.54-8.56,19.64-3.15,27.33c4.33,6.17,10.72,8.35,18.1,8.35c50.28,0,100.46,0,150.63,0c75.56,0,151.03,0,226.59,0c1.18,0,2.36,0,4.43,0c-3.15,5.6-5.9,10.72-8.95,15.66c-6.3,10.15-12.3,20.5-19.09,30.37c-11.22,16.32-25.78,28.94-45.65,34.64c-6.2,1.71-12.79,2.85-19.19,2.85c-115.31,0.19-230.62,0.09-345.94,0.19c-14.36,0-27.94-2.66-40.04-10.06c-22.92-14.04-33.26-34.83-32.76-60.64c0.39-21.26,9.05-39.57,23.22-55.8c21.55-24.58,42.7-49.53,64.05-74.3c27.06-31.41,54.11-62.82,81.17-94.23c2.95-3.42,5.9-6.93,8.86-10.44c8.95-10.53,20.37-16.42,34.44-16.61c23.81-0.28,47.62-0.09,71.43-0.09C316.14,193.8,317.23,193.99,319,194.18z\" style=\"fill:color-mix(in oklab, currentColor 78%, var(--color-background, #0a0a0a))\"/></svg><div><p class=\"ds-sign-title\">Zentral RIPS</p><p class=\"ds-sign-sector\">Prestadores de salud</p></div></div></div>",
+      "css": ".ds-ground { background: var(--color-background, #0a0a0a); padding:32px; } .ds-sign { display:inline-flex; align-items:center; gap:20px; padding:16px 32px 16px 20px; border-radius: var(--radius-card, 16px); border:1.5px solid var(--color-border, #2a2a2e); background: var(--color-surface, #141414); color: var(--color-foreground, #fafafa); font-family: var(--font-sans, Overpass, ui-sans-serif, system-ui, sans-serif); } .ds-sign-mark { width:64px; height:auto; flex-shrink:0; } .ds-sign-title { margin:0; font-weight:800; font-size:clamp(2.25rem, 1.45rem + 3vw, 3.75rem); line-height:1.02; letter-spacing:-0.03em; } .ds-sign-sector { margin:4px 0 0; font-size:1rem; font-weight:600; color: var(--color-muted, #a1a1aa); }"
+    },
+    {
+      "name": "Franja de estaciones",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Strip map: línea recta de 8px con estaciones anilladas rellenas del suelo; señalarla la engrosa y lanza un tren de luz.",
+      "html": "<div class=\"ds-ground\"><div class=\"ds-strip\" tabindex=\"0\"><div class=\"ds-strip-track\"><span class=\"ds-strip-train\"></span></div><ol class=\"ds-strip-stations\"><li><span class=\"ds-station\"></span>Carga el lote</li><li><span class=\"ds-station\"></span>Cuenta servicios</li><li><span class=\"ds-station\"></span>Detecta inconsistencias</li><li><span class=\"ds-station\"></span>Exporta a Excel</li></ol></div></div>",
+      "css": ".ds-ground { background: var(--color-background, #0a0a0a); padding:32px; } .ds-strip { position:relative; font-family: var(--font-sans, Overpass, ui-sans-serif, system-ui, sans-serif); padding:0 0 8px; max-width:720px; } .ds-strip:focus-visible { outline: 2.5px solid var(--color-link, #60a5fa); outline-offset: 3px; border-radius: 6px; } .ds-strip-track { position:absolute; left:14px; right:0; top:11px; height:8px; border-radius:9999px; overflow:hidden; background: var(--color-line-rips, #17a673); transition: transform 200ms cubic-bezier(0.23,1,0.32,1); } .ds-strip-train { position:absolute; top:1.5px; bottom:1.5px; left:0; width:40px; border-radius:9999px; background: var(--color-foreground, #fafafa); opacity:0; } .ds-strip:hover .ds-strip-track, .ds-strip:focus-visible .ds-strip-track { transform: scaleY(1.5); } .ds-strip:hover .ds-strip-train, .ds-strip:focus-visible .ds-strip-train { animation: ds-strip-run 900ms cubic-bezier(0.23,1,0.32,1) both; } @keyframes ds-strip-run { 0% { opacity:1; transform: translateX(-6%); } 80% { opacity:1; } 100% { opacity:0; transform: translateX(1800%); } } .ds-strip-stations { position:relative; display:grid; grid-template-columns: repeat(4, 1fr); gap:24px; list-style:none; margin:0; padding:0; } .ds-strip-stations li { font-weight:800; font-size:1.0625rem; line-height:1.25; color: var(--color-foreground, #fafafa); padding-right:16px; } .ds-station { display:block; width:30px; height:30px; box-sizing:border-box; border-radius:9999px; border:6px solid var(--color-line-rips, #17a673); background: var(--color-background, #0a0a0a); margin-bottom:20px; } @media (prefers-reduced-motion: reduce) { .ds-strip-train { display:none; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Mapa de red",
+    "overview": "El sitio se dibuja como el mapa de noche de un sistema de transporte. Zentral es el intercambiador (el isotipo de marca, con su degradado, dentro de un anillo claro) y cada producto es una línea con su color, su isotipo teñido y sus estaciones. El Zentral Core, el mapa de la portada, es la pieza que enseña el negocio de un vistazo; el resto del sitio repite la misma gramática a otras escalas: la franja de estaciones sobre las puertas del vagón, el diagrama vertical dentro del vagón, el letrero de andén con la marca de la línea.\n\nEl soporte es siempre oscuro: un suelo casi negro, paneles de andén un paso más claros y texto casi blanco, como un plano de metro iluminado de noche. No hay modo claro; es una decisión de marca. Los colores de línea están afinados para leerse sobre negro (entre 5 y 7 a 1 contra el fondo) y ninguno domina. La letra es Overpass, descendiente de Highway Gothic, la familia de la señalización vial colombiana; Overpass Mono aparece solo cuando hay un dato (código, hora, norma). La densidad es de cartel: titulares grandes y pesados, texto corrido corto, mucho aire entre líneas de producto.\n\nEl movimiento es todo CSS y siempre cuenta algo del mundo: las líneas se trazan desde el intercambiador una sola vez, un tren claro va y viene despacio por cada línea, y señalar un producto (cursor o foco) apaga las demás líneas y lanza un expreso hasta la terminal. Lo oscuro es el suelo del mapa, no un escenario: el mundo rechaza el brillo azul, los halos y las rejillas bento de 1px del SaaS oscuro, y la página de captura más bento de la categoría.",
+    "keyCharacteristics": [
+      "Siempre oscuro: suelo casi negro, andén un paso más claro, texto casi blanco; sin modo claro.",
+      "Cinco líneas de color, una por producto más la línea azul de Zentral; el color de línea es trazo, anillo y marca, nunca texto corrido.",
+      "Cada producto se identifica con el isotipo de Zentral teñido en su color de línea, nunca con un círculo con letra.",
+      "Círculos para líneas y estaciones, 10px para controles, 16px para paneles, 6px para el anillo de foco.",
+      "Overpass 800 con tracking negativo para titulares; Overpass Mono solo para datos.",
+      "Recorridos en vez de tarjetas: los productos se presentan como franjas de estaciones.",
+      "Movimiento CSS con significado de transporte y equivalente estático bajo movimiento reducido."
+    ],
+    "rules": [
+      {
+        "name": "The Siempre-Oscuro Rule",
+        "body": "Un solo tema, oscuro (`color-scheme: dark`), por decisión de marca. Ninguna superficie del sitio pasa a fondo claro; el único campo de color es el azul de marca del cierre. La excepción es la muestra de Loyalty, que conserva los colores del pase del negocio que representa.",
+        "section": "colors"
+      },
+      {
+        "name": "The Trazo-No-Texto Rule",
+        "body": "Los colores de línea son para trazos, anillos de estación, el isotipo teñido y subrayados de pestaña activa, nunca para texto corrido. El nombre de cada producto va en luz al lado de su marca.",
+        "section": "colors"
+      },
+      {
+        "name": "The Una-Línea-Azul Rule",
+        "body": "El azul de marca es la línea de Zentral y es la acción. Ningún otro color hace de botón primario, y el azul no se usa como brillo, halo ni degradado de fondo; el único degradado del sitio es el del isotipo original en el intercambiador.",
+        "section": "colors"
+      },
+      {
+        "name": "The Azul-Señal Rule",
+        "body": "Sobre negro, el texto azul y el foco usan el azul señal, no el de marca. El azul de marca queda para fondos de acción y trazos.",
+        "section": "colors"
+      },
+      {
+        "name": "The Sin-Antetítulo Rule",
+        "body": "Una sección se abre con su título y una frase; no lleva antetítulo encima. El rótulo de 13px vive dentro de componentes, pegado a su dato, nunca sobre un titular de sección.",
+        "section": "typography"
+      },
+      {
+        "name": "The Mono-Es-Dato Rule",
+        "body": "Overpass Mono solo para cifras y códigos. Si el texto se puede leer en voz alta como frase, va en Overpass.",
+        "section": "typography"
+      },
+      {
+        "name": "The Recorrido-No-Tarjeta Rule",
+        "body": "Los productos se listan como filas con su franja de estaciones, separadas por 64-80px de aire, no como rejilla de tarjetas.",
+        "section": "layout"
+      },
+      {
+        "name": "The Plano-Salvo-Flotante Rule",
+        "body": "Paneles, franjas, botones y campos no llevan sombra. Solo lleva sombra lo que flota (menú, navbar en scroll) o lo que es una muestra de producto.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Cuatro-Formas Rule",
+        "body": "Círculo, 10px, 16px, y 6px solo para el contorno de foco. Las muestras de producto pueden llevar la forma del producto que representan (la tarjeta de wallet de Loyalty), pero ningún componente del sitio inventa otro radio.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Punteado-Es-Obra Rule",
+        "body": "Un trazo punteado significa «en construcción»: la línea a la medida y lo que un producto todavía no hace. No se usa como decoración.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Isotipo-Teñido Rule",
+        "body": "Un producto se marca con el isotipo de Zentral en su color de línea, nunca con un círculo con letra ni con un icono genérico. La marca es decorativa: el nombre va siempre escrito al lado.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "**Do** dar a cada producto nuevo su color de línea afinado para negro (5 a 7 a 1 sobre el suelo) y registrarlo en `lib/lines.ts` y en `@theme` como `--color-line-*`; su marca es el isotipo teñido con ese color.",
+      "**Do** poner el nombre escrito en luz al lado de toda marca o trazo de color.",
+      "**Do** usar el azul señal para enlaces de texto y foco, y el azul de marca para fondos de acción y trazos.",
+      "**Do** mostrar los productos como recorridos (franja o diagrama con estaciones) y reservar los paneles de 16px para información de apoyo.",
+      "**Do** rellenar estaciones, muescas y el intercambiador con el color del suelo, para que las líneas se lean como cortadas en el plano.",
+      "**Do** usar el trazo punteado para decir «en construcción»: la línea a la medida y lo que un producto aún no hace.",
+      "**Do** atar todo gesto de «señalar una línea» a cursor fino (`hover: hover` y `pointer: fine`) o a `:focus-visible`, y dar a cada animación su equivalente estático bajo `prefers-reduced-motion`.",
+      "**Do** usar `ease-zentral` para trazados de entrada y `ease-snap` para respuestas a la interacción.",
+      "**Do** rotular toda muestra de producto como datos de ejemplo, debajo y fuera de la pieza."
+    ],
+    "donts": [
+      "**Don't** añadir un modo claro ni paneles de fondo blanco; el único campo de color es el azul del cierre.",
+      "**Don't** marcar productos con círculos con letra; la marca es el isotipo teñido.",
+      "**Don't** usar brillo azul, halos, degradados de fondo ni rejillas bento de 1px: el negro es el suelo del mapa, no un escenario.",
+      "**Don't** construir la página de producto como captura de pantalla más rejilla bento.",
+      "**Don't** usar colores de línea para texto corrido, ni el azul de marca para texto sobre negro.",
+      "**Don't** poner antetítulos sobre los títulos de sección.",
+      "**Don't** introducir radios fuera del círculo, 10px, 16px y el foco de 6px en componentes del sitio.",
+      "**Don't** usar Overpass Mono para frases; solo para datos.",
+      "**Don't** añadir sombras a paneles, botones, campos o franjas."
+    ]
+  }
+}

@@ -9,23 +9,23 @@ export const siteConfig = {
 
   url: "https://zentral.com.co",
 
-  title: "Zentral Solutions | Sistemas Inteligentes para Empresas",
+  title: "Zentral Solutions | Software a la medida y productos SaaS",
   description:
-    "Automatización de procesos, agentes IA, integración de sistemas y software a la medida para empresas en Colombia y Latinoamérica.",
-  tagline: "Diseñamos sistemas inteligentes que trabajan por tu empresa.",
+    "Desarrollo de software a la medida y productos SaaS para empresas en Colombia: Zentral Loyalty, Zentral RIPS, Zentral Sports y Zentral Control.",
+  tagline: "Software para problemas concretos.",
 
   locale: "es_CO",
   lang: "es",
 
   keywords: [
-    "automatización de procesos Colombia",
-    "agentes IA Colombia",
-    "desarrollo de software a la medida",
-    "integración de sistemas",
-    "automatización empresarial",
+    "desarrollo de software a la medida Colombia",
     "software para empresas Colombia",
-    "dashboards empresariales",
-    "integración CRM ERP",
+    "revisar RIPS JSON",
+    "tarjetas de lealtad digitales",
+    "control de asistencia por GPS",
+    "reserva de canchas Barranquilla",
+    "automatización de procesos Colombia",
+    "integración de sistemas",
   ],
 
   contact: {
@@ -42,25 +42,36 @@ export const siteConfig = {
   },
 } as const;
 
+const WHATSAPP_NUMBER = "573337628306";
+
+/** Enlace a WhatsApp con el mensaje ya escrito. */
+export function whatsappHref(message: string): string {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
 /**
  * Destinos de los llamados a la acción.
  */
 export const ctaConfig = {
   primary: {
     label: "Agenda una conversación",
-    href: "https://wa.me/573337628306?text=Hola%2C%20quiero%20agendar%20una%20conversaci%C3%B3n",
+    href: whatsappHref("Hola, quiero agendar una conversación"),
     isExternal: true,
   },
   secondary: {
-    label: "Explora soluciones",
-    href: "#soluciones",
+    label: "Ver los productos",
+    href: "/#productos",
     isExternal: false,
   },
 } as const;
 
+/**
+ * Rutas absolutas (`/#…`), no anclas sueltas: el navbar vive en el layout y
+ * también se ve desde /productos, /servicios y /recursos.
+ */
 export const navItems: NavItem[] = [
-  { label: "Soluciones", href: "#soluciones" },
-  { label: "Cómo trabajamos", href: "#proceso" },
-  { label: "Casos de uso", href: "#casos-de-uso" },
-  { label: "Tecnologías", href: "#tecnologias" },
+  { label: "Productos", href: "/productos" },
+  { label: "A la medida", href: "/#a-la-medida" },
+  { label: "Servicios", href: "/#servicios" },
+  { label: "Recursos", href: "/recursos" },
 ];

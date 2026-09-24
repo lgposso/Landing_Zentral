@@ -1,7 +1,8 @@
 import type { AnchorHTMLAttributes, ReactNode } from "react";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-type Variant = "primary" | "secondary";
+type Variant = "primary" | "secondary" | "inverse";
 type Size = "md" | "lg";
 
 interface ButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -13,26 +14,23 @@ interface ButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 }
 
 const base =
-  "group inline-flex items-center justify-center gap-2 rounded-button font-semibold " +
-  "whitespace-nowrap transition-[transform,background-color,border-color,box-shadow] " +
-  "duration-300 ease-out will-change-transform hover:scale-[1.02] active:scale-[0.99] " +
-  "motion-reduce:transform-none motion-reduce:transition-none";
+  "group inline-flex items-center justify-center gap-2.5 rounded-button font-bold " +
+  "whitespace-nowrap transition-[background-color,border-color,color,transform] " +
+  "duration-150 ease-out active:scale-[0.97] motion-reduce:transform-none";
 
 const variants: Record<Variant, string> = {
-  // Azul sólido con texto blanco. El glow del hover es la única licencia
-  // luminosa del sistema, y usa el único acento permitido.
-  primary:
-    "bg-primary text-white shadow-[0_0_0_0_rgba(37,99,235,0)] " +
-    "hover:bg-primary-hover hover:shadow-[0_10px_36px_-8px_rgba(37,99,235,0.65)]",
-  // Sólo borde, sin relleno.
+  // La acción: azul de marca, como la línea de Zentral.
+  primary: "bg-primary text-white hover:bg-primary-hover",
+  // Contorno claro: se lee como un rótulo, no compite con la acción.
   secondary:
-    "border border-border bg-transparent text-foreground " +
-    "hover:border-primary hover:bg-primary/10",
+    "border-[1.5px] border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background",
+  // Para usar sobre un campo azul.
+  inverse: "bg-white text-primary-hover hover:bg-[#dbe7ff]",
 };
 
 const sizes: Record<Size, string> = {
-  md: "h-12 px-6 text-small",
-  lg: "h-14 px-8 text-small md:text-body",
+  md: "h-11 px-5 text-small",
+  lg: "h-14 px-7 text-body",
 };
 
 export function Button({
@@ -43,16 +41,24 @@ export function Button({
   className,
   ...props
 }: ButtonProps) {
+  const classes = cn(base, variants[variant], sizes[size], className);
+
+  // Rutas internas por el router de Next: navegación sin recarga y prefetch.
+  const { href, ...rest } = props;
+  if (!isExternal && href?.startsWith("/")) {
+    return (
+      <Link href={href} className={classes} {...rest}>
+        {children}
+      </Link>
+    );
+  }
+
   const externalProps = isExternal
     ? { target: "_blank", rel: "noopener noreferrer" as const }
     : {};
 
   return (
-    <a
-      className={cn(base, variants[variant], sizes[size], className)}
-      {...externalProps}
-      {...props}
-    >
+    <a href={href} className={classes} {...externalProps} {...rest}>
       {children}
     </a>
   );

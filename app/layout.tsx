@@ -1,9 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import { Inter, Manrope } from "next/font/google";
+import { Overpass, Overpass_Mono } from "next/font/google";
 
-import { MotionProvider } from "@/components/providers/MotionProvider";
-import { PointerSpotlight } from "@/components/ui/PointerSpotlight";
 import { StructuredData } from "@/components/StructuredData";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
@@ -11,19 +9,20 @@ import { siteConfig } from "@/config/site";
 
 import "./globals.css";
 
-/* Fuentes del spec (§6). `next/font` las auto-hospeda: cero peticiones a
-   dominios externos, cero FOUT y cero CLS por intercambio de fuente. */
-const manrope = Manrope({
-  subsets: ["latin"],
-  weight: ["700", "800"],
-  variable: "--font-manrope",
+/* Overpass viene de Highway Gothic, la familia de la señalización vial que
+   también usa Colombia: el mundo del sitio es un mapa de transporte. Es
+   variable, así que un solo archivo cubre todos los pesos. `next/font` la
+   auto-hospeda: cero peticiones externas y cero CLS por cambio de fuente. */
+const overpass = Overpass({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-overpass",
   display: "swap",
 });
 
-const inter = Inter({
+/* Solo para datos: horas, códigos, normas. */
+const overpassMono = Overpass_Mono({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-inter",
+  variable: "--font-overpass-mono",
   display: "swap",
 });
 
@@ -79,25 +78,21 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang={siteConfig.lang} className={`${manrope.variable} ${inter.variable}`}>
+    <html lang={siteConfig.lang} className={`${overpass.variable} ${overpassMono.variable}`}>
       <body className="antialiased">
         <StructuredData />
-
-        <PointerSpotlight />
 
         {/* Salto directo al contenido: primer tabulador de la página. */}
         <a
           href="#contenido"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-6 focus:top-6 focus:z-[100] focus:rounded-button focus:bg-primary focus:px-5 focus:py-3 focus:text-small focus:font-semibold focus:text-white"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-6 focus:top-6 focus:z-[100] focus:rounded-button focus:bg-primary focus:px-5 focus:py-3 focus:text-small focus:font-bold focus:text-white"
         >
           Saltar al contenido
         </a>
 
-        <MotionProvider>
-          <Navbar />
-          <main id="contenido">{children}</main>
-          <Footer />
-        </MotionProvider>
+        <Navbar />
+        <main id="contenido">{children}</main>
+        <Footer />
 
         <Analytics />
       </body>

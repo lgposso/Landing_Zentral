@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { resourceArticles, servicePages } from "@/config/content";
+import { products } from "@/config/products";
 import { siteConfig } from "@/config/site";
 
 /**
@@ -22,7 +23,7 @@ import { siteConfig } from "@/config/site";
  */
 
 /** Último cambio del copy de la home. Actualizar a mano al editarlo. */
-const HOME_LAST_MODIFIED = "2026-08-20";
+const HOME_LAST_MODIFIED = "2026-09-24";
 
 /**
  * El índice de /recursos refleja el artículo más reciente: publicar uno nuevo
@@ -36,12 +37,28 @@ const resourcesIndexLastModified =
     "",
   ) || HOME_LAST_MODIFIED;
 
+/** Mismo criterio para /productos: se mueve con el producto editado más reciente. */
+const productsIndexLastModified =
+  products.reduce<string>(
+    (latest, product) =>
+      product.lastModified > latest ? product.lastModified : latest,
+    "",
+  ) || HOME_LAST_MODIFIED;
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: siteConfig.url,
       lastModified: HOME_LAST_MODIFIED,
     },
+    {
+      url: `${siteConfig.url}/productos`,
+      lastModified: productsIndexLastModified,
+    },
+    ...products.map((product) => ({
+      url: `${siteConfig.url}/productos/${product.slug}`,
+      lastModified: product.lastModified,
+    })),
     ...servicePages.map((service) => ({
       url: `${siteConfig.url}/servicios/${service.slug}`,
       lastModified: service.lastModified,

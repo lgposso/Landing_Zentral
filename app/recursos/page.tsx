@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function ResourcesIndexPage() {
   return (
-    <Container className="py-20 lg:py-28">
+    <Container className="pb-20 pt-28 lg:pb-28 lg:pt-36">
       <h1 className="max-w-2xl text-h1 text-foreground">Recursos</h1>
       <p className="mt-6 max-w-2xl text-body text-muted">
         Respuestas directas a lo que conviene saber antes de automatizar un
@@ -28,13 +28,13 @@ export default function ResourcesIndexPage() {
           <li key={article.slug}>
             <Link
               href={`/recursos/${article.slug}`}
-              className="group flex items-center justify-between gap-6 py-6 transition-colors duration-200 hover:text-primary-hover"
+              className="group flex items-center justify-between gap-6 py-6 transition-colors duration-200 hover:text-link"
             >
-              <span className="text-body font-semibold text-foreground group-hover:text-primary-hover">
+              <span className="text-body font-semibold text-foreground group-hover:text-link">
                 {article.title}
               </span>
               <ArrowRight
-                className="size-4 shrink-0 text-muted transition-transform duration-300 group-hover:translate-x-1 group-hover:text-primary-hover motion-reduce:transform-none"
+                className="size-4 shrink-0 text-muted transition-transform duration-300 group-hover:translate-x-1 group-hover:text-link motion-reduce:transform-none"
                 strokeWidth={2}
                 aria-hidden="true"
               />

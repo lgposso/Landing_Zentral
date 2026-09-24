@@ -1,5 +1,7 @@
 # ZENTRAL DESIGN SPECIFICATION v1.0
 
+> **Reemplazado (septiembre de 2026).** Este documento describe el sistema visual anterior (fondo negro, azul como único acento, Manrope/Inter) y el posicionamiento de automatización. El sistema vigente es «Mapa de red» y vive en [`DESIGN.md`](../DESIGN.md); la verdad de producto, en [`PRODUCT.md`](../PRODUCT.md). Se conserva como registro histórico.
+
 > **Documento Oficial de Diseño y Producto**
 
 ---
