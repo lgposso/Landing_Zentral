@@ -1,10 +1,9 @@
-/** Claves de icono. Se mapean a componentes de lucide-react en cada feature,
- *  para que el copy en `config/content.ts` se mantenga serializable. */
-export type IconKey = string;
-
 export interface NavItem {
   label: string;
   href: string;
+  /** Línea del mapa que representa; el navbar la usa para su marca y para
+   *  resaltar esa línea en el mapa al pasar por el enlace. */
+  line?: ProductSlug | "custom";
 }
 
 export interface SectionCopy {
@@ -13,12 +12,6 @@ export interface SectionCopy {
   /** Segunda línea del título, en el azul de marca. */
   titleAccent: string;
   subtitle: string;
-}
-
-export interface FeatureItem {
-  icon: IconKey;
-  title: string;
-  description: string;
 }
 
 export interface ProcessStep {
@@ -34,26 +27,8 @@ export interface TechGroup {
   items: string[];
 }
 
-/** Artículo informacional en /recursos/[slug] (C4 del brief SEO). */
-export interface ResourceArticle {
-  slug: string;
-  title: string;
-  metaDescription: string;
-  /** Respuesta directa en el primer párrafo, antes del desarrollo. */
-  intro: string;
-  /** Subpreguntas en <h3>, cada una con la respuesta directa primero. */
-  sections: {
-    question: string;
-    answer: string[];
-  }[];
-  /** Slugs de /servicios/[slug] relacionados, para enlazado interno. */
-  relatedServices: string[];
-  lastModified: string;
-}
-
-/** Página de servicio individual (C1 del brief SEO). */
-export interface ServicePage {
-  slug: string;
+/** La página /desarrollo-a-la-medida: el servicio principal de Zentral. */
+export interface CustomDevPage {
   /** Palabra clave primaria objetivo, solo como referencia editorial. */
   keyword: string;
   metaTitle: string;
@@ -64,7 +39,7 @@ export interface ServicePage {
   whoItsFor: string[];
   howWeImplementIt: string[];
   technologies: { name: string; description: string }[];
-  deliverables: string[];
+  deliverables: { title: string; description: string }[];
   timeline: string;
   investmentRange: string;
   /**
@@ -82,7 +57,7 @@ export interface ServicePage {
 /* Productos SaaS                                                             */
 /* -------------------------------------------------------------------------- */
 
-export type ProductSlug = "loyalty" | "rips" | "sports" | "control";
+export type ProductSlug = "rips" | "loyalty";
 
 /**
  * Un producto de la línea SaaS de Zentral, en /productos/[slug].

@@ -11,11 +11,13 @@ import {
   processSteps,
   techGroups,
 } from "@/config/content";
+import { customDevHref } from "@/config/site";
 
 /**
- * Desarrollo a la medida: la línea que se construye para el cliente. Llega
- * punteada, como las líneas en obra de un mapa de metro, y se vuelve sólida a
- * medida que se recorre su proceso.
+ * Desarrollo a la medida, lo principal de Zentral. En el mapa es la troncal;
+ * aquí, el proyecto de cada cliente: la franja llega punteada, como las líneas
+ * en obra de un mapa de metro, y se vuelve sólida a medida que se recorre su
+ * proceso.
  */
 export function CustomDev() {
   return (
@@ -75,7 +77,7 @@ export function CustomDev() {
           </dl>
 
           <Link
-            href="/servicios/software-a-la-medida"
+            href={customDevHref}
             className="group mt-8 inline-flex items-center gap-2 text-small font-bold text-link hover:underline"
           >
             Cómo trabajamos un desarrollo a la medida

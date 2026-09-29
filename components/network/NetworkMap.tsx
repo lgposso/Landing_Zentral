@@ -4,21 +4,27 @@ import { ArrowUpRight } from "lucide-react";
 
 import { LineMark } from "@/components/ui/LineMark";
 import { products, productHref } from "@/config/products";
+import { customDevHref } from "@/config/site";
 import { lineStyles, type LineId } from "@/lib/lines";
 import { cn } from "@/lib/utils";
 
 /* --------------------------------------------------------------------------
  * Zentral Core: el mapa de la red.
  *
- * El isotipo es el intercambiador y cada producto una línea que sale de él
- * hasta su terminal. El trazo es SVG decorativo (aria-hidden); lo que se lee
- * y se pulsa son los rótulos HTML de cada terminal, que son enlaces reales a
- * /productos/[slug]. Así el texto queda nítido a cualquier escala y el mapa
- * funciona con teclado y lector de pantalla.
+ * El isotipo es el intercambiador. De él sale la troncal, el desarrollo a la
+ * medida, que es lo principal de Zentral: azul, sólida y bastante más gruesa
+ * que las demás, con el único rótulo completo. Los productos propios son
+ * ramales delgados que salen del mismo intercambiador y solo dicen su nombre.
+ * El trazo es SVG decorativo (aria-hidden); lo que se lee y se pulsa son los
+ * rótulos HTML de cada terminal, que son enlaces reales. Así el texto queda
+ * nítido a cualquier escala y el mapa funciona con teclado y lector de
+ * pantalla.
  *
  * Hay dos geometrías del mismo mapa: una apaisada desde `md` y otra vertical
- * para el celular, donde las líneas bajan en haz y se abren una a una. Solo
- * una está en el árbol de accesibilidad a la vez (la otra va con display:none).
+ * para el celular, donde la troncal baja como espina y los ramales se abren a
+ * la derecha. Solo una está en el árbol de accesibilidad a la vez (la otra va
+ * con display:none). Cada una ordena sus rutas como se leen: en la apaisada
+ * la troncal va primero; en la vertical, de arriba abajo.
  * ----------------------------------------------------------------------- */
 
 type LabelPlacement =
@@ -43,101 +49,83 @@ interface Geometry {
   width: number;
   height: number;
   hub: { cx: number; cy: number; r: number; logo: number };
+  /** Grosor de los ramales; la troncal va más gruesa (ver `TRUNK_SCALE`). */
+  stroke: number;
   routes: RouteGeometry[];
 }
 
-/* 840×560. Las cuatro líneas salen en diagonal a 45° y corren en horizontal
-   hasta los bordes; la línea a la medida baja, punteada: está por construir. */
+/** Cuánto más gruesa es la troncal que un ramal: los productos son
+ *  secundarios y el trazo lo dice antes que cualquier texto. */
+const TRUNK_SCALE = 2.25;
+
+/* 840×560. El intercambiador a la izquierda; la troncal corre recta hasta el
+   borde derecho y los dos ramales salen a 45° y corren en horizontal, un
+   tramo más cortos que ella. */
 const WIDE: Geometry = {
   width: 840,
   height: 560,
-  hub: { cx: 420, cy: 260, r: 46, logo: 58 },
+  hub: { cx: 118, cy: 280, r: 46, logo: 58 },
+  stroke: 8,
   routes: [
     {
-      line: "loyalty",
-      d: "M 387 227 L 310 150 L 40 150",
-      terminus: [40, 150],
+      line: "custom",
+      d: "M 164 280 L 800 280",
+      terminus: [800, 280],
       ticks: [
-        { x: 236, y: 150, dir: "down" },
-        { x: 138, y: 150, dir: "down" },
+        { x: 380, y: 280, dir: "up" },
+        { x: 560, y: 280, dir: "up" },
       ],
-      label: { x: 40, y: 124, placement: "above-left" },
+      label: { x: 800, y: 312, placement: "below-right" },
     },
     {
       line: "rips",
-      d: "M 453 227 L 530 150 L 800 150",
-      terminus: [800, 150],
+      d: "M 151 247 L 288 110 L 690 110",
+      terminus: [690, 110],
       ticks: [
-        { x: 604, y: 150, dir: "down" },
-        { x: 702, y: 150, dir: "down" },
+        { x: 420, y: 110, dir: "down" },
+        { x: 550, y: 110, dir: "down" },
       ],
-      label: { x: 800, y: 124, placement: "above-right" },
+      label: { x: 690, y: 96, placement: "above-right" },
     },
     {
-      line: "sports",
-      d: "M 387 293 L 310 370 L 40 370",
-      terminus: [40, 370],
+      line: "loyalty",
+      d: "M 151 313 L 288 450 L 690 450",
+      terminus: [690, 450],
       ticks: [
-        { x: 236, y: 370, dir: "up" },
-        { x: 138, y: 370, dir: "up" },
+        { x: 420, y: 450, dir: "up" },
+        { x: 550, y: 450, dir: "up" },
       ],
-      label: { x: 40, y: 396, placement: "below-left" },
-    },
-    {
-      line: "control",
-      d: "M 453 293 L 530 370 L 800 370",
-      terminus: [800, 370],
-      ticks: [
-        { x: 604, y: 370, dir: "up" },
-        { x: 702, y: 370, dir: "up" },
-      ],
-      label: { x: 800, y: 396, placement: "below-right" },
-    },
-    {
-      line: "custom",
-      d: "M 420 306 L 420 470",
-      terminus: [420, 470],
-      label: { x: 420, y: 494, placement: "below-center" },
+      label: { x: 690, y: 466, placement: "below-right" },
     },
   ],
 };
 
-/* 360×520. Las líneas bajan en haz desde el intercambiador y se abren en
-   orden: la de más a la derecha sale primero, así ninguna cruza a otra. */
+/* 360×420. Las líneas bajan en haz desde el intercambiador y se abren en
+   orden: la de más a la derecha sale primero, así ninguna cruza a otra. La
+   troncal va por fuera, a la izquierda, y es la que llega más lejos. */
 const TALL: Geometry = {
   width: 360,
-  height: 520,
+  height: 420,
   hub: { cx: 64, cy: 52, r: 40, logo: 50 },
+  stroke: 5,
   routes: [
     {
-      line: "loyalty",
-      d: "M 84 52 L 84 126 L 108 150 L 146 150",
+      line: "rips",
+      d: "M 88 52 L 88 126 L 112 150 L 146 150",
       terminus: [146, 150],
       label: { x: 164, y: 150, placement: "side" },
     },
     {
-      line: "rips",
-      d: "M 74 52 L 74 212 L 98 236 L 146 236",
-      terminus: [146, 236],
-      label: { x: 164, y: 236, placement: "side" },
-    },
-    {
-      line: "sports",
-      d: "M 64 52 L 64 298 L 88 322 L 146 322",
-      terminus: [146, 322],
-      label: { x: 164, y: 322, placement: "side" },
-    },
-    {
-      line: "control",
-      d: "M 54 52 L 54 384 L 78 408 L 146 408",
-      terminus: [146, 408],
-      label: { x: 164, y: 408, placement: "side" },
+      line: "loyalty",
+      d: "M 75 52 L 75 238 L 99 262 L 146 262",
+      terminus: [146, 262],
+      label: { x: 164, y: 262, placement: "side" },
     },
     {
       line: "custom",
-      d: "M 44 52 L 44 470 L 68 494 L 146 494",
-      terminus: [146, 494],
-      label: { x: 164, y: 494, placement: "side" },
+      d: "M 58 52 L 58 350 L 82 374 L 146 374",
+      terminus: [146, 374],
+      label: { x: 164, y: 374, placement: "side" },
     },
   ],
 };
@@ -154,9 +142,9 @@ interface Stop {
 
 const customStop: Stop = {
   line: "custom",
-  href: "/#a-la-medida",
-  name: "Tu proyecto",
-  sector: "Desarrollo a la medida",
+  href: customDevHref,
+  name: "A la medida",
+  sector: "Software para tu operación",
   fact: "El código es tuyo",
 };
 
@@ -188,13 +176,25 @@ const placementClasses: Record<LabelPlacement, string> = {
 const pct = (value: number, total: number) => `${((value / total) * 100).toFixed(3)}%`;
 
 /** Parada intermedia: una muesca del color del fondo que corta la línea y
- *  asoma hacia el lado contrario al rótulo. */
-function Tick({ x, y, dir }: { x: number; y: number; dir: "up" | "down" }) {
-  const length = 20;
+ *  asoma hacia el lado contrario al rótulo. Se mide con el grosor del trazo
+ *  para que corte igual la troncal que un ramal. */
+function Tick({
+  x,
+  y,
+  dir,
+  stroke,
+}: {
+  x: number;
+  y: number;
+  dir: "up" | "down";
+  stroke: number;
+}) {
+  const length = stroke + 8;
+  const inset = stroke / 2 - 1;
   return (
     <rect
       x={x - 2.5}
-      y={dir === "down" ? y - 5 : y - length + 5}
+      y={dir === "down" ? y - inset : y + inset - length}
       width={5}
       height={length}
       rx={2.5}
@@ -203,7 +203,15 @@ function Tick({ x, y, dir }: { x: number; y: number; dir: "up" | "down" }) {
   );
 }
 
-function MapLayer({ geometry, className }: { geometry: Geometry; className?: string }) {
+function MapLayer({
+  geometry,
+  productDetail,
+  className,
+}: {
+  geometry: Geometry;
+  productDetail: boolean;
+  className?: string;
+}) {
   const { width, height, hub } = geometry;
   const compact = geometry === TALL;
 
@@ -219,7 +227,8 @@ function MapLayer({ geometry, className }: { geometry: Geometry; className?: str
       >
         {geometry.routes.map((route, index) => {
           const color = lineStyles[route.line].color;
-          const dashed = route.line === "custom";
+          const trunk = route.line === "custom";
+          const stroke = trunk ? geometry.stroke * TRUNK_SCALE : geometry.stroke;
           const style = { "--i": index } as CSSProperties;
 
           return (
@@ -235,15 +244,9 @@ function MapLayer({ geometry, className }: { geometry: Geometry; className?: str
                 pathLength={100}
                 fill="none"
                 stroke={color}
-                strokeWidth={compact ? 7 : 12}
-                // Remate recto en la punteada: el redondo taparía los huecos.
-                strokeLinecap={dashed ? "butt" : "round"}
+                strokeWidth={stroke}
+                strokeLinecap="round"
                 strokeLinejoin="round"
-                {...(dashed ? { "data-dashed": "" } : {})}
-                // La punteada se mide en unidades de `pathLength`: la vertical
-                // del celular es tres veces más larga, así que sus tramos van
-                // más cortos para que el ritmo se vea igual.
-                style={dashed ? { strokeDasharray: compact ? "2.2 1.8" : "6 5" } : undefined}
               />
 
               <path
@@ -251,45 +254,42 @@ function MapLayer({ geometry, className }: { geometry: Geometry; className?: str
                 d={route.d}
                 fill="none"
                 stroke={color}
-                strokeWidth={compact ? 11 : 17}
-                strokeLinecap={dashed ? "butt" : "round"}
+                strokeWidth={stroke * 1.4}
+                strokeLinecap="round"
                 strokeLinejoin="round"
                 pathLength={100}
-                style={dashed ? { strokeDasharray: compact ? "2.2 1.8" : "6 5" } : undefined}
               />
 
               <g className="route-stop">
                 {route.ticks?.map((tick) => (
-                  <Tick key={`${tick.x}-${tick.y}`} {...tick} />
+                  <Tick key={`${tick.x}-${tick.y}`} {...tick} stroke={stroke} />
                 ))}
                 <circle
                   cx={route.terminus[0]}
                   cy={route.terminus[1]}
-                  r={compact ? 8 : 12}
+                  r={stroke}
                   fill="var(--color-background)"
                   stroke={color}
-                  strokeWidth={compact ? 5 : 8}
+                  strokeWidth={stroke * (2 / 3)}
                 />
               </g>
 
-              {!dashed && (
-                <path
-                  className="route-train"
-                  d={route.d}
-                  pathLength={100}
-                  fill="none"
-                  stroke="var(--color-foreground)"
-                  strokeWidth={compact ? 3 : 4.5}
-                  strokeLinecap="round"
-                />
-              )}
+              <path
+                className="route-train"
+                d={route.d}
+                pathLength={100}
+                fill="none"
+                stroke="var(--color-foreground)"
+                strokeWidth={stroke * 0.38}
+                strokeLinecap="round"
+              />
               <path
                 className="route-express"
                 d={route.d}
                 pathLength={100}
                 fill="none"
                 stroke="var(--color-foreground)"
-                strokeWidth={compact ? 3 : 5.5}
+                strokeWidth={stroke * 0.46}
                 strokeLinecap="round"
               />
             </g>
@@ -322,6 +322,9 @@ function MapLayer({ geometry, className }: { geometry: Geometry; className?: str
 
       {geometry.routes.map((route, index) => {
           const stop = stops[route.line];
+          // Fuera de /productos, los ramales solo dicen su nombre: el rótulo
+          // completo es de la troncal.
+          const full = route.line === "custom" || productDetail;
           const style = {
             left: pct(route.label.x, width),
             top: pct(route.label.y, height),
@@ -348,8 +351,15 @@ function MapLayer({ geometry, className }: { geometry: Geometry; className?: str
                     route.label.placement.endsWith("right") && "flex-row-reverse",
                   )}
                 >
-                  <LineMark line={route.line} size="sm" />
-                  <span className="text-[15px] font-extrabold leading-tight text-foreground lg:text-[18px]">
+                  <LineMark line={route.line} size={full ? "sm" : "xs"} />
+                  <span
+                    className={cn(
+                      "leading-tight",
+                      full
+                        ? "text-[15px] font-extrabold text-foreground lg:text-[18px]"
+                        : "text-[14px] font-bold text-muted transition-colors duration-200 group-hover:text-foreground group-focus-visible:text-foreground lg:text-[16px]",
+                    )}
+                  >
                     {stop.name}
                   </span>
                   <ArrowUpRight
@@ -358,12 +368,16 @@ function MapLayer({ geometry, className }: { geometry: Geometry; className?: str
                     aria-hidden="true"
                   />
                 </span>
-                <span className="mt-0.5 text-[13px] leading-snug text-muted lg:text-[15px]">
-                  {stop.sector}
-                </span>
-                <span className="text-[13px] font-bold leading-snug text-foreground lg:text-[14px]">
-                  {stop.fact}
-                </span>
+                {full && (
+                  <>
+                    <span className="mt-0.5 text-[13px] leading-snug text-muted lg:text-[15px]">
+                      {stop.sector}
+                    </span>
+                    <span className="text-[13px] font-bold leading-snug text-foreground lg:text-[14px]">
+                      {stop.fact}
+                    </span>
+                  </>
+                )}
               </Link>
           );
         })}
@@ -372,14 +386,21 @@ function MapLayer({ geometry, className }: { geometry: Geometry; className?: str
 }
 
 interface NetworkMapProps {
+  /** true en /productos: ahí los ramales llevan su rótulo completo (sector y
+   *  dato), porque la página es de ellos. */
+  productDetail?: boolean;
   className?: string;
 }
 
-export function NetworkMap({ className }: NetworkMapProps) {
+export function NetworkMap({ productDetail = false, className }: NetworkMapProps) {
   return (
-    <nav aria-label="Productos Zentral" className={cn("select-none", className)}>
-      <MapLayer geometry={TALL} className="mx-auto max-w-[420px] md:hidden" />
-      <MapLayer geometry={WIDE} className="hidden md:block" />
+    <nav aria-label="Líneas de Zentral" className={cn("select-none", className)}>
+      <MapLayer
+        geometry={TALL}
+        productDetail={productDetail}
+        className="mx-auto max-w-[420px] md:hidden"
+      />
+      <MapLayer geometry={WIDE} productDetail={productDetail} className="hidden md:block" />
     </nav>
   );
 }

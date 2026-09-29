@@ -2,7 +2,7 @@ import { siteConfig } from "@/config/site";
 
 interface BreadcrumbSegment {
   name: string;
-  /** Ruta relativa, ej. "/servicios/automatizacion-de-procesos". */
+  /** Ruta relativa, ej. "/productos/rips". */
   path: string;
 }
 

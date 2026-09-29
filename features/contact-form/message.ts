@@ -17,5 +17,5 @@ export function buildSubject({ name, company }: ContactMessage): string {
 }
 
 export function buildBody({ name, company, email, message }: ContactMessage): string {
-  return `Nombre: ${name}\nEmpresa: ${company}\nCorreo: ${email}\n\nProceso a automatizar:\n${message}`;
+  return `Nombre: ${name}\nEmpresa: ${company}\nCorreo: ${email}\n\nQué necesita construir:\n${message}`;
 }

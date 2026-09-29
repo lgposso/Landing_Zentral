@@ -1,14 +1,18 @@
-import { Section } from "@/components/ui/Section";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { productsCopy } from "@/config/content";
-import { products } from "@/config/products";
-import { ProductLines } from "./ProductLines";
+import { Container } from "@/components/ui/Container";
+import { OwnProducts } from "./OwnProducts";
 
+/** En la home, los productos van después del desarrollo a la medida y en una
+ *  banda más corta que las secciones principales. */
 export function ProductsSection() {
   return (
-    <Section id="productos" className="border-t border-border">
-      <SectionHeading copy={productsCopy} id="productos-title" />
-      <ProductLines products={products} className="mt-16 md:mt-20" />
-    </Section>
+    <section
+      id="productos"
+      aria-labelledby="productos-title"
+      className="border-t border-border py-16 md:py-20"
+    >
+      <Container>
+        <OwnProducts headingId="productos-title" />
+      </Container>
+    </section>
   );
 }

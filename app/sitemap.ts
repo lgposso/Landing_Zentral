@@ -1,16 +1,18 @@
 import type { MetadataRoute } from "next";
-import { resourceArticles, servicePages } from "@/config/content";
+import { customDevPage } from "@/config/content";
 import { products } from "@/config/products";
-import { siteConfig } from "@/config/site";
+import { customDevHref, siteConfig } from "@/config/site";
 
 /**
  * Sitemap del sitio. Cuatro reglas sostienen este archivo:
  *
- * 1. Solo entran URLs indexables que devuelven 200.
+ * 1. Solo entran URLs indexables que devuelven 200. Las rutas retiradas
+ *    (servicios de automatización, recursos, Sports y Control) redirigen desde
+ *    `next.config.ts` y no van aquí.
  *
  * 2. Las rutas dinámicas se derivan de los mismos arrays que alimentan
- *    `generateStaticParams`, así que añadir un servicio o un artículo lo mete
- *    al sitemap solo. No duplicar slugs aquí.
+ *    `generateStaticParams`, así que añadir un producto lo mete al sitemap
+ *    solo. No duplicar slugs aquí.
  *
  * 3. `lastModified` es la fecha del último cambio real de contenido, no la del
  *    despliegue. Google solo honra <lastmod> cuando es verificablemente
@@ -21,30 +23,24 @@ import { siteConfig } from "@/config/site";
  */
 
 /** Último cambio del copy de la home. Actualizar a mano al editarlo. */
-const HOME_LAST_MODIFIED = "2026-09-24";
+const HOME_LAST_MODIFIED = "2026-09-28";
 
-/**
- * El índice de /recursos refleja el artículo más reciente: publicar uno nuevo
- * cambia el índice de verdad, así que su `lastmod` debe moverse con él.
- * Las fechas ISO se ordenan lexicográficamente igual que cronológicamente.
- */
-const resourcesIndexLastModified =
-  resourceArticles.reduce<string>(
-    (latest, article) =>
-      article.lastModified > latest ? article.lastModified : latest,
-    "",
-  ) || HOME_LAST_MODIFIED;
+/** Último cambio del copy propio del índice /productos. */
+const PRODUCTS_INDEX_COPY_LAST_MODIFIED = "2026-09-28";
 
 /** Fecha en que entró a regir la política vigente. */
-const PRIVACY_LAST_MODIFIED = "2026-09-24";
+const PRIVACY_LAST_MODIFIED = "2026-09-28";
 
-/** Mismo criterio para /productos: se mueve con el producto editado más reciente. */
-const productsIndexLastModified =
-  products.reduce<string>(
-    (latest, product) =>
-      product.lastModified > latest ? product.lastModified : latest,
-    "",
-  ) || HOME_LAST_MODIFIED;
+/**
+ * /productos se mueve con su propio copy o con el producto editado más
+ * reciente, lo que sea posterior. Las fechas ISO se ordenan
+ * lexicográficamente igual que cronológicamente.
+ */
+const productsIndexLastModified = products.reduce<string>(
+  (latest, product) =>
+    product.lastModified > latest ? product.lastModified : latest,
+  PRODUCTS_INDEX_COPY_LAST_MODIFIED,
+);
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -53,24 +49,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: HOME_LAST_MODIFIED,
     },
     {
+      url: `${siteConfig.url}${customDevHref}`,
+      lastModified: customDevPage.lastModified,
+    },
+    {
       url: `${siteConfig.url}/productos`,
       lastModified: productsIndexLastModified,
     },
     ...products.map((product) => ({
       url: `${siteConfig.url}/productos/${product.slug}`,
       lastModified: product.lastModified,
-    })),
-    ...servicePages.map((service) => ({
-      url: `${siteConfig.url}/servicios/${service.slug}`,
-      lastModified: service.lastModified,
-    })),
-    {
-      url: `${siteConfig.url}/recursos`,
-      lastModified: resourcesIndexLastModified,
-    },
-    ...resourceArticles.map((article) => ({
-      url: `${siteConfig.url}/recursos/${article.slug}`,
-      lastModified: article.lastModified,
     })),
     {
       url: `${siteConfig.url}/privacidad`,

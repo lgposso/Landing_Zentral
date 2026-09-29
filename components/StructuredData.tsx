@@ -1,15 +1,16 @@
-import { servicePages } from "@/config/content";
+import { customDevPage } from "@/config/content";
 import { products } from "@/config/products";
-import { siteConfig } from "@/config/site";
+import { customDevHref, siteConfig } from "@/config/site";
 
 /**
- * Datos estructurados schema.org: Organization, WebSite y el OfferCatalog de
- * servicios. Cada producto emite además su SoftwareApplication en su propia
- * página (ver `ProductSchema`). Se emiten en un solo bloque `@graph` para que
- * las entidades puedan referenciarse entre sí por `@id`.
+ * Datos estructurados schema.org: Organization, WebSite y el Service del
+ * desarrollo a la medida. Cada producto emite además su SoftwareApplication
+ * en su propia página (ver `ProductSchema`). Se emiten en un solo bloque
+ * `@graph` para que las entidades puedan referenciarse entre sí por `@id`.
+ * Sin precios ni calificaciones: no hay tarifas públicas ni reseñas.
  *
  * El BreadcrumbList vive aparte, en `BreadcrumbSchema`: es específico de
- * cada página (Inicio › Soluciones › [Servicio]), no tiene sentido como nodo
+ * cada página (Inicio › Productos › [Producto]), no tiene sentido como nodo
  * global idéntico en todas las rutas.
  */
 export function StructuredData() {
@@ -54,9 +55,6 @@ export function StructuredData() {
           "Software como servicio (SaaS)",
           "RIPS",
           "Programas de lealtad digitales",
-          "Control de asistencia por GPS",
-          "Automatización de procesos",
-          "Integración de sistemas",
         ],
         owns: products.map((product) => ({
           "@id": `${siteConfig.url}/productos/${product.slug}#software`,
@@ -75,24 +73,17 @@ export function StructuredData() {
         publisher: { "@id": `${siteConfig.url}/#organization` },
       },
       {
-        "@type": "OfferCatalog",
-        "@id": `${siteConfig.url}/#servicios`,
-        name: "Servicios Zentral",
-        itemListElement: servicePages.map((service, i) => ({
-          "@type": "Offer",
-          position: i + 1,
-          itemOffered: {
-            "@type": "Service",
-            name: service.heroTitle,
-            description: service.heroSubtitle,
-            url: `${siteConfig.url}/servicios/${service.slug}`,
-            provider: { "@id": `${siteConfig.url}/#organization` },
-            areaServed: [
-              { "@type": "Country", name: "Colombia" },
-              { "@type": "Place", name: "Latinoamérica" },
-            ],
-          },
-        })),
+        "@type": "Service",
+        "@id": `${siteConfig.url}${customDevHref}#servicio`,
+        name: customDevPage.heroTitle,
+        serviceType: "Desarrollo de software a la medida",
+        description: customDevPage.heroSubtitle,
+        url: `${siteConfig.url}${customDevHref}`,
+        provider: { "@id": `${siteConfig.url}/#organization` },
+        areaServed: [
+          { "@type": "Country", name: "Colombia" },
+          { "@type": "Place", name: "Latinoamérica" },
+        ],
       },
     ],
   };

@@ -7,9 +7,9 @@ import { products } from "@/config/products";
 import { ProductLines } from "@/features/products/ProductLines";
 
 export const metadata: Metadata = {
-  title: "Productos: Loyalty, RIPS, Sports y Control",
+  title: "Productos propios: Zentral RIPS y Zentral Loyalty",
   description:
-    "La línea de productos SaaS de Zentral: tarjetas de lealtad en Google Wallet, revisión de RIPS JSON, reserva de canchas y control de asistencia por GPS.",
+    "Los productos que Zentral construye y opera: revisión de RIPS JSON antes de radicar, y tarjetas de lealtad digitales en Google Wallet.",
   alternates: { canonical: "/productos" },
 };
 
@@ -21,14 +21,14 @@ export default function ProductsIndexPage() {
       <section className="pb-16 pt-28 md:pb-20 md:pt-32">
         <Container className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5 lg:pt-8">
-            <h1 className="text-h1 text-foreground">Productos Zentral</h1>
+            <h1 className="text-h1 text-foreground">Productos propios</h1>
             <p className="mt-6 max-w-[40ch] text-body text-muted">
-              Cuatro líneas que salen del mismo intercambiador: la ingeniería con
-              la que también construimos software a la medida.
+              Los construimos y los operamos con la misma ingeniería de nuestros
+              desarrollos a la medida. Cada uno resuelve un problema por sí solo.
             </p>
           </div>
           <div className="lg:col-span-7">
-            <NetworkMap />
+            <NetworkMap productDetail />
           </div>
         </Container>
       </section>

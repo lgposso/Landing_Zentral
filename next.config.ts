@@ -37,11 +37,29 @@ const CSP = [
   "upgrade-insecure-requests",
 ].join("; ");
 
+/**
+ * Rutas retiradas cuando Zentral se enfocó en tres líneas (a la medida, RIPS
+ * y Loyalty). Redirigen de forma permanente a lo más cercano que sigue vivo,
+ * para no perder a quien llegue por un enlace o un resultado de búsqueda
+ * viejo. Next responde 308, que Google trata igual que un 301.
+ */
+const retiredRoutes = [
+  { source: "/productos/sports", destination: "/productos" },
+  { source: "/productos/control", destination: "/productos" },
+  { source: "/servicios", destination: "/desarrollo-a-la-medida" },
+  { source: "/servicios/:slug", destination: "/desarrollo-a-la-medida" },
+  { source: "/recursos", destination: "/desarrollo-a-la-medida" },
+  { source: "/recursos/:slug", destination: "/desarrollo-a-la-medida" },
+];
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   images: {
     formats: ["image/avif", "image/webp"],
+  },
+  async redirects() {
+    return retiredRoutes.map((route) => ({ ...route, permanent: true }));
   },
   async headers() {
     return [

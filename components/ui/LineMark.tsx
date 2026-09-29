@@ -4,6 +4,7 @@ import { Isotype } from "./Isotype";
 
 // Ancho del isotipo; el alto sale de su proporción (600×550).
 const sizes = {
+  xs: "w-5",
   sm: "w-6",
   md: "w-8",
   lg: "w-12",

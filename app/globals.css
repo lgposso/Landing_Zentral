@@ -35,14 +35,12 @@
      para texto, este da 7.8:1. */
   --color-link: #60a5fa;
 
-  /* --- Colores de línea (5 a 7:1 sobre el fondo; ninguna domina) ------ */
+  /* --- Colores de línea (5 a 7:1 sobre el fondo) ---------------------- */
   --color-line-loyalty: #f23d6d;
   --color-line-rips: #17a673;
-  --color-line-sports: #ee7a1c;
-  --color-line-control: #9164f2;
-  /* La línea a la medida es el azul de marca, fijo (3.8:1 como trazo). */
+  /* La troncal a la medida es el azul de marca, fijo (3.8:1 como trazo). */
   --color-line-custom: #2563eb;
-  /* Ramales secundarios: servicios y conexiones. */
+  /* Gris neutro para bordes que responden al cursor. */
   --color-line-neutral: #6b7280;
 
   /* --- Tipografía -----------------------------------------------------
@@ -198,12 +196,6 @@
     animation-delay: calc(120ms + var(--i, 0) * 110ms);
   }
 
-  .network-route .route-line[data-dashed] {
-    stroke-dasharray: 6 5;
-    animation: route-fade 700ms var(--ease-zentral) both;
-    animation-delay: calc(120ms + var(--i, 0) * 110ms);
-  }
-
   .network-route .route-stop {
     animation: route-fade 400ms var(--ease-zentral) both;
     animation-delay: calc(700ms + var(--i, 0) * 110ms);
@@ -302,22 +294,16 @@
   }
   .network:has([data-line="loyalty"]:focus-visible) [data-route="loyalty"],
   .network:has([data-line="rips"]:focus-visible) [data-route="rips"],
-  .network:has([data-line="sports"]:focus-visible) [data-route="sports"],
-  .network:has([data-line="control"]:focus-visible) [data-route="control"],
   .network:has([data-line="custom"]:focus-visible) [data-route="custom"] {
     opacity: 1;
   }
   .network:has([data-line="loyalty"]:focus-visible) [data-route="loyalty"] .route-bold,
   .network:has([data-line="rips"]:focus-visible) [data-route="rips"] .route-bold,
-  .network:has([data-line="sports"]:focus-visible) [data-route="sports"] .route-bold,
-  .network:has([data-line="control"]:focus-visible) [data-route="control"] .route-bold,
   .network:has([data-line="custom"]:focus-visible) [data-route="custom"] .route-bold {
     opacity: 1;
   }
   .network:has([data-line="loyalty"]:focus-visible) [data-route="loyalty"] .route-express,
   .network:has([data-line="rips"]:focus-visible) [data-route="rips"] .route-express,
-  .network:has([data-line="sports"]:focus-visible) [data-route="sports"] .route-express,
-  .network:has([data-line="control"]:focus-visible) [data-route="control"] .route-express,
   .network:has([data-line="custom"]:focus-visible) [data-route="custom"] .route-express {
     animation: route-express 700ms var(--ease-snap) both;
   }
@@ -332,22 +318,16 @@
     }
     .network:has([data-line="loyalty"]:hover) [data-route="loyalty"],
     .network:has([data-line="rips"]:hover) [data-route="rips"],
-    .network:has([data-line="sports"]:hover) [data-route="sports"],
-    .network:has([data-line="control"]:hover) [data-route="control"],
     .network:has([data-line="custom"]:hover) [data-route="custom"] {
       opacity: 1;
     }
     .network:has([data-line="loyalty"]:hover) [data-route="loyalty"] .route-bold,
     .network:has([data-line="rips"]:hover) [data-route="rips"] .route-bold,
-    .network:has([data-line="sports"]:hover) [data-route="sports"] .route-bold,
-    .network:has([data-line="control"]:hover) [data-route="control"] .route-bold,
     .network:has([data-line="custom"]:hover) [data-route="custom"] .route-bold {
       opacity: 1;
     }
     .network:has([data-line="loyalty"]:hover) [data-route="loyalty"] .route-express,
     .network:has([data-line="rips"]:hover) [data-route="rips"] .route-express,
-    .network:has([data-line="sports"]:hover) [data-route="sports"] .route-express,
-    .network:has([data-line="control"]:hover) [data-route="control"] .route-express,
     .network:has([data-line="custom"]:hover) [data-route="custom"] .route-express {
       animation: route-express 700ms var(--ease-snap) both;
     }
@@ -364,19 +344,17 @@
     }
   }
 
-  /* El menú «Productos» también señala: sobre la home, pasar por una línea
-     del menú apaga las demás en el mapa. */
+  /* El navbar también señala: sobre la home, pasar por una de sus tres
+     líneas apaga las demás en el mapa. */
+  body:has([data-nav-line="custom"]:focus-visible) .network [data-route]:not([data-route="custom"]),
   body:has([data-nav-line="loyalty"]:focus-visible) .network [data-route]:not([data-route="loyalty"]),
-  body:has([data-nav-line="rips"]:focus-visible) .network [data-route]:not([data-route="rips"]),
-  body:has([data-nav-line="sports"]:focus-visible) .network [data-route]:not([data-route="sports"]),
-  body:has([data-nav-line="control"]:focus-visible) .network [data-route]:not([data-route="control"]) {
+  body:has([data-nav-line="rips"]:focus-visible) .network [data-route]:not([data-route="rips"]) {
     opacity: 0.16;
   }
   @media (hover: hover) and (pointer: fine) {
+    body:has([data-nav-line="custom"]:hover) .network [data-route]:not([data-route="custom"]),
     body:has([data-nav-line="loyalty"]:hover) .network [data-route]:not([data-route="loyalty"]),
-    body:has([data-nav-line="rips"]:hover) .network [data-route]:not([data-route="rips"]),
-    body:has([data-nav-line="sports"]:hover) .network [data-route]:not([data-route="sports"]),
-    body:has([data-nav-line="control"]:hover) .network [data-route]:not([data-route="control"]) {
+    body:has([data-nav-line="rips"]:hover) .network [data-route]:not([data-route="rips"]) {
       opacity: 0.16;
     }
   }

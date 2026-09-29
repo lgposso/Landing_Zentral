@@ -12,21 +12,26 @@ export const contentType = "image/png";
 
 /* Los colores de línea van en hex: la imagen se genera fuera del CSS. */
 const LINE_HEX = {
-  loyalty: "#F23D6D",
   rips: "#17A673",
-  sports: "#EE7A1C",
-  control: "#9164F2",
+  loyalty: "#F23D6D",
   custom: "#2563EB",
 } as const;
 
 /**
  * Imagen de Open Graph generada en build, en el mundo «Mapa de red»: fondo
- * oscuro, el titular, el intercambiador con sus cuatro líneas y cada
- * producto marcado con el isotipo en su color.
+ * oscuro, el titular y el intercambiador con la troncal azul del desarrollo
+ * a la medida y los dos ramales de producto, cada uno marcado con el isotipo
+ * en su color.
  *
  * Usa la fuente por defecto de `next/og` a propósito: cargar Overpass aquí
  * obligaría a descargar el binario durante el build.
  */
+/** Las tres líneas, en el orden del navbar: a la medida primero. */
+const marks = [
+  { line: "custom", label: "A la medida" },
+  ...products.map((product) => ({ line: product.slug, label: product.shortName })),
+] as const satisfies readonly { line: keyof typeof LINE_HEX; label: string }[];
+
 export default async function OpenGraphImage() {
   const logo = await readFile(join(process.cwd(), "public/logo-zentral.svg"));
   const isotype = await readFile(join(process.cwd(), "public/isotipo-zentral2.svg"));
@@ -45,25 +50,24 @@ export default async function OpenGraphImage() {
           position: "relative",
         }}
       >
-        {/* Mapa: el intercambiador a la derecha con sus líneas. */}
+        {/* Mapa: el intercambiador a la derecha del titular; la troncal sale
+            recta y más gruesa hasta el borde, y los ramales a 45°. */}
         <svg
           width="520"
           height="630"
           viewBox="0 0 520 630"
           style={{ position: "absolute", right: 0, top: 0 }}
         >
-          <path d="M 250 280 L 180 210 L 180 60" stroke={LINE_HEX.loyalty} strokeWidth="16" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M 310 280 L 380 210 L 520 210" stroke={LINE_HEX.rips} strokeWidth="16" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M 250 340 L 180 410 L 180 570" stroke={LINE_HEX.sports} strokeWidth="16" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M 310 340 L 380 410 L 520 410" stroke={LINE_HEX.control} strokeWidth="16" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M 280 360 L 280 630" stroke={LINE_HEX.custom} strokeWidth="16" fill="none" strokeDasharray="22 16" />
-          <circle cx="280" cy="310" r="72" fill="#0A0A0A" stroke="#FAFAFA" strokeWidth="12" />
+          <path d="M 251 264 L 380 135 L 520 135" stroke={LINE_HEX.rips} strokeWidth="16" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M 251 366 L 380 495 L 520 495" stroke={LINE_HEX.loyalty} strokeWidth="16" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M 272 315 L 520 315" stroke={LINE_HEX.custom} strokeWidth="24" fill="none" />
+          <circle cx="200" cy="315" r="72" fill="#0A0A0A" stroke="#FAFAFA" strokeWidth="12" />
         </svg>
         <img
           src={isotypeSrc}
           width={92}
           height={84}
-          style={{ position: "absolute", right: 194, top: 268 }}
+          style={{ position: "absolute", right: 274, top: 273 }}
           alt=""
         />
 
@@ -87,21 +91,21 @@ export default async function OpenGraphImage() {
               letterSpacing: "-0.035em",
             }}
           >
-            Software para problemas concretos.
+            Software a la medida, construido como producto.
           </div>
 
           <div style={{ display: "flex", flexWrap: "wrap", gap: 22 }}>
-            {products.map((product) => (
+            {marks.map((mark) => (
               <div
-                key={product.slug}
+                key={mark.line}
                 style={{ display: "flex", alignItems: "center", gap: 10 }}
               >
                 <svg width="40" height="37" viewBox={ISOTYPE_VIEWBOX}>
-                  <path d={ISOTYPE_PATHS.top} fill={LINE_HEX[product.slug]} />
-                  <path d={ISOTYPE_PATHS.bottom} fill={LINE_HEX[product.slug]} fillOpacity={0.8} />
+                  <path d={ISOTYPE_PATHS.top} fill={LINE_HEX[mark.line]} />
+                  <path d={ISOTYPE_PATHS.bottom} fill={LINE_HEX[mark.line]} fillOpacity={0.8} />
                 </svg>
                 <div style={{ display: "flex", fontSize: 24, fontWeight: 700, color: "#FAFAFA" }}>
-                  {product.shortName}
+                  {mark.label}
                 </div>
               </div>
             ))}

@@ -12,8 +12,9 @@ import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { LineMark } from "@/components/ui/LineMark";
 import { getProduct, productHref, products } from "@/config/products";
+import { customDevHref } from "@/config/site";
 import { specimens } from "@/features/products/specimens";
-import { lineStyles } from "@/lib/lines";
+import { lineStyles, type LineId } from "@/lib/lines";
 import { cn } from "@/lib/utils";
 
 interface ProductPageProps {
@@ -55,7 +56,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   const line = lineStyles[product.slug];
   const ProductSpecimen = specimens[product.slug];
-  const others = products.filter((p) => p.slug !== product.slug);
+  // Transbordo: la otra línea de producto y la troncal a la medida.
+  const transfers: { line: LineId; href: string; name: string }[] = [
+    ...products
+      .filter((p) => p.slug !== product.slug)
+      .map((p) => ({ line: p.slug, href: productHref(p.slug), name: p.name })),
+    { line: "custom", href: customDevHref, name: "Desarrollo a la medida" },
+  ];
 
   return (
     <>
@@ -307,15 +314,15 @@ export default async function ProductPage({ params }: ProductPageProps) {
               Transbordo a otras líneas
             </h2>
             <ul className="mt-5 flex flex-col gap-4 md:flex-row md:flex-wrap md:gap-x-10">
-              {others.map((other) => (
-                <li key={other.slug}>
+              {transfers.map((transfer) => (
+                <li key={transfer.line}>
                   <Link
-                    href={productHref(other.slug)}
+                    href={transfer.href}
                     className="group inline-flex min-h-11 items-center gap-3 text-foreground"
                   >
-                    <LineMark line={other.slug} size="md" />
+                    <LineMark line={transfer.line} size="md" />
                     <span className="text-[1.125rem] font-extrabold group-hover:underline">
-                      {other.name}
+                      {transfer.name}
                     </span>
                     <ArrowRight
                       className="size-4 text-muted transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transform-none"

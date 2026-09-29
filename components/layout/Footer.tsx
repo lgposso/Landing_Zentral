@@ -5,13 +5,12 @@ import { Container } from "@/components/ui/Container";
 import { LineMark } from "@/components/ui/LineMark";
 import { Logo } from "@/components/layout/Logo";
 import { footerColumns } from "@/config/content";
-import { products, productHref } from "@/config/products";
-import { ctaConfig, siteConfig } from "@/config/site";
+import { ctaConfig, navItems, siteConfig } from "@/config/site";
 
 const linkClasses =
   "text-small text-muted transition-colors duration-200 hover:text-foreground hover:underline";
 
-/** El pie como la leyenda del mapa: las líneas, los ramales y cómo llegar. */
+/** El pie como la leyenda del mapa: la troncal, los ramales y cómo llegar. */
 export function Footer() {
   const year = new Date().getFullYear();
 
@@ -57,17 +56,17 @@ export function Footer() {
             </ul>
           </div>
 
-          <nav aria-label="Productos" className="lg:col-span-3">
-            <p className="zentral-label text-foreground">Productos</p>
+          <nav aria-label="Lo que hacemos" className="lg:col-span-4">
+            <p className="zentral-label text-foreground">Lo que hacemos</p>
             <ul className="mt-5 space-y-3">
-              {products.map((product) => (
-                <li key={product.slug}>
+              {navItems.map((item) => (
+                <li key={item.href}>
                   <Link
-                    href={productHref(product.slug)}
+                    href={item.href}
                     className="inline-flex items-center gap-2.5 text-small font-semibold text-foreground hover:underline"
                   >
-                    <LineMark line={product.slug} size="sm" />
-                    {product.name}
+                    {item.line && <LineMark line={item.line} size="sm" />}
+                    {item.label}
                   </Link>
                 </li>
               ))}
@@ -77,7 +76,7 @@ export function Footer() {
           {footerColumns.map((column) => (
             <nav
               key={column.title}
-              className="lg:col-span-3 last:lg:col-span-2"
+              className="lg:col-span-4"
               aria-label={column.title}
             >
               <p className="zentral-label text-foreground">{column.title}</p>
