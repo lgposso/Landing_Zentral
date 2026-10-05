@@ -289,7 +289,7 @@ export const footerColumns = [
  */
 export const privacyPolicy = {
   title: "Política de tratamiento de datos personales",
-  lastUpdated: "28 de septiembre de 2026",
+  lastUpdated: "5 de octubre de 2026",
   intro:
     "Esta política explica qué datos personales recoge Zentral Solutions S.A.S., para qué los usa, con quién los comparte, cuánto tiempo los guarda y cómo puedes ejercer tus derechos sobre ellos. Se rige por la Ley 1581 de 2012 y el Decreto 1377 de 2013, compilado en el Decreto 1074 de 2015.",
   sections: [
@@ -342,6 +342,7 @@ export const privacyPolicy = {
         "WhatsApp y correo: tu número o dirección de correo, el nombre de tu perfil y el contenido de la conversación.",
         "Navegación: dirección IP, tipo de navegador y dispositivo, y las páginas visitadas. La analítica del sitio (Vercel Web Analytics y Cloudflare Web Analytics) mide visitas de forma agregada y no usa cookies.",
         "Clientes y proveedores: datos de contacto y de facturación de las personas que representan a la empresa, y los necesarios para ejecutar el contrato.",
+        "Usuarios de Zentral RIPS: nombre, correo, foto de perfil e identificador de la cuenta con la que inician sesión (código por correo o Google), NIT y razón social de la institución, compras y pagos, los datos de facturación electrónica que suministren, el registro de aceptación de los términos y de sus autorizaciones, y registros de acceso y seguridad (dirección IP, navegador, sesiones).",
       ],
     },
     {
@@ -350,6 +351,7 @@ export const privacyPolicy = {
       items: [
         "Responder tus preguntas y solicitudes, agendar conversaciones y demostraciones de producto, y preparar propuestas.",
         "Celebrar y ejecutar contratos con clientes y proveedores, incluida la facturación y el soporte.",
+        "Prestar Zentral RIPS: habilitar y proteger el acceso, mantener una sesión activa por usuario, procesar las compras, expedir la factura electrónica, recordar el vencimiento del acceso y enviar la copia de los términos aceptados.",
         "Cumplir obligaciones legales, contables y tributarias.",
         "Proteger el sitio contra el abuso: la dirección IP de quien envía el formulario se guarda en memoria como máximo 10 minutos para limitar envíos repetidos.",
         "Conocer de forma agregada cómo se usa el sitio para mejorarlo.",
@@ -360,6 +362,7 @@ export const privacyPolicy = {
       heading: "7. Autorización",
       paragraphs: [
         "Cuando envías el formulario, nos escribes por WhatsApp o por correo, nos autorizas a tratar los datos que compartes para atender tu solicitud y hacerle seguimiento. Esa conducta equivale a la autorización prevista en el artículo 7 del Decreto 1377 de 2013, y por eso el formulario lo recuerda justo antes del botón de envío.",
+        "En Zentral RIPS, la autorización se da marcando la casilla correspondiente antes de comprar o de pedir el plan anual. Guardamos la fecha, la hora y la versión de los términos aceptados como prueba de esa autorización.",
         "Para cualquier finalidad distinta de las informadas pediremos una autorización nueva. Puedes revocar tu autorización en cualquier momento, salvo cuando exista un deber legal o contractual de conservar los datos.",
       ],
     },
@@ -375,31 +378,46 @@ export const privacyPolicy = {
       paragraphs: [
         "Frente a los datos de las cuentas de nuestros clientes (razón social, NIT, correo y usuarios del panel), Zentral es responsable del tratamiento.",
         "Frente a los datos de las personas que usan o reciben el servicio de nuestros clientes (por ejemplo, los clientes de un comercio en Zentral Loyalty), el responsable es la empresa que contrata el producto y Zentral actúa como encargado: trata los datos por cuenta de esa empresa, según sus instrucciones y el contrato. Si eres titular de esos datos, puedes dirigir tu solicitud a esa empresa o a Zentral, y te ayudaremos a que llegue a quien debe resolverla.",
-        "Algunas decisiones de diseño limitan lo que Zentral llega a conocer: en Zentral RIPS los archivos de los pacientes se procesan en el navegador de quien usa la herramienta y no pasan por nuestros servidores, y en Zentral Loyalty la promoción del día solo llega a quien autorizó recibir publicidad.",
+        "Algunas decisiones de diseño limitan lo que Zentral llega a conocer: en Zentral RIPS los archivos (RIPS, facturas, bases de afiliados, tarifarios y notas técnicas, con los datos de salud de los pacientes) se leen y procesan en el navegador de quien usa la herramienta; no se envían a nuestros servidores ni a nuestros proveedores, y Zentral no es responsable ni encargado de ese tratamiento. Al servidor solo llega un identificador aleatorio de cada carga. Las tablas de códigos de referencia que el usuario carga pueden quedar guardadas en el navegador de su propio equipo. En Zentral Loyalty la promoción del día solo llega a quien autorizó recibir publicidad.",
+        "Para pedir soporte no hace falta enviar archivos ni datos de pacientes. Si alguien los envía por correo o WhatsApp, los usamos solo para atender esa solicitud y los eliminamos al cerrarla.",
       ],
     },
     {
       heading: "10. Con quién compartimos los datos",
       paragraphs: [
-        "No vendemos ni cedemos datos personales a terceros para sus propios fines. Para operar el sitio usamos proveedores que tratan datos por nuestra cuenta, como encargados, conforme a sus términos de servicio y de tratamiento de datos:",
+        "No vendemos ni cedemos datos personales a terceros para sus propios fines. Para operar el sitio y nuestros productos usamos estos proveedores. Los encargados tratan los datos por nuestra cuenta; los responsables independientes los tratan bajo su propia política.",
       ],
       items: [
-        "Vercel: alojamiento del sitio y analítica sin cookies.",
-        "Cloudflare: red de entrega, seguridad y analítica sin cookies.",
-        "Resend: envío por correo de los mensajes del formulario.",
+        "Cloudflare, Inc. (encargado): aloja Zentral RIPS, su base de datos y su sesión, y presta red de entrega, seguridad y analítica sin cookies del sitio. Trata los datos de cuenta, compras, facturación, aceptaciones y registros de acceso. Estados Unidos, con procesamiento transitorio en su red global.",
+        "Clerk, Inc. (encargado): autenticación de Zentral RIPS. Trata correo, nombre, foto de perfil, identificador de Google, dirección IP, navegador y sesiones. Estados Unidos.",
+        "Resend (encargado): envío de los correos del servicio (recordatorio de vencimiento y copia de los términos) y de los mensajes del formulario del sitio. Trata el correo del destinatario y el contenido del mensaje. Estados Unidos.",
+        "Zoho Corporation (encargado): correo electrónico de zentral.com.co, por el que recibimos solicitudes de contacto y de soporte. Trata los correos y lo que contengan. Estados Unidos.",
+        "Vercel Inc. (encargado): alojamiento de este sitio y analítica sin cookies. Trata datos de navegación y los del formulario de contacto. Estados Unidos y red global.",
+        "Google LLC (responsable independiente): si eliges «Continuar con Google» en Zentral RIPS, Google nos comparte, con tu permiso, tu nombre, correo y foto de perfil. Tu cuenta de Google se rige por la política de Google.",
+        "Bold.Co S.A.S. (responsable independiente): pasarela de pagos de Zentral RIPS. Recoge directamente los datos del pago y del medio de pago; a Zentral solo le informa el estado, el identificador y el monto del pago. Colombia.",
+        "Meta Platforms (responsable independiente): WhatsApp, si nos escribes por ese medio.",
       ],
     },
     {
       heading: "11. Transmisión internacional",
       paragraphs: [
-        "Estos proveedores pueden tratar los datos en servidores ubicados fuera de Colombia, principalmente en Estados Unidos. Al usar este sitio y sus canales autorizas esa transmisión, que se hace solo para las finalidades de esta política y conforme al artículo 26 de la Ley 1581 de 2012 y los artículos 24 y 25 del Decreto 1377 de 2013.",
-        "Si nos escribes por WhatsApp, la conversación también se rige por las condiciones de WhatsApp, un servicio de Meta que es responsable de su propia plataforma.",
+        "Los encargados de la lista anterior pueden tratar los datos en servidores ubicados fuera de Colombia, principalmente en Estados Unidos, país que la Superintendencia de Industria y Comercio reconoce con un nivel adecuado de protección de datos (Circular Externa 005 de 2017). La transmisión se hace solo para las finalidades de esta política, conforme al artículo 26 de la Ley 1581 de 2012 y al Decreto 1074 de 2015, y con contratos de transmisión o acuerdos de tratamiento de datos que obligan a cada encargado a tratar los datos según esta política, con seguridad y confidencialidad. Al autorizar el tratamiento autorizas también esa transmisión.",
+        "Podemos sustituir o agregar proveedores cuando lo requiera la operación; en ese caso actualizaremos esta lista.",
       ],
     },
     {
       heading: "12. Cuánto tiempo los guardamos",
       paragraphs: [
-        "Conservamos los datos mientras sean necesarios para la finalidad que justificó recogerlos: los de una solicitud, mientras la atendemos y le hacemos seguimiento; los de clientes y proveedores, durante la relación y después por el tiempo que exigen las normas contables, tributarias y comerciales. Cumplido ese plazo, los suprimimos.",
+        "Conservamos cada tipo de dato solo mientras exista la finalidad que lo justifica o una obligación legal de conservarlo. Cumplido ese plazo, lo suprimimos. La supresión no obliga a borrar la información que la ley exige conservar.",
+      ],
+      items: [
+        "Solicitudes de contacto: mientras las atendemos y hacemos seguimiento, y hasta doce (12) meses después.",
+        "Cuenta de Zentral RIPS: mientras esté activa; se suprime dentro de los treinta (30) días siguientes a su terminación o a tu solicitud, salvo los datos de las facturas y pagos.",
+        "Facturas, pagos y sus soportes, con los datos de facturación: diez (10) años, como libros y papeles del comerciante (artículo 28 de la Ley 962 de 2005), y en todo caso el término de firmeza de las declaraciones tributarias que soporten, si es mayor.",
+        "Aceptación de términos y autorizaciones: mientras dure la relación y hasta que prescriban las acciones derivadas del contrato, para probar el consentimiento.",
+        "Registros de acceso y seguridad: doce (12) meses, o hasta el cierre de una investigación o incidente en curso.",
+        "Comunicaciones de soporte: doce (12) meses después de cerrada la solicitud; los archivos con datos de pacientes que se envíen por error se eliminan al cerrarla.",
+        "Autorización para información comercial: hasta que la revoques.",
       ],
     },
     {
@@ -439,7 +457,7 @@ export const privacyPolicy = {
     {
       heading: "17. Vigencia y cambios",
       paragraphs: [
-        "Esta política rige desde el 24 de septiembre de 2026. Las bases de datos se mantienen mientras subsistan las finalidades descritas en ella. Si la cambiamos de forma sustancial, publicaremos la nueva versión en esta página con su fecha y lo comunicaremos antes de aplicarla.",
+        "Esta política rige desde el 24 de septiembre de 2026; la versión actual, desde el 5 de octubre de 2026. Las bases de datos se mantienen mientras subsistan las finalidades descritas en ella. Si la cambiamos de forma sustancial, publicaremos la nueva versión en esta página con su fecha y lo comunicaremos antes de aplicarla.",
       ],
     },
   ],
