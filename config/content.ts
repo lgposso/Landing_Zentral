@@ -53,6 +53,12 @@ export const customDevKinds: { title: string; description: string; href?: string
     href: "/desarrollo-a-la-medida/agentes-de-ia",
   },
   {
+    title: "Chatbot de WhatsApp",
+    description:
+      "Un asistente con IA en el número de tu negocio que responde a cualquier hora, agenda y toma pedidos, sin menús de «marque 1».",
+    href: "/desarrollo-a-la-medida/chatbot-de-whatsapp",
+  },
+  {
     title: "Automatización de procesos",
     description:
       "Flujos que hacen solas las tareas repetitivas: pasar datos entre sistemas, armar reportes y avisar a tiempo.",

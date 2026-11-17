@@ -21,7 +21,7 @@ La tarea en el sitio: entender en segundos qué hace Zentral, juzgar si puede co
 
 Zentral Solutions S.A.S. (NIT 902.064.009-2, Barranquilla) es una empresa de software premium. Desde septiembre de 2026 el sitio se enfoca en tres líneas, en este orden:
 
-1. **Desarrollo de software a la medida** (lo principal): aplicaciones, plataformas, herramientas internas y portales construidos para el proceso del cliente. El código fuente es del cliente. Desde noviembre de 2026, dos formas de a la medida tienen página propia para las búsquedas locales: **agentes de IA** y **automatización de procesos**, ambas «en Barranquilla» (`config/services.ts`). Van sobre la troncal azul, no son líneas aparte, y el menú sigue con tres enlaces.
+1. **Desarrollo de software a la medida** (lo principal): aplicaciones, plataformas, herramientas internas y portales construidos para el proceso del cliente. El código fuente es del cliente. Desde noviembre de 2026, dos formas de a la medida tienen página propia para las búsquedas locales: **agentes de IA**, **chatbot de WhatsApp** y **automatización de procesos**, todas «en Barranquilla» (`config/services.ts`). Van sobre la troncal azul, no son líneas aparte, y el menú sigue con tres enlaces.
 2. **Zentral RIPS** y 3. **Zentral Loyalty**: los productos propios, que Zentral construye y opera.
 
 Zentral Sports, Zentral Control y los servicios de integraciones y dashboards salieron del sitio. Sus URLs viejas redirigen de forma permanente (ver `next.config.ts`).
@@ -36,7 +36,7 @@ Zentral es una empresa de software premium: lo que vende primero es desarrollo a
 
 - El contacto ocurre sobre todo por **WhatsApp** (+57 333 762 8306); también hay un formulario que envía correo vía Resend, y el correo contacto@zentral.com.co.
 - El CTA principal de cada producto es **"Solicitar demo"** por WhatsApp, con un mensaje prellenado que nombra el producto. Las páginas de producto no muestran precios.
-- URLs vivas: `/`, `/desarrollo-a-la-medida`, `/desarrollo-a-la-medida/agentes-de-ia`, `/desarrollo-a-la-medida/automatizacion-de-procesos`, `/guias` y sus 3 guías, `/productos`, `/productos/rips`, `/productos/loyalty`, `/privacidad`.
+- URLs vivas: `/`, `/desarrollo-a-la-medida`, `/desarrollo-a-la-medida/agentes-de-ia`, `/desarrollo-a-la-medida/chatbot-de-whatsapp`, `/desarrollo-a-la-medida/automatizacion-de-procesos`, `/guias` y sus 3 guías, `/productos`, `/productos/rips`, `/productos/loyalty`, `/privacidad`.
 - URLs retiradas con redirección permanente: `/servicios/agentes-ia` y `/servicios/automatizacion-de-procesos` → su página nueva; el resto de `/servicios/*` → `/desarrollo-a-la-medida`; `/recursos/*` → `/guias` (las 3 guías que volvieron, a su misma ruta); `/productos/sports` y `/productos/control` → `/productos`.
 - Atención local: Zentral se reúne en persona en Barranquilla, Soledad y Puerto Colombia; el resto de Colombia, por videollamada. Agentes y automatización se cotizan cerrados después del diagnóstico, con mantenimiento mensual opcional; no se publican precios.
 - La demostración de agentes vive en agentes.zentral.com.co (`~/Desktop/Agentes`, con noindex). Su texto indexable está en `demoAgents` de `config/services.ts`; si cambia un agente allá, cambia aquí.

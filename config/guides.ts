@@ -45,7 +45,7 @@ export const guides: Guide[] = [
         ],
       },
     ],
-    relatedServices: ["agentes-de-ia"],
+    relatedServices: ["agentes-de-ia", "chatbot-de-whatsapp"],
     datePublished: "2026-08-20",
     lastModified: "2026-11-17",
   },

@@ -56,6 +56,7 @@ export function StructuredData() {
         knowsAbout: [
           "Desarrollo de software a la medida",
           "Agentes de inteligencia artificial",
+          "Chatbots de WhatsApp",
           "Automatización de procesos",
           "Software como servicio (SaaS)",
           "RIPS",

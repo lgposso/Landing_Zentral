@@ -191,6 +191,126 @@ export const customServices: CustomService[] = [
   },
 
   /* ------------------------------------------------------------------------ */
+  /* Chatbot de WhatsApp                                                      */
+  /* ------------------------------------------------------------------------ */
+  {
+    slug: "chatbot-de-whatsapp",
+    name: "Chatbot de WhatsApp",
+    summary:
+      "Un asistente con IA en el WhatsApp de tu negocio que responde a cualquier hora, agenda, toma pedidos y le pasa a tu equipo lo que no le corresponde.",
+    keyword: "chatbot WhatsApp empresas Barranquilla",
+    metaTitle: "Chatbot de WhatsApp para empresas en Barranquilla | Zentral",
+    metaDescription:
+      "Chatbot de WhatsApp con IA para empresas en Barranquilla: responde a cualquier hora, agenda y toma pedidos en el número de tu negocio. Línea oficial y cotización cerrada.",
+    heroTitle: "Chatbot de WhatsApp para empresas en Barranquilla",
+    promise: "Tus clientes escriben a las 10 de la noche y alguien les responde bien.",
+    heroSubtitle:
+      "Construimos chatbots con inteligencia artificial para el WhatsApp de tu negocio: responden preguntas, cuentan en qué va un pedido, agendan citas y reciben reclamos, sin menús de «marque 1» y con la conexión oficial de WhatsApp.",
+    serviceType: "Desarrollo de chatbots de WhatsApp con inteligencia artificial",
+    facts: [
+      { label: "Plazo", value: "Hasta 6 semanas hasta que atiende clientes reales" },
+      { label: "Línea", value: "El número de tu negocio, con la conexión oficial de WhatsApp" },
+      { label: "Control", value: "Le pasa a tu equipo lo que no le corresponde, con la conversación completa" },
+      { label: "Cotización", value: "Cerrada, con mantenimiento mensual opcional" },
+    ],
+    whatItIs: {
+      title: "Sin menús de «marque 1». Entiende lo que le escriben.",
+      paragraphs: [
+        "La mayoría de los chatbots de WhatsApp son menús: el cliente tiene que escoger una opción, y si su pregunta no está en la lista, se queda sin respuesta. Los que construimos usan inteligencia artificial: entienden el mensaje como lo escribe la gente, con errores, audios transcritos y abreviaturas, y responden con la información real de tu negocio.",
+        "Por dentro es un agente de IA conectado a tus sistemas: consulta tu catálogo, tus horarios, tu agenda o el estado de un pedido antes de responder. Por eso puede decir «tu pedido sale hoy a las 3» en vez de «un asesor te contactará».",
+        "Y tiene límites escritos. Cuando alguien pide un descuento, una excepción o hablar con una persona, el chatbot no improvisa: avisa al cliente que alguien lo contacta y le deja la conversación completa a tu equipo.",
+      ],
+    },
+    whoItsFor: [
+      "Le sirve a empresas que reciben buena parte de sus clientes por WhatsApp: tiendas, distribuidoras, clínicas y consultorios, academias, inmobiliarias, talleres y empresas de servicios. Si tu equipo responde cien veces al día las mismas preguntas, o si los mensajes que llegan de noche se responden al día siguiente, cuando el cliente ya le compró a otro, ahí un chatbot se paga solo.",
+      "También le sirve a quien ya probó un chatbot de menús y los clientes terminan escribiendo «asesor» para saltárselo. Ese es el síntoma de un bot que no entiende.",
+    ],
+    notFor:
+      "No conviene si casi todas tus conversaciones son negociaciones distintas cada vez, o si recibes tan pocos mensajes que tu equipo los responde sin esfuerzo. Tampoco reemplaza una mala política de servicio: si no está claro qué se le puede prometer a un cliente, primero se define eso.",
+    howWeImplementIt: [
+      "Empezamos por leer conversaciones reales de tu WhatsApp, con tu permiso: qué preguntan, cómo lo preguntan y qué respuestas funcionan. De ahí sale el alcance escrito: qué responde el chatbot, con qué información y en qué momento le pasa el caso a una persona.",
+      "Conectamos el número de tu negocio a la plataforma oficial de WhatsApp para empresas, y el chatbot a tu catálogo, tu agenda o tu sistema de pedidos. Lo probamos con conversaciones reales, incluidas las difíciles, antes de que atienda a un cliente.",
+      "Después del lanzamiento revisamos sus conversaciones: qué preguntas nuevas aparecen, dónde se equivocó, qué hay que actualizar cuando cambian precios o políticas. Ese seguimiento es el mantenimiento mensual, y es opcional.",
+    ],
+    technologies: [
+      {
+        name: "WhatsApp Business Platform",
+        description:
+          "La conexión oficial de WhatsApp para empresas. El chatbot atiende en el número de tu negocio sin aplicaciones no autorizadas que pongan la línea en riesgo de bloqueo.",
+      },
+      {
+        name: "OpenAI y Anthropic",
+        description:
+          "Los modelos de lenguaje con los que el chatbot entiende y redacta. Elegimos según el caso y los usamos por su servicio para empresas, que no entrena con tus conversaciones.",
+      },
+      {
+        name: "Node.js y PostgreSQL",
+        description:
+          "Para conectar el chatbot con tus sistemas y guardar cada conversación, de modo que tu equipo pueda revisar qué se respondió y retomar cualquier caso.",
+      },
+    ],
+    deliverables: [
+      {
+        title: "El chatbot en tu número",
+        description: "Atendiendo clientes reales en el WhatsApp de tu negocio.",
+      },
+      {
+        title: "Bandeja para tu equipo",
+        description: "Donde llegan los casos que el chatbot pasa, con la conversación completa.",
+      },
+      {
+        title: "El alcance por escrito",
+        description: "Qué responde, con qué información y cuándo le pasa el caso a una persona.",
+      },
+      {
+        title: "Capacitación",
+        description: "Para que tu equipo sepa retomar conversaciones y pedir cambios.",
+      },
+    ],
+    timeline:
+      "Hasta 6 semanas desde que leemos tus conversaciones hasta que el chatbot atiende clientes reales. Una parte depende de Meta: aprobar el número en la plataforma oficial de WhatsApp suele tomar unos días.",
+    investment:
+      "No publicamos precios porque cada chatbot es distinto. La construcción se cotiza con un número cerrado después del diagnóstico. Aparte van el mantenimiento mensual, que es opcional, y el costo de las conversaciones que cobra Meta por la plataforma oficial de WhatsApp, que se paga directamente a ellos.",
+    questions: [
+      {
+        question: "¿El chatbot funciona en el número de WhatsApp que ya tengo?",
+        answer:
+          "Sí, en la mayoría de los casos. El número se pasa a la plataforma oficial de WhatsApp para empresas. Hay un detalle: un número en la plataforma oficial ya no se puede usar en la aplicación normal de WhatsApp Business del celular, así que tu equipo responde desde la bandeja que te entregamos. Si prefieres no mover tu número, se puede usar uno nuevo.",
+      },
+      {
+        question: "¿En qué se diferencia de un chatbot de menús?",
+        answer:
+          "Un chatbot de menús obliga al cliente a escoger opciones y no entiende nada fuera de la lista. Uno con inteligencia artificial entiende lo que la persona escribe, consulta la información real de tu negocio y responde como lo haría alguien de tu equipo, dentro de las reglas que le dimos.",
+      },
+      {
+        question: "¿Qué pasa cuando el cliente quiere hablar con una persona?",
+        answer:
+          "El chatbot le avisa que alguien de tu equipo lo contacta y deja el caso en la bandeja con la conversación completa, para que nadie tenga que volver a preguntar lo mismo. También pasa el caso solo cuando hay dinero de por medio o una excepción a la política.",
+      },
+      {
+        question: "¿Cuánto cuesta un chatbot de WhatsApp?",
+        answer:
+          "Depende de qué tiene que hacer y con cuántos sistemas se conecta; por eso cotizamos un número cerrado después del diagnóstico, sin precios publicados. Aparte, Meta cobra por las conversaciones en la plataforma oficial de WhatsApp según su tarifa para Colombia, y ese pago va directo a ellos.",
+      },
+      {
+        question: "¿Qué pasa con los datos de mis clientes?",
+        answer:
+          "Se tratan conforme a la Ley 1581 de 2012. Definimos contigo qué información puede consultar el chatbot y cuánto tiempo se guardan las conversaciones, y los modelos de IA se usan por su servicio para empresas, que no entrena con tus datos.",
+      },
+    ],
+    appliedScenario: {
+      disclaimer:
+        "Todavía no tenemos casos de clientes con cifras que podamos publicar. Cuando los haya, reemplazan esta sección. Mientras tanto, así se ve aplicado a una situación típica:",
+      paragraphs: [
+        "Una tienda de electrodomésticos en Barranquilla recibe por WhatsApp preguntas de precio, disponibilidad y estado de pedidos, sobre todo de noche y los domingos. Un chatbot responde con el inventario real, cuenta en qué va cada pedido buscándolo por el número desde el que escriben, y toma los datos de entrega de los clientes que quieren comprar.",
+        "Cuando alguien escribe que la licuadora le llegó dañada y quiere su plata, el chatbot no promete nada: guarda las fotos, abre el caso y le avisa al cliente que una persona le responde ese mismo día. El equipo llega en la mañana con los casos ordenados y la conversación completa.",
+      ],
+    },
+    ctaMessage: "Hola, quiero un chatbot de WhatsApp para mi empresa",
+    lastModified: "2026-11-17",
+  },
+
+  /* ------------------------------------------------------------------------ */
   /* Automatización de procesos                                               */
   /* ------------------------------------------------------------------------ */
   {

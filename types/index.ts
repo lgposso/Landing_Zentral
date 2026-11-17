@@ -57,7 +57,10 @@ export interface CustomDevPage {
 /* Servicios dentro de a la medida                                            */
 /* -------------------------------------------------------------------------- */
 
-export type CustomServiceSlug = "agentes-de-ia" | "automatizacion-de-procesos";
+export type CustomServiceSlug =
+  | "agentes-de-ia"
+  | "chatbot-de-whatsapp"
+  | "automatizacion-de-procesos";
 
 /**
  * Una forma concreta de desarrollo a la medida con página propia, en
