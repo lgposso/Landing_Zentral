@@ -35,10 +35,10 @@ export const siteConfig = {
     location: "Barranquilla, Colombia",
   },
 
-  // TODO(zentral): instagram y github, cuando existan. Los vacíos no se renderizan.
+  // TODO(zentral): github, cuando exista. Los vacíos no se renderizan.
   // LinkedIn existe pero no se enlaza desde el sitio (decisión del usuario, 2026-09-28).
   social: {
-    instagram: "",
+    instagram: "https://www.instagram.com/zentral_solutions/",
     github: "",
   },
 } as const;
