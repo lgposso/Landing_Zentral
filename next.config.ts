@@ -46,10 +46,26 @@ const CSP = [
 const retiredRoutes = [
   { source: "/productos/sports", destination: "/productos" },
   { source: "/productos/control", destination: "/productos" },
+  // Agentes de IA y automatización volvieron como formas de a la medida y las
+  // guías como /guias: las URL viejas van a su equivalente. Las reglas
+  // específicas van antes de los comodines porque gana la primera que encaja.
+  {
+    source: "/servicios/agentes-ia",
+    destination: "/desarrollo-a-la-medida/agentes-de-ia",
+  },
+  {
+    source: "/servicios/automatizacion-de-procesos",
+    destination: "/desarrollo-a-la-medida/automatizacion-de-procesos",
+  },
   { source: "/servicios", destination: "/desarrollo-a-la-medida" },
   { source: "/servicios/:slug", destination: "/desarrollo-a-la-medida" },
-  { source: "/recursos", destination: "/desarrollo-a-la-medida" },
-  { source: "/recursos/:slug", destination: "/desarrollo-a-la-medida" },
+  {
+    source:
+      "/recursos/:slug(agentes-ia-atencion-al-cliente|que-procesos-automatizar-primero|n8n-zapier-o-desarrollo-propio)",
+    destination: "/guias/:slug",
+  },
+  { source: "/recursos", destination: "/guias" },
+  { source: "/recursos/:slug", destination: "/guias" },
 ];
 
 const nextConfig: NextConfig = {

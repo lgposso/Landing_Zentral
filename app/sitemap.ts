@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 import { customDevPage } from "@/config/content";
+import { GUIDES_INDEX_LAST_MODIFIED, guideHref, guides } from "@/config/guides";
+import { customServiceHref, customServices } from "@/config/services";
 import { products } from "@/config/products";
 import { customDevHref, siteConfig } from "@/config/site";
 
@@ -7,7 +9,7 @@ import { customDevHref, siteConfig } from "@/config/site";
  * Sitemap del sitio. Cuatro reglas sostienen este archivo:
  *
  * 1. Solo entran URLs indexables que devuelven 200. Las rutas retiradas
- *    (servicios de automatización, recursos, Sports y Control) redirigen desde
+ *    (los /servicios y /recursos viejos, Sports y Control) redirigen desde
  *    `next.config.ts` y no van aquí.
  *
  * 2. Las rutas dinámicas se derivan de los mismos arrays que alimentan
@@ -23,7 +25,7 @@ import { customDevHref, siteConfig } from "@/config/site";
  */
 
 /** Último cambio del copy de la home. Actualizar a mano al editarlo. */
-const HOME_LAST_MODIFIED = "2026-09-28";
+const HOME_LAST_MODIFIED = "2026-11-17";
 
 /** Último cambio del copy propio del índice /productos. */
 const PRODUCTS_INDEX_COPY_LAST_MODIFIED = "2026-09-28";
@@ -52,6 +54,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${siteConfig.url}${customDevHref}`,
       lastModified: customDevPage.lastModified,
     },
+    ...customServices.map((service) => ({
+      url: `${siteConfig.url}${customServiceHref(service.slug)}`,
+      lastModified: service.lastModified,
+    })),
+    {
+      url: `${siteConfig.url}/guias`,
+      lastModified: guides.reduce<string>(
+        (latest, guide) => (guide.lastModified > latest ? guide.lastModified : latest),
+        GUIDES_INDEX_LAST_MODIFIED,
+      ),
+    },
+    ...guides.map((guide) => ({
+      url: `${siteConfig.url}${guideHref(guide.slug)}`,
+      lastModified: guide.lastModified,
+    })),
     {
       url: `${siteConfig.url}/productos`,
       lastModified: productsIndexLastModified,

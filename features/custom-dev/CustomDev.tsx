@@ -44,7 +44,18 @@ export function CustomDev() {
             {customDevKinds.map((kind) => (
               <div key={kind.title}>
                 <dt className="text-[1.0625rem] font-extrabold leading-tight text-foreground">
-                  {kind.title}
+                  {kind.href ? (
+                    <Link href={kind.href} className="group inline-flex items-center gap-1.5 hover:underline">
+                      {kind.title}
+                      <ArrowRight
+                        className="size-4 shrink-0 text-muted transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transform-none"
+                        strokeWidth={2.25}
+                        aria-hidden="true"
+                      />
+                    </Link>
+                  ) : (
+                    kind.title
+                  )}
                 </dt>
                 <dd className="mt-2 text-small text-muted">{kind.description}</dd>
               </div>

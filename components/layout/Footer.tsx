@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { LineMark } from "@/components/ui/LineMark";
 import { Logo } from "@/components/layout/Logo";
 import { footerColumns } from "@/config/content";
+import { customServiceHref, customServices } from "@/config/services";
 import { ctaConfig, navItems, siteConfig } from "@/config/site";
 
 const linkClasses =
@@ -68,6 +69,18 @@ export function Footer() {
                     {item.line && <LineMark line={item.line} size="sm" />}
                     {item.label}
                   </Link>
+                  {/* Las formas de a la medida con página propia cuelgan de la troncal. */}
+                  {item.line === "custom" && (
+                    <ul className="mt-3 space-y-2.5 border-l-2 border-line-custom pl-4 ml-[9px]">
+                      {customServices.map((service) => (
+                        <li key={service.slug}>
+                          <Link href={customServiceHref(service.slug)} className={linkClasses}>
+                            {service.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               ))}
             </ul>

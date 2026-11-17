@@ -39,12 +39,24 @@ export const customDevCopy: SectionCopy = {
     "Para el proceso que distingue a tu empresa y que ningún producto resuelve: lo diseñamos contigo, lo construimos por entregas y el código queda a tu nombre.",
 };
 
-/** Lo que se construye a la medida. */
-export const customDevKinds = [
+/** Lo que se construye a la medida. Los que tienen página propia llevan `href`. */
+export const customDevKinds: { title: string; description: string; href?: string }[] = [
   {
     title: "Plataformas y productos SaaS",
     description:
       "Tu propio producto de software, con usuarios, roles y cobro, construido con la misma ingeniería que los nuestros.",
+  },
+  {
+    title: "Agentes de IA",
+    description:
+      "Asistentes que atienden por WhatsApp, hacen seguimiento y cuadran pagos con tus reglas, y le pasan a una persona lo que no les corresponde.",
+    href: "/desarrollo-a-la-medida/agentes-de-ia",
+  },
+  {
+    title: "Automatización de procesos",
+    description:
+      "Flujos que hacen solas las tareas repetitivas: pasar datos entre sistemas, armar reportes y avisar a tiempo.",
+    href: "/desarrollo-a-la-medida/automatizacion-de-procesos",
   },
   {
     title: "Herramientas internas",
@@ -267,6 +279,7 @@ export const footerColumns = [
   {
     title: "Empresa",
     links: [
+      { label: "Guías", href: "/guias" },
       { label: "Productos propios", href: "/productos" },
       { label: "Política de privacidad", href: "/privacidad" },
     ],

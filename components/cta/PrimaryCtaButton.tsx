@@ -16,6 +16,8 @@ interface PrimaryCtaButtonProps {
   /** false en la navbar: ahí el botón no lleva flecha. */
   icon?: boolean;
   onClick?: () => void;
+  /** Otro destino de WhatsApp, con un mensaje prellenado propio de la página. */
+  href?: string;
 }
 
 /**
@@ -30,10 +32,11 @@ export function PrimaryCtaButton({
   className,
   icon = true,
   onClick,
+  href = ctaConfig.primary.href,
 }: PrimaryCtaButtonProps) {
   return (
     <Button
-      href={ctaConfig.primary.href}
+      href={href}
       isExternal={ctaConfig.primary.isExternal}
       size={size}
       variant={variant}

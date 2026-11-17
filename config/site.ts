@@ -9,9 +9,11 @@ export const siteConfig = {
 
   url: "https://zentral.com.co",
 
-  title: "Zentral Solutions | Desarrollo de software a la medida",
+  // La ciudad va en el título de la home: es la señal local más fuerte que
+  // controla el sitio para las búsquedas con «Barranquilla».
+  title: "Zentral | Software a la medida e IA en Barranquilla",
   description:
-    "Desarrollo de software a la medida para empresas en Colombia, con la ingeniería de nuestros propios productos: Zentral RIPS y Zentral Loyalty.",
+    "Desarrollo de software a la medida, agentes de IA y automatización de procesos para empresas en Barranquilla y Colombia, con la ingeniería de nuestros productos.",
   tagline: "Software a la medida, construido como producto.",
 
   locale: "es_CO",
@@ -20,6 +22,8 @@ export const siteConfig = {
   keywords: [
     "desarrollo de software a la medida Colombia",
     "empresa de desarrollo de software Barranquilla",
+    "agentes de IA Barranquilla",
+    "automatización de procesos Barranquilla",
     "software para empresas Colombia",
     "revisar RIPS JSON",
     "tarjetas de lealtad digitales",

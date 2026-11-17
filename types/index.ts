@@ -54,6 +54,70 @@ export interface CustomDevPage {
 }
 
 /* -------------------------------------------------------------------------- */
+/* Servicios dentro de a la medida                                            */
+/* -------------------------------------------------------------------------- */
+
+export type CustomServiceSlug = "agentes-de-ia" | "automatizacion-de-procesos";
+
+/**
+ * Una forma concreta de desarrollo a la medida con página propia, en
+ * /desarrollo-a-la-medida/[slug]. Existen para responder búsquedas locales
+ * («agentes de IA Barranquilla», «automatizaciones Barranquilla») sin sacar
+ * el desarrollo a la medida del primer lugar.
+ */
+export interface CustomService {
+  slug: CustomServiceSlug;
+  /** Nombre corto para enlaces y migas: "Agentes de IA". */
+  name: string;
+  /** Una línea para las listas de la home y de /desarrollo-a-la-medida. */
+  summary: string;
+  /** Palabra clave primaria, solo como referencia editorial. */
+  keyword: string;
+  /** Sin el sufijo de marca: el layout no lo añade porque va como `absolute`. */
+  metaTitle: string;
+  metaDescription: string;
+  /** El H1, con la ciudad. */
+  heroTitle: string;
+  /** La promesa grande debajo del letrero. */
+  promise: string;
+  heroSubtitle: string;
+  /** Valor de `serviceType` en el JSON-LD. */
+  serviceType: string;
+  facts: { label: string; value: string }[];
+  whatItIs: { title: string; paragraphs: string[] };
+  whoItsFor: string[];
+  /** Cuándo no conviene: decirlo es parte de la voz. */
+  notFor: string;
+  howWeImplementIt: string[];
+  technologies: { name: string; description: string }[];
+  deliverables: { title: string; description: string }[];
+  timeline: string;
+  investment: string;
+  /** Preguntas en <h3> con la respuesta directa primero. Sin marcado FAQPage. */
+  questions: { question: string; answer: string }[];
+  /** Escenario ilustrativo, rotulado: todavía no hay casos publicables. */
+  appliedScenario: { disclaimer: string; paragraphs: string[] };
+  /** Mensaje prellenado de WhatsApp. */
+  ctaMessage: string;
+  lastModified: string;
+}
+
+/** Una guía en /guias/[slug]: intención informacional, respuesta directa primero. */
+export interface Guide {
+  slug: string;
+  title: string;
+  metaDescription: string;
+  /** Respuesta directa en el primer párrafo, antes del desarrollo. */
+  intro: string;
+  /** Subpreguntas en <h2>, cada una con la respuesta directa primero. */
+  sections: { question: string; answer: string[] }[];
+  /** Servicios de a la medida relacionados, para el enlazado interno. */
+  relatedServices: CustomServiceSlug[];
+  datePublished: string;
+  lastModified: string;
+}
+
+/* -------------------------------------------------------------------------- */
 /* Productos SaaS                                                             */
 /* -------------------------------------------------------------------------- */
 

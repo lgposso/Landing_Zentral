@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Info } from "lucide-react";
+import { ArrowRight, Info } from "lucide-react";
 
 import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 import { PrimaryCtaButton } from "@/components/cta/PrimaryCtaButton";
@@ -172,7 +172,18 @@ export default function DesarrolloALaMedidaPage() {
                   />
                   <div>
                     <dt className="text-[1.0625rem] font-extrabold leading-tight text-foreground">
-                      {kind.title}
+                      {kind.href ? (
+                        <Link href={kind.href} className="group inline-flex items-center gap-1.5 hover:underline">
+                          {kind.title}
+                          <ArrowRight
+                            className="size-4 shrink-0 text-muted transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transform-none"
+                            strokeWidth={2.25}
+                            aria-hidden="true"
+                          />
+                        </Link>
+                      ) : (
+                        kind.title
+                      )}
                     </dt>
                     <dd className="mt-1.5 text-small text-muted">
                       {kind.description}

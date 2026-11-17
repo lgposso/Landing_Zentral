@@ -34,6 +34,7 @@ export function StructuredData() {
         address: {
           "@type": "PostalAddress",
           addressCountry: "CO",
+          addressRegion: "Atlántico",
           addressLocality: "Barranquilla",
         },
         contactPoint: {
@@ -47,11 +48,15 @@ export function StructuredData() {
         foundingDate: "2026",
         taxID: "902.064.009-2",
         areaServed: [
+          { "@type": "City", name: "Barranquilla" },
+          { "@type": "AdministrativeArea", name: "Atlántico" },
           { "@type": "Country", name: "Colombia" },
           { "@type": "Place", name: "Latinoamérica" },
         ],
         knowsAbout: [
           "Desarrollo de software a la medida",
+          "Agentes de inteligencia artificial",
+          "Automatización de procesos",
           "Software como servicio (SaaS)",
           "RIPS",
           "Programas de lealtad digitales",
@@ -67,7 +72,9 @@ export function StructuredData() {
         "@type": "WebSite",
         "@id": `${siteConfig.url}/#website`,
         url: siteConfig.url,
-        name: siteConfig.title,
+        // El nombre del sitio que Google muestra sobre el resultado: la marca.
+        name: siteConfig.legalName,
+        alternateName: siteConfig.name,
         description: siteConfig.description,
         inLanguage: "es-CO",
         publisher: { "@id": `${siteConfig.url}/#organization` },
@@ -81,6 +88,7 @@ export function StructuredData() {
         url: `${siteConfig.url}${customDevHref}`,
         provider: { "@id": `${siteConfig.url}/#organization` },
         areaServed: [
+          { "@type": "City", name: "Barranquilla" },
           { "@type": "Country", name: "Colombia" },
           { "@type": "Place", name: "Latinoamérica" },
         ],
